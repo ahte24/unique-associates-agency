@@ -3,21 +3,21 @@ import React from "react";
 
 const page = () => {
 	return (
-		<section class=" md:py-8 bg-gray-200 text-black">
-			<div class="flex flex-col items-center justify-center px-6 mx-auto md:h-screen lg:py-0">
-				<div class="w-full  rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 bg-gray-300">
-					<div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-						<h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:">
+		<section className=" md:py-8 bg-gray-200 text-black">
+			<div className="flex flex-col items-center justify-center px-6 mx-auto md:h-screen lg:py-0">
+				<div className="w-full  rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 bg-gray-300">
+					<div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+						<h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:">
 							Sign in to your account
 						</h1>
 
 						<form id="connect-google-button" method="post" action="">
 							<button
-								class="w-full inline-flex items-center justify-center py-2.5 px-5 mr-2 mb-2 text-sm font-medium  focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-gray-900 focus:z-10 focus:ring-4 focus:ring-gray-200 "
+								className="w-full inline-flex items-center justify-center py-2.5 px-5 mr-2 mb-2 text-sm font-medium  focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-gray-900 focus:z-10 focus:ring-4 focus:ring-gray-200 "
 								type="submit"
 							>
 								<svg
-									class="w-5 h-5 mr-2"
+									className="w-5 h-5 mr-2"
 									viewBox="0 0 21 20"
 									fill="none"
 									xmlns="http://www.w3.org/2000/svg"
@@ -55,23 +55,23 @@ const page = () => {
 							</button>
 						</form>
 
-						<div class="flex items-center">
-							<div class="w-full h-0.5 bg-gray-200 dark:bg-gray-700"></div>
-							<div class="px-5 text-center text-gray-500 dark:text-gray-400">
+						<div className="flex items-center">
+							<div className="w-full h-0.5 bg-gray-200 dark:bg-gray-700"></div>
+							<div className="px-5 text-center text-gray-500 dark:text-gray-400">
 								or
 							</div>
-							<div class="w-full h-0.5 bg-gray-200 dark:bg-gray-700"></div>
+							<div className="w-full h-0.5 bg-gray-200 dark:bg-gray-700"></div>
 						</div>
 
 						<form
-							class="space-y-4 md:space-y-6"
+							className="space-y-4 md:space-y-6"
 							method="POST"
 							action="/auth/login/"
 						>
 							<div>
 								<label
 									for="email"
-									class="block mb-2 text-sm font-medium text-gray-900 dark:"
+									className="block mb-2 text-sm font-medium text-gray-900 dark:"
 								>
 									Your mobile or email
 								</label>
@@ -79,7 +79,7 @@ const page = () => {
 									type="email"
 									name="login"
 									id="email"
-									class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg outline-none block w-full p-2.5 "
+									className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg outline-none block w-full p-2.5 "
 									placeholder="name@company.com"
 									required=""
 								/>
@@ -87,7 +87,7 @@ const page = () => {
 							<div>
 								<label
 									for="password"
-									class="block mb-2 text-sm font-medium text-gray-900 dark:"
+									className="block mb-2 text-sm font-medium text-gray-900 dark:"
 								>
 									Password
 								</label>
@@ -96,14 +96,14 @@ const page = () => {
 									name="password"
 									id="password"
 									placeholder="••••••••"
-									class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg outline-none block w-full p-2.5"
+									className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg outline-none block w-full p-2.5"
 									required=""
 								/>
 							</div>
-							<div class="flex items-center justify-between">
+							<div className="flex items-center justify-between">
 								<a
 									href=""
-									class="text-sm font-medium text-[#215585] hover:underline "
+									className="text-sm font-medium text-[#215585] hover:underline "
 								>
 									Forgot password?
 								</a>
@@ -111,16 +111,16 @@ const page = () => {
 
 							<button
 								type="submit"
-								class=" bg-[#215585] hover:bg-[#25415c] text-white py-1.5 px-4 rounded font-bold w-full"
+								className=" bg-[#215585] hover:bg-[#25415c] text-white py-1.5 px-4 rounded font-bold w-full"
 							>
 								Sign in
 							</button>
 
-							<p class="text-sm font-light text-black ">
+							<p className="text-sm font-light text-black ">
 								Don’t have an account yet?{" "}
 								<Link
 									href="signup"
-									class="font-medium text-[#215585] hover:underline "
+									className="font-medium text-[#215585] hover:underline "
 								>
 									Sign up
 								</Link>
