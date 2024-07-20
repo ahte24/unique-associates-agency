@@ -85,9 +85,9 @@ const Contact = () => {
 									src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3728.541104986017!2d86.33570527476458!3d20.850229293887416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1be50065510e31%3A0x8a846f86f359097b!2sQutub%20Residence!5e0!3m2!1sen!2sin!4v1721234832957!5m2!1sen!2sin"
 									width="600"
 									height="450"
-									allowfullscreen=""
+									allowFullScreen=""
 									loading="lazy"
-									referrerpolicy="no-referrer-when-downgrade"
+									referrerPolicy="no-referrer-when-downgrade"
 								></iframe>
 							</div>
 							<div>
