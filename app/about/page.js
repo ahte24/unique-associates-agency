@@ -7,15 +7,15 @@ const page = () => {
 
 	const handleScroll = (direction) => {
 		const scrollAmount = 350;
-		if (direction === "left") {
+		if (direction === `left`) {
 			scrollContainer.current.scrollBy({
 				left: -scrollAmount,
-				behavior: "smooth",
+				behavior: `smooth`,
 			});
 		} else {
 			scrollContainer.current.scrollBy({
 				left: scrollAmount,
-				behavior: "smooth",
+				behavior: `smooth`,
 			});
 		}
 	};
@@ -174,7 +174,9 @@ const page = () => {
 							</p>
 						</div>
 						<div className="p-4 border rounded-lg shadow-md transition transform hover:scale-100 scale-90 mt-4">
-							<h3 className="text-xl font-bold">Do you accept insurance plans?</h3>
+							<h3 className="text-xl font-bold">
+								Do you accept insurance plans?
+							</h3>
 							<p className="mt-2 text-gray-700">
 								Yes, we accept most major insurance plans.
 							</p>
