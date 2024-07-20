@@ -2,20 +2,21 @@
 import "../globals.css";
 import React, { useRef } from "react";
 
-const page = () => {
+const Page = () => {
 	const scrollContainer = useRef(null);
 
 	const handleScroll = (direction) => {
 		const scrollAmount = 350;
-		if (direction === `left`) {
+		if (direction === "left") {
+			// Ensure direction strings are quoted
 			scrollContainer.current.scrollBy({
 				left: -scrollAmount,
-				behavior: `smooth`,
+				behavior: "smooth", // Quote behavior value
 			});
 		} else {
 			scrollContainer.current.scrollBy({
 				left: scrollAmount,
-				behavior: `smooth`,
+				behavior: "smooth",
 			});
 		}
 	};
@@ -524,4 +525,4 @@ const page = () => {
 	);
 };
 
-export default page;
+export default Page;
