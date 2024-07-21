@@ -3,7 +3,7 @@ import React from "react";
 
 const page = () => {
 	return (
-		<section className=" md:py-8 bg-gray-200 text-black ">
+		<section className=" md:py-8 bg-gray-200 text-black py-14">
 			<div className="flex flex-col md:h-screen items-center justify-center px-6 mx-auto  lg:py-0">
 				<div className="w-full  rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 bg-gray-300">
 					<div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -22,7 +22,7 @@ const page = () => {
 									fill="none"
 									xmlns="http://www.w3.org/2000/svg"
 								>
-									<g clip-path="url(#clip0_13183_10121)">
+									<g clipPath="url(#clip0_13183_10121)">
 										<path
 											d="M20.3081 10.2303C20.3081 9.55056 20.253 8.86711 20.1354 8.19836H10.7031V12.0492H16.1046C15.8804 13.2911 15.1602 14.3898 14.1057 15.0879V17.5866H17.3282C19.2205 15.8449 20.3081 13.2728 20.3081 10.2303Z"
 											fill="#3F83F8"
@@ -70,7 +70,7 @@ const page = () => {
 						>
 							<div>
 								<label
-									for="email"
+									htmlFor="email"
 									className="block mb-2 text-sm font-medium text-gray-900 dark:"
 								>
 									Your mobile or email
@@ -86,7 +86,7 @@ const page = () => {
 							</div>
 							<div>
 								<label
-									for="password"
+									htmlFor="password"
 									className="block mb-2 text-sm font-medium text-gray-900 dark:"
 								>
 									Password
@@ -97,23 +97,24 @@ const page = () => {
 									id="password"
 									placeholder="••••••••"
 									className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg outline-none block w-full p-2.5"
-									required=""
+									required
+									autoComplete="currentPassword"
 								/>
 							</div>
 							<div>
 								<label
-									for="password"
+									htmlFor="Confirm password"
 									className="block mb-2 text-sm font-medium text-gray-900 dark:"
 								>
 									Confirm Password
 								</label>
 								<input
-									type="password"
-									name="password"
-									id="password"
+									type="confirm-password"
+									name="confirm-password"
+									id="confirm-password"
 									placeholder="••••••••"
 									className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg outline-none block w-full p-2.5"
-									required=""
+									required
 								/>
 							</div>
 
@@ -125,7 +126,7 @@ const page = () => {
 							</button>
 
 							<p className="text-sm font-light text-black ">
-								Don’t have an account yet?{" "}
+								Already have an account!{"  "}
 								<Link
 									href="/login"
 									className="font-medium text-[#215585] hover:underline "

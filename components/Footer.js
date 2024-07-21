@@ -15,7 +15,7 @@ const Footer = () => {
 				</div>
 				<div className="flex-grow flex flex-wrap  md:gap-0 gap-8 -my-10 md:text-left text-center order-first">
 					<div className="lg:w-1/4 md:w-1/2 w-full px-4">
-						<h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
+						<h2 className="title-font font-bold text-gray-900 tracking-widest text-sm mb-3">
 							BUSINESS REGISTRATION
 						</h2>
 
@@ -104,7 +104,7 @@ const Footer = () => {
 						</ul>
 					</div>
 					<div className="lg:w-1/4 md:w-1/2 w-full px-4">
-						<h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
+						<h2 className="title-font font-bold text-gray-900 tracking-widest text-sm mb-3">
 							GOVERNMENT REGISTRATION
 						</h2>
 						<ul>
@@ -159,7 +159,7 @@ const Footer = () => {
 						</ul>
 					</div>
 					<div className="lg:w-1/4 md:w-1/2 w-full px-4">
-						<h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
+						<h2 className="title-font font-bold text-gray-900 tracking-widest text-sm mb-3">
 							ENVIRONMENTAL
 						</h2>
 						<ul>
@@ -206,7 +206,7 @@ const Footer = () => {
 						</ul>
 					</div>
 					<div className="lg:w-1/4 md:w-1/2 w-full px-4">
-						<h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">
+						<h2 className="title-font font-bold text-gray-900 tracking-widest text-sm mb-3">
 							FSSAI
 						</h2>
 						<ul>

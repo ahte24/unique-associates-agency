@@ -3,7 +3,7 @@ import React from "react";
 
 const page = () => {
 	return (
-		<section className=" md:py-8 bg-gray-200 text-black">
+		<section className=" md:py-8 bg-gray-200 text-black py-14">
 			<div className="flex flex-col items-center justify-center px-6 mx-auto md:h-screen lg:py-0">
 				<div className="w-full  rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 bg-gray-300">
 					<div className="p-6 space-y-4 md:space-y-6 sm:p-8">
