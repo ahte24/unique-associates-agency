@@ -148,7 +148,7 @@ const Navbar = () => {
 								Contact Us
 							</Link>
 							<Link
-								href="contact"
+								href="/login"
 								scroll={false}
 								className="text-white px-4 py-2 hover:bg-[#143452] bg-[#215585] rounded-md text-xs"
 							>
