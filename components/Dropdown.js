@@ -29,13 +29,14 @@ const Dropdown = () => {
 			</button>
 			<div
 				onPointerLeave={toggleDropdownClose}
+				onClick={toggleDropdownClick}
 				className={`absolute mt-2  w-[75vw] left-[-61vw] z-30 bg-white border rounded shadow-md shadow-gray-700 transition-opacity duration-300 ${
 					isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
 				}`}
 			>
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
 					<div>
-						<h3 className="font-semibold h-12 text-gray-700 ">
+						<h3 className="font-semibold h-8 text-gray-700 ">
 							BUSINESS REGISTRATION
 						</h3>
 						<ul>
@@ -123,7 +124,7 @@ const Dropdown = () => {
 						</ul>
 					</div>
 					<div>
-						<h3 className="font-semibold h-12 text-gray-700 ">
+						<h3 className="font-semibold h-8 text-gray-700 ">
 							GOVERNMENT REGISTRATION
 						</h3>
 						<ul>
@@ -178,7 +179,7 @@ const Dropdown = () => {
 						</ul>
 					</div>
 					<div>
-						<h3 className="font-semibold h-12 text-gray-700 ">BIS & CDSCO</h3>
+						<h3 className="font-semibold h-8 text-gray-700 ">BIS & CDSCO</h3>
 						<ul>
 							<li>
 								<Link
@@ -231,7 +232,7 @@ const Dropdown = () => {
 						</ul>
 					</div>
 					<div>
-						<h3 className="font-semibold h-12 text-gray-700 ">ENVIRONMENTAL</h3>
+						<h3 className="font-semibold h-8 text-gray-700 ">ENVIRONMENTAL</h3>
 						<ul>
 							<li>
 								<Link
@@ -278,7 +279,7 @@ const Dropdown = () => {
 				</div>
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
 					<div>
-						<h3 className="font-semibold h-12 text-gray-700 ">
+						<h3 className="font-semibold h-8 text-gray-700 ">
 							CHANGE IN BUSINESS
 						</h3>
 						<ul>
@@ -317,7 +318,7 @@ const Dropdown = () => {
 						</ul>
 					</div>
 					<div>
-						<h3 className="font-semibold h-12 text-gray-700 ">COMPLIANCES</h3>
+						<h3 className="font-semibold h-8 text-gray-700 ">COMPLIANCES</h3>
 						<ul>
 							<li>
 								<Link
@@ -346,7 +347,7 @@ const Dropdown = () => {
 						</ul>
 					</div>
 					<div>
-						<h3 className="font-semibold h-12 text-gray-700 ">NGO</h3>
+						<h3 className="font-semibold h-8 text-gray-700 ">NGO</h3>
 						<ul>
 							<li>
 								<Link
@@ -375,7 +376,7 @@ const Dropdown = () => {
 						</ul>
 					</div>
 					<div>
-						<h3 className="font-semibold h-12 text-gray-700 ">FSSAI</h3>
+						<h3 className="font-semibold h-8 text-gray-700 ">FSSAI</h3>
 						<ul>
 							<li>
 								<Link
@@ -411,6 +412,15 @@ const Dropdown = () => {
 							</li>
 						</ul>
 					</div>
+				</div>
+				<div className="flex justify-center">
+					<Link
+						href={"/services"}
+						scroll={false}
+						className="rounded-lg mb-5 font-medium py-2 px-4 transition-all text-white hover:text-black bg-[#215585] hover:bg-gray-300 text-sm"
+					>
+						Services
+					</Link>
 				</div>
 			</div>
 		</div>

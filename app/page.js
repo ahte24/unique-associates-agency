@@ -38,7 +38,7 @@ export default function Home() {
 					height={250}
 				/>
 			</div>
-			<div className=" flex items-center flex-col p-4 gap-8 bg-[#f3f4f6] py-8 ">
+			<div className=" flex items-center flex-col gap-8 bg-[#f3f4f6] py-8 ">
 				<div className="flex-col flex items-center">
 					<div className="text-[17px] font-extrabold">WE ARE</div>
 					<div className="text-[22px] font-extrabold">ASSOCIATED WITH</div>

@@ -19,7 +19,7 @@ const Navbar = () => {
 		<>
 			<nav>
 				<div className="bg-[#215585] h-[40px] sm:flex items-center hidden ">
-					<div className="container w-[80%] mx-auto flex items-center justify-between">
+					<div className="container w-[95%] mx-auto flex items-center justify-between">
 						<div className="flex items-center gap-4">
 							<Link
 								className="text-sm flex items-center gap-2 text-white"
@@ -38,7 +38,7 @@ const Navbar = () => {
 						</div>
 						<Link
 							href={"/login"}
-							className="text-black px-4 py-2 hover:bg-gray-200 bg-white rounded-md text-xs"
+							className="text-black px-2 py-[5px] font-bold hover:bg-gray-200 bg-white rounded-md text-xs"
 						>
 							Login & Signup
 						</Link>
@@ -125,7 +125,7 @@ const Navbar = () => {
 								Home
 							</Link>
 							<Link
-								href="#"
+								href="/services"
 								scroll={false}
 								className="rounded-lg font-medium py-2 px-4 transition-all hover:bg-gray-300 text-sm"
 							>
@@ -150,7 +150,7 @@ const Navbar = () => {
 							<Link
 								href="/login"
 								scroll={false}
-								className="text-white px-4 py-2 hover:bg-[#143452] bg-[#215585] rounded-md text-xs"
+								className="text-white font-bold px-4 py-2 hover:bg-[#143452] bg-[#215585] rounded-md text-xs"
 							>
 								Login & Signup
 							</Link>
