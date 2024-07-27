@@ -296,7 +296,7 @@ export default function Home() {
 				</div>
 				<div className="w-full flex justify-center mt-5">
 					<Link
-						href={"/"}
+						href={"/services"}
 						className="px-8 py-3 bg-[#215585] text-white font-bold rounded-lg hover:bg-[#3a6892]"
 					>
 						More Services
