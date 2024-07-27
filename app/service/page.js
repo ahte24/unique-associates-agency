@@ -1,6 +1,14 @@
 "use client";
 import Head from "next/head";
 import { useState } from "react";
+import {
+	FaShieldAlt,
+	FaRegCheckCircle,
+	FaFileAlt,
+	FaClipboardList,
+	FaGavel,
+	FaGlobe,
+} from "react-icons/fa";
 
 const Page = () => {
 	const [formData, setFormData] = useState({
@@ -145,12 +153,37 @@ const Page = () => {
 							prevent others from using a similar mark that could confuse
 							consumers and damage your brand&apos;s reputation.
 						</p>
-						<ul className="mt-4 list-disc list-inside text-gray-600">
-							<li>Legal protection for your brand</li>
-							<li>Exclusive rights to use the trademark</li>
-							<li>Deters others from using similar marks</li>
-							<li>Brand recognition and reputation</li>
-							<li>Asset creation for your business</li>
+						<ul className="mt-4 space-y-4">
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+								<FaShieldAlt className="text-indigo-600 mr-4 text-2xl" />
+								<span className="text-gray-700 text-lg">
+									Legal protection for your brand
+								</span>
+							</li>
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+								<FaRegCheckCircle className="text-indigo-600 mr-4 text-2xl" />
+								<span className="text-gray-700 text-lg">
+									Exclusive rights to use the trademark
+								</span>
+							</li>
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+								<FaRegCheckCircle className="text-indigo-600 mr-4 text-2xl" />
+								<span className="text-gray-700 text-lg">
+									Deters others from using similar marks
+								</span>
+							</li>
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+								<FaClipboardList className="text-indigo-600 mr-4 text-2xl" />
+								<span className="text-gray-700 text-lg">
+									Brand recognition and reputation
+								</span>
+							</li>
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+								<FaFileAlt className="text-indigo-600 mr-4 text-2xl" />
+								<span className="text-gray-700 text-lg">
+									Asset creation for your business
+								</span>
+							</li>
 						</ul>
 					</div>
 
@@ -162,25 +195,41 @@ const Page = () => {
 							Registering your trademark offers numerous benefits that can
 							significantly enhance your business&apos;s market position and value.
 						</p>
-						<ul className="mt-4 list-disc list-inside text-gray-600">
-							<li>
-								Exclusive rights: Ensures that only you can use the trademark
-								for your products or services.
+						<ul className="mt-4 space-y-4">
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+								<FaRegCheckCircle className="text-indigo-600 mr-4 text-2xl" />
+								<span className="text-gray-700 text-lg">
+									Exclusive rights: Ensures that only you can use the trademark
+									for your products or services.
+								</span>
 							</li>
-							<li>
-								Brand protection: Protects your brand from unauthorized use by
-								competitors.
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+								<FaShieldAlt className="text-indigo-600 mr-4 text-2xl" />
+								<span className="text-gray-700 text-lg">
+									Brand protection: Protects your brand from unauthorized use by
+									competitors.
+								</span>
 							</li>
-							<li>
-								Legal recourse: Provides legal standing to sue for infringement.
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+								<FaGavel className="text-indigo-600 mr-4 text-2xl" />
+								<span className="text-gray-700 text-lg">
+									Legal recourse: Provides legal standing to sue for
+									infringement.
+								</span>
 							</li>
-							<li>
-								Business asset: Adds value to your business as a recognizable
-								and protected asset.
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+								<FaClipboardList className="text-indigo-600 mr-4 text-2xl" />
+								<span className="text-gray-700 text-lg">
+									Business asset: Adds value to your business as a recognizable
+									and protected asset.
+								</span>
 							</li>
-							<li>
-								Global protection: Can be extended internationally to protect
-								your brand in other countries.
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+								<FaGlobe className="text-indigo-600 mr-4 text-2xl" />
+								<span className="text-gray-700 text-lg">
+									Global protection: Can be extended internationally to protect
+									your brand in other countries.
+								</span>
 							</li>
 						</ul>
 					</div>
@@ -193,15 +242,49 @@ const Page = () => {
 							To register your trademark, you will need to provide the following
 							documents:
 						</p>
-						<ul className="mt-4 list-disc list-inside text-gray-600">
-							<li>Trademark application form</li>
-							<li>Identity proof of the applicant</li>
-							<li>Address proof of the applicant</li>
-							<li>Logo or wordmark to be registered</li>
-							<li>Power of Attorney (if filed by a trademark attorney)</li>
-							<li>Proof of business registration (if applicable)</li>
-							<li>
-								Class of trademark registration (category of goods or services)
+						<ul className="mt-4 space-y-4">
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+								<FaFileAlt className="text-indigo-600 mr-4 text-2xl" />
+								<span className="text-gray-700 text-lg">
+									Trademark application form
+								</span>
+							</li>
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+								<FaFileAlt className="text-indigo-600 mr-4 text-2xl" />
+								<span className="text-gray-700 text-lg">
+									Identity proof of the applicant
+								</span>
+							</li>
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+								<FaFileAlt className="text-indigo-600 mr-4 text-2xl" />
+								<span className="text-gray-700 text-lg">
+									Address proof of the applicant
+								</span>
+							</li>
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+								<FaFileAlt className="text-indigo-600 mr-4 text-2xl" />
+								<span className="text-gray-700 text-lg">
+									Logo or wordmark to be registered
+								</span>
+							</li>
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+								<FaFileAlt className="text-indigo-600 mr-4 text-2xl" />
+								<span className="text-gray-700 text-lg">
+									Power of Attorney (if filed by a trademark attorney)
+								</span>
+							</li>
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+								<FaFileAlt className="text-indigo-600 mr-4 text-2xl" />
+								<span className="text-gray-700 text-lg">
+									Proof of business registration (if applicable)
+								</span>
+							</li>
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+								<FaFileAlt className="text-indigo-600 mr-4 text-2xl" />
+								<span className="text-gray-700 text-lg">
+									Class of trademark registration (category of goods or
+									services)
+								</span>
 							</li>
 						</ul>
 					</div>
@@ -214,27 +297,27 @@ const Page = () => {
 							Our streamlined trademark registration process ensures a smooth
 							and efficient experience for our clients.
 						</p>
-						<ol className="mt-4 list-decimal list-inside text-gray-600">
-							<li>
+						<ol className="mt-4 space-y-4 list-decimal list-inside text-gray-600">
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
 								Consultation: Understanding your needs and providing expert
 								advice on trademark registration.
 							</li>
-							<li>
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
 								Search: Conducting a comprehensive search to ensure your
 								trademark is unique.
 							</li>
-							<li>
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
 								Application: Preparing and filing the trademark application with
 								the relevant authorities.
 							</li>
-							<li>
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
 								Examination: Responding to any queries or objections from the
 								trademark office.
 							</li>
-							<li>
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
 								Approval: Receiving the trademark registration certificate.
 							</li>
-							<li>
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
 								Monitoring: Monitoring and defending your trademark against
 								infringements.
 							</li>
