@@ -143,7 +143,7 @@ const Page = () => {
 							Trademark registration is essential to protect your brand identity
 							and ensure exclusive rights to use your trademark. It helps
 							prevent others from using a similar mark that could confuse
-							consumers and damage your brand's reputation.
+							consumers and damage your brand&apos;s reputation.
 						</p>
 						<ul className="mt-4 list-disc list-inside text-gray-600">
 							<li>Legal protection for your brand</li>
@@ -160,7 +160,7 @@ const Page = () => {
 						</h2>
 						<p className="mt-4 text-gray-600">
 							Registering your trademark offers numerous benefits that can
-							significantly enhance your business's market position and value.
+							significantly enhance your business&apos;s market position and value.
 						</p>
 						<ul className="mt-4 list-disc list-inside text-gray-600">
 							<li>
