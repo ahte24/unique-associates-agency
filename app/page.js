@@ -75,6 +75,7 @@ export default function Home() {
 								of professionals, all under one roof. They provide solution to
 								all the individual, business person, corporate body and others
 								for the issues faced by them in their everyday life.
+								Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi saepe quidem perspiciatis, dolorum maxime obcaecati quibusdam ratione aut illo quisquam. Lorem ipsum dolor sit amet consectetur adipisicing elit. A, illo.
 							</p>
 						</div>
 					</div>
@@ -92,7 +93,6 @@ export default function Home() {
 			<div className="mt-16">
 				<div className="w-full flex flex-col items-center gap-1">
 					<h2 className="text-3xl font-bold">Our Services</h2>
-					<div className="w-[70px] rounded-xl bg-[#18ba60] h-[5px]"></div>
 				</div>
 				<div className="mt-16">
 					<section className="text-gray-600 body-font">

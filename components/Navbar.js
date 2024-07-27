@@ -44,7 +44,7 @@ const Navbar = () => {
 						</Link>
 					</div>
 				</div>
-				<div className="h-20 flex items-center relative w-full bg-white">
+				<div className="h-20 flex items-center relative w-full bg-white ">
 					<div className="w-full  h-full px-5 flex items-center justify-between">
 						<Link
 							href={"/"}
