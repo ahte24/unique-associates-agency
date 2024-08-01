@@ -312,8 +312,8 @@ const Page = () => {
 						</p>
 						<ul className="mt-4 space-y-4">
 							{/* Trademark Application Form */}
-							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
-								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit " />
 								<span className="text-gray-700 text-lg">
 									<strong className="text-indigo-600">
 										Trademark Application Form:
@@ -324,7 +324,7 @@ const Page = () => {
 							</li>
 
 							{/* Proprietorship Documents */}
-							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
 								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
 									<strong className="text-indigo-600">Proprietorship:</strong>{" "}
@@ -334,7 +334,7 @@ const Page = () => {
 							</li>
 
 							{/* Partnership Documents */}
-							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
 								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
 									<strong className="text-indigo-600">Partnership:</strong>{" "}
@@ -344,7 +344,7 @@ const Page = () => {
 							</li>
 
 							{/* Private Limited Company Documents */}
-							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
 								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
 									<strong className="text-indigo-600">
@@ -356,7 +356,7 @@ const Page = () => {
 							</li>
 
 							{/* Identity Proof */}
-							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
 								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
 									<strong className="text-indigo-600">Identity Proof:</strong>{" "}
@@ -366,7 +366,7 @@ const Page = () => {
 							</li>
 
 							{/* Address Proof */}
-							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
 								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
 									<strong className="text-indigo-600">Address Proof:</strong>{" "}
@@ -376,7 +376,7 @@ const Page = () => {
 							</li>
 
 							{/* Logo or Wordmark */}
-							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
 								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
 									<strong className="text-indigo-600">Logo or Wordmark:</strong>{" "}
@@ -386,7 +386,7 @@ const Page = () => {
 							</li>
 
 							{/* Power of Attorney */}
-							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
 								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
 									<strong className="text-indigo-600">
@@ -398,7 +398,7 @@ const Page = () => {
 							</li>
 
 							{/* Proof of Business Registration */}
-							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
 								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
 									<strong className="text-indigo-600">
@@ -410,7 +410,7 @@ const Page = () => {
 							</li>
 
 							{/* Class of Trademark Registration */}
-							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
 								<FaFileAlt className="text-indigo-600 mr-4 text-2xl  w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
 									<strong className="text-indigo-600">
