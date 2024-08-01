@@ -154,34 +154,87 @@ const Page = () => {
 							consumers and damage your brand&apos;s reputation.
 						</p>
 						<ul className="mt-4 space-y-4">
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
-								<FaShieldAlt className="text-indigo-600 mr-4 text-2xl" />
-								<span className="text-gray-700 text-lg">
-									Legal protection for your brand
+							{/* Trademark Protection */}
+							<li className="flex items-center p-6 bg-white shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+								<span className="text-gray-800 text-lg leading-relaxed">
+									<strong className="text-indigo-600">
+										Trademark Protection:
+									</strong>{" "}
+									Trademark registration is essential to protect your brand
+									identity and ensure exclusive rights to use your trademark. It
+									helps prevent others from using a similar mark that could
+									confuse consumers and damage your brand's reputation. Lorem
+									ipsum dolor sit amet, consectetur adipisicing elit. Sed quam
+									qui delectus accusamus voluptates facere laboriosam beatae.
 								</span>
 							</li>
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
-								<FaRegCheckCircle className="text-indigo-600 mr-4 text-2xl" />
-								<span className="text-gray-700 text-lg">
-									Exclusive rights to use the trademark
+
+							{/* Brand Identity */}
+							<li className="flex items-center p-6 bg-white shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+								<span className="text-gray-800 text-lg leading-relaxed">
+									<strong className="text-indigo-600">Brand Identity:</strong>{" "}
+									Establish a unique brand identity that stands out in the
+									market. Trademark registration solidifies your brand's
+									presence and helps in building trust with your consumers.
+									Lorem ipsum dolor sit, amet consectetur adipisicing elit.
 								</span>
 							</li>
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
-								<FaRegCheckCircle className="text-indigo-600 mr-4 text-2xl" />
-								<span className="text-gray-700 text-lg">
-									Deters others from using similar marks
+
+							{/* Legal Protection */}
+							<li className="flex items-center p-6 bg-white shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+								<span className="text-gray-800 text-lg leading-relaxed">
+									<strong className="text-indigo-600">Legal Protection:</strong>{" "}
+									Gain legal protection against infringement and unauthorized
+									use of your brand. Trademark registration gives you the legal
+									authority to take action against infringers. Lorem ipsum dolor
+									sit, amet consectetur adipisicing elit.
 								</span>
 							</li>
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
-								<FaClipboardList className="text-indigo-600 mr-4 text-2xl" />
-								<span className="text-gray-700 text-lg">
-									Brand recognition and reputation
+
+							{/* Exclusive Rights */}
+							<li className="flex items-center p-6 bg-white shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+								<span className="text-gray-800 text-lg leading-relaxed">
+									<strong className="text-indigo-600">Exclusive Rights:</strong>{" "}
+									Ensure that you have exclusive rights to use your trademark
+									across all marketing channels and products. Protect your
+									brand's uniqueness and prevent confusion in the market. Lorem
+									ipsum dolor sit, amet consectetur adipisicing elit.
 								</span>
 							</li>
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
-								<FaFileAlt className="text-indigo-600 mr-4 text-2xl" />
-								<span className="text-gray-700 text-lg">
-									Asset creation for your business
+
+							{/* Consumer Trust */}
+							<li className="flex items-center p-6 bg-white shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+								<span className="text-gray-800 text-lg leading-relaxed">
+									<strong className="text-indigo-600">Consumer Trust:</strong>{" "}
+									Build consumer trust by showing commitment to protecting your
+									brand. A registered trademark signals reliability and quality,
+									enhancing consumer confidence in your products or services.
+									Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+								</span>
+							</li>
+
+							{/* Market Positioning */}
+							<li className="flex items-center p-6 bg-white shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+								<span className="text-gray-800 text-lg leading-relaxed">
+									<strong className="text-indigo-600">
+										Market Positioning:
+									</strong>{" "}
+									Strengthen your market position with a registered trademark
+									that differentiates your brand from competitors. Trademark
+									registration supports strategic branding and marketing
+									efforts. Lorem ipsum dolor sit, amet consectetur adipisicing
+									elit.
+								</span>
+							</li>
+
+							{/* Global Reach */}
+							<li className="flex items-center p-6 bg-white shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+								<span className="text-gray-800 text-lg leading-relaxed">
+									<strong className="text-indigo-600">Global Reach:</strong>{" "}
+									Protect your brand's global presence with international
+									trademark registration. Expand your brand's reach while
+									ensuring legal protection across borders. Lorem ipsum dolor
+									sit, amet consectetur adipisicing elit.
 								</span>
 							</li>
 						</ul>
@@ -193,42 +246,57 @@ const Page = () => {
 						</h2>
 						<p className="mt-4 text-gray-600">
 							Registering your trademark offers numerous benefits that can
-							significantly enhance your business&apos;s market position and value.
+							significantly enhance your business&apos;s market position and
+							value.
 						</p>
 						<ul className="mt-4 space-y-4">
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
-								<FaRegCheckCircle className="text-indigo-600 mr-4 text-2xl" />
+							{/* Exclusive Rights */}
+							<li className="flex items-center p-6 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+								<FaRegCheckCircle className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
-									Exclusive rights: Ensures that only you can use the trademark
-									for your products or services.
+									<strong className="text-indigo-600">Exclusive Rights:</strong>{" "}
+									Ensures that only you can use the trademark for your products
+									or services.
 								</span>
 							</li>
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
-								<FaShieldAlt className="text-indigo-600 mr-4 text-2xl" />
+
+							{/* Brand Protection */}
+							<li className="flex items-center p-6 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+								<FaRegCheckCircle className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
-									Brand protection: Protects your brand from unauthorized use by
-									competitors.
+									<strong className="text-indigo-600">Brand Protection:</strong>{" "}
+									Protects your brand from unauthorized use by competitors.
 								</span>
 							</li>
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
-								<FaGavel className="text-indigo-600 mr-4 text-2xl" />
+
+							{/* Legal Recourse */}
+							<li className="flex items-center p-6 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+								<FaRegCheckCircle className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
-									Legal recourse: Provides legal standing to sue for
-									infringement.
+									<strong className="text-indigo-600">Legal Recourse:</strong>{" "}
+									Provides legal standing to sue for infringement.
 								</span>
 							</li>
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
-								<FaClipboardList className="text-indigo-600 mr-4 text-2xl" />
+
+							{/* Business Asset */}
+							<li className="flex items-center p-6 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+								<FaRegCheckCircle className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
-									Business asset: Adds value to your business as a recognizable
-									and protected asset.
+									<strong className="text-indigo-600">Business Asset:</strong>{" "}
+									Adds value to your business as a recognizable and protected
+									asset.
 								</span>
 							</li>
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
-								<FaGlobe className="text-indigo-600 mr-4 text-2xl" />
+
+							{/* Global Protection */}
+							<li className="flex items-center p-6 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+								<FaRegCheckCircle className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
-									Global protection: Can be extended internationally to protect
-									your brand in other countries.
+									<strong className="text-indigo-600">
+										Global Protection:
+									</strong>{" "}
+									Can be extended internationally to protect your brand in other
+									countries.
 								</span>
 							</li>
 						</ul>
@@ -243,47 +311,113 @@ const Page = () => {
 							documents:
 						</p>
 						<ul className="mt-4 space-y-4">
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
-								<FaFileAlt className="text-indigo-600 mr-4 text-2xl" />
+							{/* Trademark Application Form */}
+							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
-									Trademark application form
+									<strong className="text-indigo-600">
+										Trademark Application Form:
+									</strong>{" "}
+									Complete and submit the necessary documents to begin the
+									trademark registration process.
 								</span>
 							</li>
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
-								<FaFileAlt className="text-indigo-600 mr-4 text-2xl" />
+
+							{/* Proprietorship Documents */}
+							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
-									Identity proof of the applicant
+									<strong className="text-indigo-600">Proprietorship:</strong>{" "}
+									Provide the owner's identity proof, address proof, and any
+									business registration certificate if applicable.
 								</span>
 							</li>
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
-								<FaFileAlt className="text-indigo-600 mr-4 text-2xl" />
+
+							{/* Partnership Documents */}
+							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
-									Address proof of the applicant
+									<strong className="text-indigo-600">Partnership:</strong>{" "}
+									Include the partnership deed, identity proofs of all partners,
+									and address proofs.
 								</span>
 							</li>
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
-								<FaFileAlt className="text-indigo-600 mr-4 text-2xl" />
+
+							{/* Private Limited Company Documents */}
+							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
-									Logo or wordmark to be registered
+									<strong className="text-indigo-600">
+										Private Limited Company:
+									</strong>{" "}
+									Submit the certificate of incorporation, identity proof of the
+									signatory, and address proof of the company.
 								</span>
 							</li>
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
-								<FaFileAlt className="text-indigo-600 mr-4 text-2xl" />
+
+							{/* Identity Proof */}
+							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
-									Power of Attorney (if filed by a trademark attorney)
+									<strong className="text-indigo-600">Identity Proof:</strong>{" "}
+									Provide valid identity proof of the applicant to ensure
+									authenticity and avoid legal complications.
 								</span>
 							</li>
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
-								<FaFileAlt className="text-indigo-600 mr-4 text-2xl" />
+
+							{/* Address Proof */}
+							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
-									Proof of business registration (if applicable)
+									<strong className="text-indigo-600">Address Proof:</strong>{" "}
+									Submit address proof of the applicant to verify the location
+									and establish legitimacy.
 								</span>
 							</li>
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
-								<FaFileAlt className="text-indigo-600 mr-4 text-2xl" />
+
+							{/* Logo or Wordmark */}
+							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
-									Class of trademark registration (category of goods or
-									services)
+									<strong className="text-indigo-600">Logo or Wordmark:</strong>{" "}
+									Register the logo or wordmark for exclusive rights and brand
+									recognition.
+								</span>
+							</li>
+
+							{/* Power of Attorney */}
+							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
+								<span className="text-gray-700 text-lg">
+									<strong className="text-indigo-600">
+										Power of Attorney:
+									</strong>{" "}
+									If filed by a trademark attorney, provide a power of attorney
+									document to authorize the representative.
+								</span>
+							</li>
+
+							{/* Proof of Business Registration */}
+							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
+								<span className="text-gray-700 text-lg">
+									<strong className="text-indigo-600">
+										Proof of Business Registration:
+									</strong>{" "}
+									Provide proof of business registration if applicable to
+									establish legal presence.
+								</span>
+							</li>
+
+							{/* Class of Trademark Registration */}
+							<li className="flex items-start p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-fade-in">
+								<FaFileAlt className="text-indigo-600 mr-4 text-2xl  w-20 md:w-fit" />
+								<span className="text-gray-700 text-lg">
+									<strong className="text-indigo-600">
+										Class of Trademark Registration:
+									</strong>{" "}
+									Identify the class of goods or services for trademark
+									registration.
 								</span>
 							</li>
 						</ul>
@@ -298,26 +432,37 @@ const Page = () => {
 							and efficient experience for our clients.
 						</p>
 						<ol className="mt-4 space-y-4 list-decimal list-inside text-gray-600">
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+							{/* Consultation */}
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-slide-up">
 								Consultation: Understanding your needs and providing expert
 								advice on trademark registration.
 							</li>
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+
+							{/* Search */}
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-slide-up">
 								Search: Conducting a comprehensive search to ensure your
 								trademark is unique.
 							</li>
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+
+							{/* Application */}
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-slide-up">
 								Application: Preparing and filing the trademark application with
 								the relevant authorities.
 							</li>
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+
+							{/* Examination */}
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-slide-up">
 								Examination: Responding to any queries or objections from the
 								trademark office.
 							</li>
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+
+							{/* Approval */}
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-slide-up">
 								Approval: Receiving the trademark registration certificate.
 							</li>
-							<li className="flex items-center p-4 bg-white shadow-md rounded-lg ">
+
+							{/* Monitoring */}
+							<li className="flex items-center p-4 bg-white shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl animate-slide-up">
 								Monitoring: Monitoring and defending your trademark against
 								infringements.
 							</li>
