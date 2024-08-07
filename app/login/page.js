@@ -1,7 +1,132 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
+import endpoint from "@/utills/endpoint";
 
-const page = () => {
+const LoginForm = () => {
+	const [credentials, setCredentials] = useState({
+		login: "", // To hold email or username
+		password: "",
+	});
+
+	const [responseMessage, setResponseMessage] = useState("");
+	const [accessToken, setAccessToken] = useState("");
+	const [refreshToken, setRefreshToken] = useState("");
+
+	// Handle input changes for login credentials
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+		setCredentials((prevCredentials) => ({
+			...prevCredentials,
+			[name]: value,
+		}));
+	};
+
+	// Function to set a cookie
+	const setCookie = (name, value, days) => {
+		const date = new Date();
+		date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+		const expires = "expires=" + date.toUTCString();
+		document.cookie = `${name}=${value};${expires};path=/;Secure;SameSite=Strict`;
+	};
+
+	// Handle form submission for login
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		try {
+			const response = await axios.post(
+				`${endpoint}token/`,
+				{
+					username: credentials.login, // Use the 'login' value for username/email
+					password: credentials.password,
+				},
+				{
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			);
+
+			if (response.status === 200) {
+				const token = response.data;
+				setAccessToken(token.access);
+				setRefreshToken(token.refresh);
+
+				// Set the access token in a cookie
+				setCookie("accessToken", token.access, 1); // Cookie expires in 1 day
+
+				setResponseMessage("Successfully authenticated!");
+
+				// Start refreshing the token every 4.9 minutes after successful authentication
+				setupTokenRefresh(token.refresh);
+			}
+		} catch (error) {
+			if (error.response) {
+				setResponseMessage(
+					`Error: ${error.response.data.message || "Invalid credentials"}`
+				);
+			} else if (error.request) {
+				setResponseMessage(
+					"No response received from the server. Please try again later."
+				);
+			} else {
+				setResponseMessage("Something went wrong. Please try again later.");
+			}
+			console.error("Error:", error);
+		}
+	};
+
+	// Function to refresh the access token using the refresh token
+	const refreshAccessToken = async (refreshToken) => {
+		try {
+			const response = await axios.post(
+				`${endpoint}token/refresh/`,
+				{
+					refresh: refreshToken,
+				},
+				{
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}
+			);
+			if (response.status === 200) {
+				const { access } = response.data;
+				setAccessToken(access);
+
+				// Update the access token in the cookie
+				setCookie("accessToken", access, 1); // Update cookie expiry as needed
+
+				console.log("Access token refreshed:", access);
+			}
+		} catch (error) {
+			console.error("Error refreshing access token:", error);
+			if (error.response && error.response.status === 401) {
+				setResponseMessage("Session expired, please log in again.");
+				// Optionally handle logout here, such as clearing tokens
+			}
+		}
+	};
+
+	// Set up an interval to refresh the token every 4.9 minutes
+	const setupTokenRefresh = (refreshToken) => {
+		// Create an interval to refresh the access token every 4.9 minutes (294000 ms)
+		const intervalId = setInterval(() => {
+			console.log("Refreshing access token...");
+			refreshAccessToken(refreshToken);
+		}, 294000); // 4.9 minutes
+
+		// Return a cleanup function to clear the interval when the component is unmounted
+		return () => clearInterval(intervalId);
+	};
+
+	// Effect hook for cleaning up the interval
+	useEffect(() => {
+		return () => clearInterval(setupTokenRefresh);
+	}, []);
+
 	return (
 		<section className=" md:py-8 bg-gray-200 text-black py-14">
 			<div className="flex flex-col items-center justify-center px-6 mx-auto md:h-screen lg:py-0">
@@ -22,7 +147,7 @@ const page = () => {
 									fill="none"
 									xmlns="http://www.w3.org/2000/svg"
 								>
-									<g clip-path="url(#clip0_13183_10121)">
+									<g clipPath="url(#clip0_13183_10121)">
 										<path
 											d="M20.3081 10.2303C20.3081 9.55056 20.253 8.86711 20.1354 8.19836H10.7031V12.0492H16.1046C15.8804 13.2911 15.1602 14.3898 14.1057 15.0879V17.5866H17.3282C19.2205 15.8449 20.3081 13.2728 20.3081 10.2303Z"
 											fill="#3F83F8"
@@ -63,31 +188,29 @@ const page = () => {
 							<div className="w-full h-0.5 bg-gray-200 dark:bg-gray-700"></div>
 						</div>
 
-						<form
-							className="space-y-4 md:space-y-6"
-							method="POST"
-							action="/auth/login/"
-						>
+						<form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
 							<div>
 								<label
-									for="email"
-									className="block mb-2 text-sm font-medium text-gray-900 dark:"
+									htmlFor="email"
+									className="block mb-2 text-sm font-medium text-gray-900"
 								>
 									Your mobile or email
 								</label>
 								<input
 									type="email"
-									name="login"
+									name="email"
 									id="email"
-									className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg outline-none block w-full p-2.5 "
+									onChange={handleChange}
+									value={credentials.login}
+									className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg outline-none block w-full p-2.5"
 									placeholder="name@company.com"
-									required=""
+									required
 								/>
 							</div>
 							<div>
 								<label
-									for="password"
-									className="block mb-2 text-sm font-medium text-gray-900 dark:"
+									htmlFor="password"
+									className="block mb-2 text-sm font-medium text-gray-900"
 								>
 									Password
 								</label>
@@ -95,15 +218,18 @@ const page = () => {
 									type="password"
 									name="password"
 									id="password"
+									onChange={handleChange}
+									value={credentials.password}
 									placeholder="••••••••"
 									className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg outline-none block w-full p-2.5"
-									required=""
+									required
+									autoComplete="true"
 								/>
 							</div>
 							<div className="flex items-center justify-between">
 								<a
-									href=""
-									className="text-sm font-medium text-[#215585] hover:underline "
+									href="#"
+									className="text-sm font-medium text-[#215585] hover:underline"
 								>
 									Forgot password?
 								</a>
@@ -111,20 +237,22 @@ const page = () => {
 
 							<button
 								type="submit"
-								className=" bg-[#215585] hover:bg-[#25415c] text-white py-1.5 px-4 rounded font-bold w-full"
+								className="bg-[#215585] hover:bg-[#25415c] text-white py-1.5 px-4 rounded font-bold w-full"
 							>
 								Sign in
 							</button>
 
-							<p className="text-sm font-light text-black ">
+							<p className="text-sm font-light text-black">
 								Don’t have an account yet?{" "}
 								<Link
 									href="signup"
-									className="font-medium text-[#215585] hover:underline "
+									className="font-medium text-[#215585] hover:underline"
 								>
 									Sign up
 								</Link>
 							</p>
+
+							<p className="text-red-500 mt-4">{responseMessage}</p>
 						</form>
 					</div>
 				</div>
@@ -133,4 +261,4 @@ const page = () => {
 	);
 };
 
-export default page;
+export default LoginForm;

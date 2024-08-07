@@ -5,13 +5,10 @@ import { useState } from "react";
 
 const Dropdown = () => {
 	const [isOpen, setIsOpen] = useState(false);
-
-	const toggleDropdown = () => setIsOpen(true);
 	const toggleDropdownClick = () => setIsOpen(!isOpen);
-	const toggleDropdownClose = () => setIsOpen(false);
 
 	return (
-		<div className="relative" onPointerEnter={() => setIsOpen(true)}>
+		<div className="relative">
 			<button
 				onClick={toggleDropdownClick}
 				className="transition-all font-medium hover:bg-gray-300 text-sm py-2 px-4 rounded inline-flex items-center"
@@ -28,7 +25,6 @@ const Dropdown = () => {
 				</svg>
 			</button>
 			<div
-				onPointerLeave={toggleDropdownClose}
 				onClick={toggleDropdownClick}
 				className={`absolute mt-2  w-[75vw] left-[-61vw] z-30 bg-white border rounded shadow-md shadow-gray-700 transition-opacity duration-300 ${
 					isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
