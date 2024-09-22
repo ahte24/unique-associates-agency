@@ -82,12 +82,13 @@ const Contact = () => {
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 							<div className="rounded-lg overflow-hidden">
 								<iframe
-									src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3728.541104986017!2d86.33570527476458!3d20.850229293887416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1be50065510e31%3A0x8a846f86f359097b!2sQutub%20Residence!5e0!3m2!1sen!2sin!4v1721234832957!5m2!1sen!2sin"
+									src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3728.5411099430853!2d86.33570577586137!3d20.850229093885464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1be5f43e284ea3%3A0xaae1a85f557ee018!2sDevXplore!5e0!3m2!1sen!2sin!4v1724782084865!5m2!1sen!2sin"
 									width="600"
 									height="450"
-									allowFullScreen=""
+									className="border-none"
+									allowfullscreen=""
 									loading="lazy"
-									referrerPolicy="no-referrer-when-downgrade"
+									referrerpolicy="no-referrer-when-downgrade"
 								></iframe>
 							</div>
 							<div>
@@ -97,7 +98,7 @@ const Contact = () => {
 											Our Address
 										</h3>
 										<p className="mt-1 text-gray-600">
-											Qutub Residence, Zaman Manzil, Belamput, Jajput Town
+											DevXplore, Zaman Manzil, Belamput, Jajput Town
 										</p>
 									</div>
 									<div className="border-t border-gray-200 px-6 py-4">

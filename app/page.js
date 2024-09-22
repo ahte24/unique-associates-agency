@@ -4,7 +4,23 @@ import Link from "next/link";
 import banner from "@/public/main-banner.jpg";
 import about from "@/public/about.jpg";
 import { useEffect, useRef } from "react";
+import axios from "axios";
+import endpoint from "@/utills/endpoint";
+import { useState } from "react";
 export default function Home() {
+	const [services, setServices] = useState([]);
+
+	useEffect(() => {
+		axios
+			.get(`${endpoint}service/most_visited/`)
+			.then((response) => {
+				setServices(response.data);
+			})
+			.catch((error) => {
+				console.error("There was an error making the request!", error);
+			});
+	}, []); // Empty dependency array to run only on component mount
+
 	const scrollContainerRef = useRef(null);
 
 	useEffect(() => {
@@ -14,7 +30,7 @@ export default function Home() {
 			let scrollAmount = 0;
 			const maxScrollLeft =
 				scrollContainer.scrollWidth - scrollContainer.clientWidth;
-			const speed = .8; // Adjust speed as necessary
+			const speed = 0.8; // Adjust speed as necessary
 
 			const scroll = () => {
 				scrollAmount = (scrollAmount + speed) % maxScrollLeft;
@@ -27,6 +43,12 @@ export default function Home() {
 
 		startScrolling();
 	}, []);
+	const trimText = (text, maxLength) => {
+		if (text.length <= maxLength) {
+			return text;
+		}
+		return text.substring(0, maxLength) + "...";
+	};
 	return (
 		<>
 			<div className="min-h-[150px] bg-slate-500">
@@ -74,8 +96,11 @@ export default function Home() {
 								Companies Act, 2013. Our core team consists of a diligent team
 								of professionals, all under one roof. They provide solution to
 								all the individual, business person, corporate body and others
-								for the issues faced by them in their everyday life.
-								Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi saepe quidem perspiciatis, dolorum maxime obcaecati quibusdam ratione aut illo quisquam. Lorem ipsum dolor sit amet consectetur adipisicing elit. A, illo.
+								for the issues faced by them in their everyday life. Lorem ipsum
+								dolor sit, amet consectetur adipisicing elit. Eligendi saepe
+								quidem perspiciatis, dolorum maxime obcaecati quibusdam ratione
+								aut illo quisquam. Lorem ipsum dolor sit amet consectetur
+								adipisicing elit. A, illo.
 							</p>
 						</div>
 					</div>
@@ -92,204 +117,45 @@ export default function Home() {
 			</div>
 			<div className="mt-16">
 				<div className="w-full flex flex-col items-center gap-1">
-					<h2 className="text-3xl font-bold">Our Services</h2>
+					<h2 className="text-3xl font-bold">Top Services</h2>
 				</div>
 				<div className="mt-16">
 					<section className="text-gray-600 body-font">
 						<div className="container px-5 mx-auto">
 							<div className="flex flex-wrap -m-4">
-								<div className="xl:w-1/4 md:w-1/2 p-4">
-									<div className="bg-gray-100 p-6 rounded-lg">
-										<img
-											className="h-40 rounded w-full object-cover object-center mb-6"
-											src="https://dummyimage.com/720x400"
-											alt="content"
-										/>
-										<h3 className="tracking-widest text-[#215585] text-xs font-medium title-font">
-											SUBTITLE
-										</h3>
-										<h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-											Chichen Itza
-										</h2>
-										<p className="leading-relaxed text-base">
-											Fingerstache flexitarian street art 8-bit waistcoat.
-											Distillery hexagon disrupt edison bulbche.
-										</p>
-										<Link href={"/"} className="w-full">
-											<button className="w-full h-[40px] mt-4 text-white rounded-lg bg-[#215585]">
-												Learn More
-											</button>
+								{services.map((service) => {
+									return (
+										<Link
+											href={`/services/${service.id}`}
+											key={service.id}
+											className="xl:w-1/4 md:w-1/2 p-4 "
+										>
+											<div className="bg-gray-100 p-6 rounded-lg h-full flex flex-col justify-between">
+												<img
+													className="h-40 rounded w-full object-cover object-center mb-6"
+													alt="img"
+													src={
+														service.image
+															? `${endpoint}${service.image}`
+															: "https://dummyimage.com/1203x503"
+													}
+												/>
+
+												<h2 className="text-lg text-gray-900 font-medium title-font mb-4">
+													{service.name}
+												</h2>
+												<p className="leading-relaxed text-base text-wrap">
+													{trimText(service.short_description, 100)}
+												</p>
+												<div className="w-full">
+													<button className="w-full h-[40px] mt-4 text-white rounded-lg bg-[#215585]">
+														Learn More
+													</button>
+												</div>
+											</div>
 										</Link>
-									</div>
-								</div>
-								<div className="xl:w-1/4 md:w-1/2 p-4">
-									<div className="bg-gray-100 p-6 rounded-lg">
-										<img
-											className="h-40 rounded w-full object-cover object-center mb-6"
-											src="https://dummyimage.com/720x400"
-											alt="content"
-										/>
-										<h3 className="tracking-widest text-[#215585] text-xs font-medium title-font">
-											SUBTITLE
-										</h3>
-										<h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-											Chichen Itza
-										</h2>
-										<p className="leading-relaxed text-base">
-											Fingerstache flexitarian street art 8-bit waistcoat.
-											Distillery hexagon disrupt edison bulbche.
-										</p>
-										<Link href={"/"} className="w-full">
-											<button className="w-full h-[40px] mt-4 text-white rounded-lg bg-[#215585]">
-												Learn More
-											</button>
-										</Link>
-									</div>
-								</div>
-								<div className="xl:w-1/4 md:w-1/2 p-4">
-									<div className="bg-gray-100 p-6 rounded-lg">
-										<img
-											className="h-40 rounded w-full object-cover object-center mb-6"
-											src="https://dummyimage.com/720x400"
-											alt="content"
-										/>
-										<h3 className="tracking-widest text-[#215585] text-xs font-medium title-font">
-											SUBTITLE
-										</h3>
-										<h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-											Chichen Itza
-										</h2>
-										<p className="leading-relaxed text-base">
-											Fingerstache flexitarian street art 8-bit waistcoat.
-											Distillery hexagon disrupt edison bulbche.
-										</p>
-										<Link href={"/"} className="w-full">
-											<button className="w-full h-[40px] mt-4 text-white rounded-lg bg-[#215585]">
-												Learn More
-											</button>
-										</Link>
-									</div>
-								</div>
-								<div className="xl:w-1/4 md:w-1/2 p-4">
-									<div className="bg-gray-100 p-6 rounded-lg">
-										<img
-											className="h-40 rounded w-full object-cover object-center mb-6"
-											src="https://dummyimage.com/720x400"
-											alt="content"
-										/>
-										<h3 className="tracking-widest text-[#215585] text-xs font-medium title-font">
-											SUBTITLE
-										</h3>
-										<h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-											Chichen Itza
-										</h2>
-										<p className="leading-relaxed text-base">
-											Fingerstache flexitarian street art 8-bit waistcoat.
-											Distillery hexagon disrupt edison bulbche.
-										</p>
-										<Link href={"/"} className="w-full">
-											<button className="w-full h-[40px] mt-4 text-white rounded-lg bg-[#215585]">
-												Learn More
-											</button>
-										</Link>
-									</div>
-								</div>
-								<div className="xl:w-1/4 md:w-1/2 p-4">
-									<div className="bg-gray-100 p-6 rounded-lg">
-										<img
-											className="h-40 rounded w-full object-cover object-center mb-6"
-											src="https://dummyimage.com/720x400"
-											alt="content"
-										/>
-										<h3 className="tracking-widest text-[#215585] text-xs font-medium title-font">
-											SUBTITLE
-										</h3>
-										<h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-											Chichen Itza
-										</h2>
-										<p className="leading-relaxed text-base">
-											Fingerstache flexitarian street art 8-bit waistcoat.
-											Distillery hexagon disrupt edison bulbche.
-										</p>
-										<Link href={"/"} className="w-full">
-											<button className="w-full h-[40px] mt-4 text-white rounded-lg bg-[#215585]">
-												Learn More
-											</button>
-										</Link>
-									</div>
-								</div>
-								<div className="xl:w-1/4 md:w-1/2 p-4">
-									<div className="bg-gray-100 p-6 rounded-lg">
-										<img
-											className="h-40 rounded w-full object-cover object-center mb-6"
-											src="https://dummyimage.com/720x400"
-											alt="content"
-										/>
-										<h3 className="tracking-widest text-[#215585] text-xs font-medium title-font">
-											SUBTITLE
-										</h3>
-										<h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-											Chichen Itza
-										</h2>
-										<p className="leading-relaxed text-base">
-											Fingerstache flexitarian street art 8-bit waistcoat.
-											Distillery hexagon disrupt edison bulbche.
-										</p>
-										<Link href={"/"} className="w-full">
-											<button className="w-full h-[40px] mt-4 text-white rounded-lg bg-[#215585]">
-												Learn More
-											</button>
-										</Link>
-									</div>
-								</div>
-								<div className="xl:w-1/4 md:w-1/2 p-4">
-									<div className="bg-gray-100 p-6 rounded-lg">
-										<img
-											className="h-40 rounded w-full object-cover object-center mb-6"
-											src="https://dummyimage.com/720x400"
-											alt="content"
-										/>
-										<h3 className="tracking-widest text-[#215585] text-xs font-medium title-font">
-											SUBTITLE
-										</h3>
-										<h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-											Chichen Itza
-										</h2>
-										<p className="leading-relaxed text-base">
-											Fingerstache flexitarian street art 8-bit waistcoat.
-											Distillery hexagon disrupt edison bulbche.
-										</p>
-										<Link href={"/"} className="w-full">
-											<button className="w-full h-[40px] mt-4 text-white rounded-lg bg-[#215585]">
-												Learn More
-											</button>
-										</Link>
-									</div>
-								</div>
-								<div className="xl:w-1/4 md:w-1/2 p-4">
-									<div className="bg-gray-100 p-6 rounded-lg">
-										<img
-											className="h-40 rounded w-full object-cover object-center mb-6"
-											src="https://dummyimage.com/720x400"
-											alt="content"
-										/>
-										<h3 className="tracking-widest text-[#215585] text-xs font-medium title-font">
-											SUBTITLE
-										</h3>
-										<h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-											Chichen Itza
-										</h2>
-										<p className="leading-relaxed text-base">
-											Fingerstache flexitarian street art 8-bit waistcoat.
-											Distillery hexagon disrupt edison bulbche.
-										</p>
-										<Link href={"/"} className="w-full">
-											<button className="w-full h-[40px] mt-4 text-white rounded-lg bg-[#215585]">
-												Learn More
-											</button>
-										</Link>
-									</div>
-								</div>
+									);
+								})}
 							</div>
 						</div>
 					</section>
@@ -401,7 +267,9 @@ export default function Home() {
 										<path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
 										<path d="M22 4L12 14.01l-3-3"></path>
 									</svg>
-									<span className="title-font font-medium">Pack Truffaut Blue</span>
+									<span className="title-font font-medium">
+										Pack Truffaut Blue
+									</span>
 								</div>
 							</div>
 							<div className="p-2 sm:w-1/2 w-full">
@@ -437,7 +305,9 @@ export default function Home() {
 										<path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
 										<path d="M22 4L12 14.01l-3-3"></path>
 									</svg>
-									<span className="title-font font-medium">Pack Truffaut Blue</span>
+									<span className="title-font font-medium">
+										Pack Truffaut Blue
+									</span>
 								</div>
 							</div>
 							<div className="p-2 sm:w-1/2 w-full">

@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
 		<html lang="en">
 			<body className={sora.className}>
 				<Navbar />
-				{children}
+				<div className="min-h-screen">{children}</div>
 				<Footer />
 			</body>
 		</html>

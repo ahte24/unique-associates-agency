@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import call from "@/public/call.svg";
@@ -8,11 +8,86 @@ import logo from "@/public/logo.svg";
 import Dropdown from "./Dropdown";
 import hamburger from "@/public/hamburger.svg";
 import close from "@/public/close.svg";
+import Cookies from "js-cookie";
+import endpoint from "@/utills/endpoint";
+
+// Function to fetch user profile from API
+const fetchUserProfile = async () => {
+	const token = Cookies.get("accessToken");
+
+	if (!token) {
+		throw new Error("No access token found");
+	}
+
+	const response = await fetch(`${endpoint}user/profile/`, {
+		method: "GET",
+		headers: {
+			Accept: "application/json",
+			Authorization: `Bearer ${token}`,
+		},
+	});
+
+	if (!response.ok) {
+		Cookies.remove("accessToken");
+		Cookies.remove("refreshToken");
+
+		// Redirect to the login page
+		// window.location.href = "/login"; // Adjust the path according to your routing setup
+		throw new Error(`Error: ${response.status}`);
+	}
+
+	const data = await response.json();
+	return data;
+};
 
 const Navbar = () => {
 	const [isHidden, setIsHidden] = useState(true);
+	const [hasAccessToken, setHasAccessToken] = useState(false);
+	const [isOpen, setIsOpen] = useState(false);
+	const [userProfile, setUserProfile] = useState(null);
+	const [error, setError] = useState(null);
+
 	const toggleVisibility = () => {
 		setIsHidden(!isHidden);
+	};
+
+	const toggleDropdown = () => {
+		setIsOpen(!isOpen);
+	};
+
+	// Function to check for the access token and update state accordingly
+	const checkAccessToken = () => {
+		const token = Cookies.get("accessToken");
+		setHasAccessToken(!!token); // Sets true if token exists, false otherwise
+	};
+
+	useEffect(() => {
+		const loadUserProfile = async () => {
+			try {
+				const profile = await fetchUserProfile();
+				setUserProfile(profile);
+			} catch (err) {
+				setError(err.message);
+			}
+		};
+
+		loadUserProfile();
+
+		// Check access token every 1 second
+		const intervalId = setInterval(() => {
+			checkAccessToken();
+		}, 1000);
+
+		// Cleanup interval on component unmount
+		return () => clearInterval(intervalId);
+	}, []);
+
+	const handleSignOut = () => {
+		Cookies.remove("accessToken"); // Remove the access token cookie
+		Cookies.remove("refreshToken"); // Remove the access token cookie
+
+		setHasAccessToken(false); // Update the state to reflect the user is logged out
+		setIsOpen(false); // Close the dropdown
 	};
 
 	return (
@@ -36,12 +111,77 @@ const Navbar = () => {
 								zaman.dev26@gmail.com
 							</Link>
 						</div>
-						<Link
-							href={"/login"}
-							className="text-black px-2 py-[5px] font-bold hover:bg-gray-200 bg-white rounded-md text-xs"
-						>
-							Login & Signup
-						</Link>
+
+						<div className="relative inline-block text-left">
+							{hasAccessToken ? (
+								<>
+									<button
+										id="dropdownDefaultButton"
+										onClick={toggleDropdown}
+										className="text-black justify-evenly px-2 py-[5px] w-44 font-bold hover:bg-gray-200 bg-white rounded-md text-xs flex items-center"
+										type="button"
+									>
+										{userProfile && userProfile.user
+											? `Welcome ${userProfile.user.first_name}`
+											: "Loading..."}
+										<svg
+											className="w-2.5 h-2.5 ms-3"
+											aria-hidden="true"
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 10 6"
+										>
+											<path
+												stroke="currentColor"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth="2"
+												d="m1 1 4 4 4-4"
+											/>
+										</svg>
+									</button>
+
+									{isOpen && (
+										<div
+											onClick={toggleDropdown}
+											id="dropdown"
+											className="z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-40 dark:bg-gray-700 top-7"
+										>
+											<ul
+												className="py-2 text-sm text-gray-700 dark:text-gray-200"
+												aria-labelledby="dropdownDefaultButton"
+											>
+												<li>
+													<Link
+														href="/orders"
+														className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+													>
+														Orders
+													</Link>
+												</li>
+												<li>
+													<button
+														onClick={handleSignOut}
+														className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+													>
+														Sign out
+													</button>
+												</li>
+											</ul>
+										</div>
+									)}
+								</>
+							) : (
+								<>
+									<Link
+										href={"/login"}
+										className="text-black px-4 py-[5px]  font-bold hover:bg-gray-200 bg-white rounded-md text-xs"
+									>
+										Login or Signup
+									</Link>
+								</>
+							)}
+						</div>
 					</div>
 				</div>
 				<div className="h-20 flex items-center relative w-full bg-white ">
@@ -50,7 +190,8 @@ const Navbar = () => {
 							href={"/"}
 							className="md:w-[300px] w-[150px] h-full flex items-center"
 						>
-							<Image src={logo} width={500} height={500} alt="" />
+							{/* <Image src={logo} width={500} height={500} alt="" /> */}
+							<span className="text-3xl font-medium text-[#215585]">MultiTaxIndia.com</span>
 						</Link>
 						<div className="min-w-[300px] h-full sm:flex justify-center hidden">
 							<ul className="flex gap-2 items-center">
@@ -147,13 +288,22 @@ const Navbar = () => {
 							>
 								Contact Us
 							</Link>
-							<Link
-								href="/login"
-								scroll={false}
-								className="text-white font-bold px-4 py-2 hover:bg-[#143452] bg-[#215585] rounded-md text-xs"
-							>
-								Login & Signup
-							</Link>
+							{hasAccessToken ? (
+								<button
+									onClick={handleSignOut}
+									className="text-white font-bold px-4 py-2 hover:bg-[#143452] bg-[#215585] rounded-md text-xs"
+								>
+									Sign Out
+								</button>
+							) : (
+								<Link
+									href="/login"
+									scroll={false}
+									className="text-white font-bold px-4 py-2 hover:bg-[#143452] bg-[#215585] rounded-md text-xs"
+								>
+									Login & Signup
+								</Link>
+							)}
 						</ul>
 					</div>
 				</div>

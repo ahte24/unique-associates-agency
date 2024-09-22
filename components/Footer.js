@@ -10,7 +10,8 @@ const Footer = () => {
 						UniqueAssociates
 					</a>
 					<p className="mt-2 text-sm text-gray-500">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, voluptatum.
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
+						voluptatum.
 					</p>
 				</div>
 				<div className="flex-grow flex flex-wrap  md:gap-0 gap-8 -my-10 md:text-left text-center order-first">
@@ -249,15 +250,7 @@ const Footer = () => {
 			<div className="bg-gray-300">
 				<div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
 					<p className="text-gray-500 text-sm text-center sm:text-left">
-						© 2024 UniqueAssociates —
-						<a
-							href="https://twitter.com/knyttneve"
-							rel="noopener noreferrer"
-							className="text-gray-600 ml-1"
-							target="_blank"
-						>
-							All Right Reserved
-						</a>
+						© 2024 UniqueAssociates | All Right Reserved
 					</p>
 					<span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
 						<a className="text-gray-500">
