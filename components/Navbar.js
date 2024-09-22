@@ -167,6 +167,14 @@ const Navbar = () => {
 														Sign out
 													</button>
 												</li>
+												<li>
+													<Link
+														href={"/resetPassword"}
+														className="block  bg-red-500 w-fit mx-auto text-left px-2 py-1 rounded-lg text-white hover:bg-red-800 dark:hover:bg-gray-600 dark:hover:text-white"
+													>
+														Reset Password
+													</Link>
+												</li>
 											</ul>
 										</div>
 									)}
@@ -191,7 +199,9 @@ const Navbar = () => {
 							className="md:w-[300px] w-[150px] h-full flex items-center"
 						>
 							{/* <Image src={logo} width={500} height={500} alt="" /> */}
-							<span className="text-3xl font-medium text-[#215585]">MultiTaxIndia.com</span>
+							<span className="text-3xl font-medium text-[#215585]">
+								MultiTaxIndia.com
+							</span>
 						</Link>
 						<div className="min-w-[300px] h-full sm:flex justify-center hidden">
 							<ul className="flex gap-2 items-center">

@@ -19,7 +19,8 @@ export function middleware(req) {
 	if (
 		pathname.startsWith("/profile") ||
 		pathname.startsWith("/orders") ||
-		pathname.startsWith("/services/") // Protect all services routes
+		pathname.startsWith("/services/") ||
+		pathname.startsWith("/resetPassword") // Protect all services routes
 	) {
 		// If there is no access token, redirect to the login page
 		if (!accessToken) {

@@ -65,7 +65,9 @@ const LoginForm = () => {
 				setCookie("refreshToken", token.refresh, 12);
 
 				setResponseMessage("Successfully authenticated!");
-				router.push("/");
+
+				// Reload the page after a successful login
+				window.location.reload();
 			}
 		} catch (error) {
 			if (error.response) {
