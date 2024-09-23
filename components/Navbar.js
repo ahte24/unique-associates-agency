@@ -193,7 +193,7 @@ const Navbar = () => {
 					</div>
 				</div>
 				<div className="h-20 flex items-center relative w-full bg-white ">
-					<div className="w-full  h-full px-5 flex items-center justify-between">
+					<div className="w-full  h-full md:px-5 px-2 flex items-center justify-between">
 						<Link
 							href={"/"}
 							className="md:w-[300px] w-[150px] h-full flex items-center"
