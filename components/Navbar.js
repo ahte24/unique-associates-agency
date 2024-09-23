@@ -199,8 +199,8 @@ const Navbar = () => {
 							className="md:w-[300px] w-[150px] h-full flex items-center"
 						>
 							{/* <Image src={logo} width={500} height={500} alt="" /> */}
-							<span className="text-3xl font-medium text-[#215585]">
-								MultiTaxIndia.com
+							<span className="text-3xl  text-[#215585] font-bold">
+								MultiTaxIn
 							</span>
 						</Link>
 						<div className="min-w-[300px] h-full sm:flex justify-center hidden">
