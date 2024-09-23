@@ -14,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<body className={sora.className}>
+			<body className={`${sora.className} min-h-screen`}>
 				<Navbar />
 				<div className="min-h-screen">{children}</div>
 				<Footer />

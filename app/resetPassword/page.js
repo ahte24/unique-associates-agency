@@ -19,11 +19,13 @@ const ForgotPass = () => {
 	const handleSubmitResetPassword = async (e) => {
 		e.preventDefault();
 
+		// Validate password match
 		if (newPassword !== confirmPassword) {
 			setError("New password and confirm password do not match");
 			return;
 		}
 
+		// Get token from cookies
 		const token = getAccessTokenFromCookies();
 		if (!token) {
 			setError("Authorization token not found.");
@@ -31,20 +33,22 @@ const ForgotPass = () => {
 		}
 
 		try {
-			console.log("Requesting password change with", {
+			// Log the request data
+			console.log("Sending request with:", {
 				current_password: currentPassword,
 				new_password: newPassword,
 			});
 
+			// Make the POST request to the API
 			const response = await axios.post(
-				`${endpoint}user/api/change-password/`,
+				`${endpoint}user/api/change-password/`, // Ensure the URL is correct
 				{
 					current_password: currentPassword,
 					new_password: newPassword,
 				},
 				{
 					headers: {
-						Authorization: `Bearer ${token}`,
+						Authorization: `Bearer ${token}`, // Authorization header with Bearer token
 					},
 				}
 			);
@@ -56,7 +60,11 @@ const ForgotPass = () => {
 				setError(null);
 			}
 		} catch (err) {
-			console.error("API Error:", err);
+			// Log full error details
+			console.error("API Error:", err.response?.data || err.message);
+			console.log("Full error details:", err.response); // Log full error response for debugging
+
+			// Set the error message from response or fallback to a generic message
 			setError(err.response?.data?.message || "Failed to change password");
 			setSuccess(null);
 		}
@@ -64,7 +72,7 @@ const ForgotPass = () => {
 
 	return (
 		<section className="bg-gray-50 dark:bg-gray-900">
-			<div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+			<div className="flex flex-col items-center justify-center  px-6 py-8 mx-auto h-[780px] lg:py-0">
 				<div className="flex w-full justify-center">
 					<div className="w-1/2 p-6 bg-white rounded-lg shadow dark:border sm:max-w-md dark:bg-gray-800 dark:border-gray-700 sm:p-8">
 						<h2 className="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">

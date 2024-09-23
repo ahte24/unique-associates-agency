@@ -1,6 +1,7 @@
 "use client";
 import "../globals.css";
-import React, { useRef } from "react";
+import { useRef } from "react";
+import React from "react";
 
 const Page = () => {
 	const scrollContainer = useRef(null);

@@ -1,13 +1,11 @@
 "use client";
 import Link from "next/link";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import endpoint from "@/utills/endpoint";
-import Cors from "cors";
 import { useRouter } from "next/navigation";
 
-const page = () => {
+const SignupPage = () => {
 	const router = useRouter();
 	const [responseMessage, setResponseMessage] = useState(null);
 	const [formData, setFormData] = useState({
@@ -79,11 +77,11 @@ const page = () => {
 	};
 
 	return (
-		<section className=" md:py-8 bg-gray-200 text-black py-14">
-			<div className="flex flex-col md:min-h-screen items-center justify-center px-6 mx-auto  lg:py-0">
-				<div className="w-full  rounded-lg shadow dark:border md:mt-0 sm:max-w-[40vw] xl:p-0 bg-gray-300">
-					<div className="p-6  space-y-4 md:space-y-6 sm:p-8">
-						<h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:">
+		<section className="md:py-8 bg-gray-200 text-black py-14">
+			<div className="flex flex-col md:min-h-screen items-center justify-center px-6 mx-auto lg:py-0">
+				<div className="w-full rounded-lg shadow dark:border md:mt-0 sm:max-w-[40vw] xl:p-0 bg-gray-300">
+					<div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+						<h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
 							Sign in to your account
 						</h1>
 						<form
@@ -94,7 +92,7 @@ const page = () => {
 							<div>
 								<label
 									htmlFor="login"
-									className="block mb-2 text-sm font-medium text-gray-900 dark:"
+									className="block mb-2 text-sm font-medium text-gray-900"
 								>
 									Your email
 								</label>
@@ -112,7 +110,7 @@ const page = () => {
 							<div>
 								<label
 									htmlFor="password"
-									className="block mb-2 text-sm font-medium text-gray-900 dark:"
+									className="block mb-2 text-sm font-medium text-gray-900"
 								>
 									Password
 								</label>
@@ -131,7 +129,7 @@ const page = () => {
 							<div>
 								<label
 									htmlFor="confirmPassword"
-									className="block mb-2 text-sm font-medium text-gray-900 dark:"
+									className="block mb-2 text-sm font-medium text-gray-900"
 								>
 									Confirm Password
 								</label>
@@ -150,7 +148,7 @@ const page = () => {
 							<div>
 								<label
 									htmlFor="firstName"
-									className="block mb-2 text-sm font-medium text-gray-900 dark:"
+									className="block mb-2 text-sm font-medium text-gray-900"
 								>
 									First Name
 								</label>
@@ -168,7 +166,7 @@ const page = () => {
 							<div>
 								<label
 									htmlFor="lastName"
-									className="block mb-2 text-sm font-medium text-gray-900 dark:"
+									className="block mb-2 text-sm font-medium text-gray-900"
 								>
 									Last Name
 								</label>
@@ -186,7 +184,7 @@ const page = () => {
 							<div>
 								<label
 									htmlFor="phoneNumber"
-									className="block mb-2 text-sm font-medium text-gray-900 dark:"
+									className="block mb-2 text-sm font-medium text-gray-900"
 								>
 									Phone Number
 								</label>
@@ -209,14 +207,14 @@ const page = () => {
 								Sign Up
 							</button>
 
-							<p className="text-sm font-light text-black ">
+							<p className="text-sm font-light text-black">
 								Already have an account?{" "}
-								<a
+								<Link
 									href="/login"
 									className="font-medium text-[#215585] hover:underline"
 								>
 									Login
-								</a>
+								</Link>
 							</p>
 						</form>
 					</div>
@@ -226,4 +224,4 @@ const page = () => {
 	);
 };
 
-export default page;
+export default SignupPage;
