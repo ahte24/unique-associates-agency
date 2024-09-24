@@ -249,7 +249,7 @@ const Footer = () => {
 			</div>
 			<div className="bg-gray-300">
 				<div className="container mx-auto py-4 px-5 flex justify-center flex-col items-center">
-					<p className="text-gray-500 text-sm text-center sm:text-left ">
+					<p className="text-gray-500 text-[12px] md:text-[14px] text-center sm:text-left ">
 						© 2024 UniqueAssociates | All Right Reserved
 					</p>
 					<div className="flex flex-wrap flex-col sm:flex-row sm:gap-4">
