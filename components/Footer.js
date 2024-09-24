@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
 	return (
-		<footer className="text-gray-600 body-font bg-[#f3f4f6] ">
+		<footer className="text-gray-600 body-font bg-[#e1e5ec] ">
 			<div className="container sm:gap-0 gap-14 px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
 				<div className="w-72 h-full flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
 					<a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 text-3xl">
@@ -263,26 +263,26 @@ const Footer = () => {
 						</span>
 						<span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
 							<Link
-								href={"/terms&conditions"}
+								href={"/termsandconditions"}
 								className="text-gray-500 text-sm text-center sm:text-left"
 							>
-								Terms & Conditions
+								Terms and Conditions
 							</Link>
 						</span>
 						<span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
 							<Link
-								href={"/cancellation&refund"}
+								href={"/cancellationandrefund"}
 								className="text-gray-500 text-sm text-center sm:text-left"
 							>
-								Cancellation & Refund
+								Cancellation and Refund
 							</Link>
 						</span>
 						<span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
 							<Link
-								href={"/shipping&delivery"}
+								href={"/shippinganddelivery"}
 								className="text-gray-500 text-sm text-center sm:text-left"
 							>
-								Shipping & Delivery
+								Shipping and Delivery
 							</Link>
 						</span>
 					</div>

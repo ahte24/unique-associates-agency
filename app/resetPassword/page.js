@@ -41,7 +41,7 @@ const ForgotPass = () => {
 
 			// Make the POST request to the API
 			const response = await axios.post(
-				`${endpoint}user/api/change-password/`, // Ensure the URL is correct
+				`${endpoint}user/change-password/`, // Ensure the URL is correct
 				{
 					current_password: currentPassword,
 					new_password: newPassword,

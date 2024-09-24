@@ -112,7 +112,7 @@ const Navbar = () => {
 							</Link>
 						</div>
 
-						<div className="relative inline-block text-left">
+						<div className="relative inline-block text-left z-50">
 							{hasAccessToken ? (
 								<>
 									<button
@@ -192,7 +192,7 @@ const Navbar = () => {
 						</div>
 					</div>
 				</div>
-				<div className="h-20 flex items-center relative w-full bg-white z-40">
+				<div className="h-20 flex items-center relative w-full bg-[#e1e5ec] z-30">
 					<div className="w-full  h-full md:px-5 px-2 flex items-center justify-between">
 						<Link
 							href={"/"}
