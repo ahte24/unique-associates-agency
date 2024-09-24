@@ -221,10 +221,10 @@ const Navbar = () => {
 									About
 								</Link>
 								<Link
-									href={"/contact"}
+									href={"/contactUs"}
 									className="rounded-lg font-medium py-2 px-4 transition-all hover:bg-gray-300 text-sm"
 								>
-									Contact
+									Contact Us
 								</Link>
 							</ul>
 						</div>
