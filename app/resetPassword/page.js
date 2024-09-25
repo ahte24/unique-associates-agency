@@ -72,7 +72,7 @@ const ForgotPass = () => {
 
 	return (
 		<section className="bg-gray-50 ">
-			<div className="flex flex-col items-center justify-center  px-6 py-8 mx-auto h-[500px] lg:py-0">
+			<div className="flex flex-col items-center justify-center  px-6 py-8 mx-auto h-[700px] lg:py-0">
 				<div className="flex w-full justify-center">
 					<div className="md:w-1/2 container mx-auto p-6 bg-white rounded-lg shadow dark:border sm:max-w-md  sm:p-8">
 						<h2 className="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">

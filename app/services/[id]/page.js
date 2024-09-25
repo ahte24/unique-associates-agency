@@ -57,7 +57,7 @@ const Page = ({ params }) => {
 	const handlePayment = async (e) => {
 		try {
 			const orderResponse = await axios.post(
-				`${endpoint}/order/create_order/`,
+				`${endpoint}order/create_order/`,
 				{
 					service_id: id,
 				},

@@ -44,6 +44,7 @@ const Navbar = () => {
 	const [isHidden, setIsHidden] = useState(true);
 	const [hasAccessToken, setHasAccessToken] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);
+	const [isOpen1, setIsOpen1] = useState(false);
 	const [userProfile, setUserProfile] = useState(null);
 	const [error, setError] = useState(null);
 
@@ -53,6 +54,10 @@ const Navbar = () => {
 
 	const toggleDropdown = () => {
 		setIsOpen(!isOpen);
+	};
+
+	const toggleDropdown1 = () => {
+		setIsOpen1(!isOpen1);
 	};
 
 	// Function to check for the access token and update state accordingly
@@ -88,6 +93,7 @@ const Navbar = () => {
 
 		setHasAccessToken(false); // Update the state to reflect the user is logged out
 		setIsOpen(false); // Close the dropdown
+		setIsOpen1(false); // Close the dropdown
 	};
 
 	return (
@@ -259,7 +265,6 @@ const Navbar = () => {
 					</button>
 				</div>
 				<div
-					onClick={toggleVisibility}
 					className={`w-full left-0 transition-all border-b z-10 bg-white absolute ${
 						isHidden
 							? " transition-all  duration-1000 transform-y-full"
@@ -269,6 +274,7 @@ const Navbar = () => {
 					<div>
 						<ul className=" gap-[10px] p-4 flex flex-col items-center justify-center ">
 							<Link
+								onClick={toggleVisibility}
 								href="/"
 								scroll={false}
 								className="rounded-lg font-medium py-2 px-4 transition-all hover:bg-gray-300 text-sm"
@@ -276,6 +282,7 @@ const Navbar = () => {
 								Home
 							</Link>
 							<Link
+								onClick={toggleVisibility}
 								href="/services"
 								scroll={false}
 								className="rounded-lg font-medium py-2 px-4 transition-all hover:bg-gray-300 text-sm"
@@ -284,6 +291,7 @@ const Navbar = () => {
 							</Link>
 
 							<Link
+								onClick={toggleVisibility}
 								href="/about"
 								scroll={false}
 								className="rounded-lg font-medium py-2 px-4 transition-all hover:bg-gray-300 text-sm"
@@ -292,27 +300,88 @@ const Navbar = () => {
 							</Link>
 
 							<Link
-								href="/contact"
+								onClick={toggleVisibility}
+								href="/contactUs"
 								scroll={false}
 								className="rounded-lg font-medium py-2 px-4 transition-all hover:bg-gray-300 text-sm"
 							>
 								Contact Us
 							</Link>
 							{hasAccessToken ? (
-								<button
-									onClick={handleSignOut}
-									className="text-white font-bold px-4 py-2 hover:bg-[#143452] bg-[#215585] rounded-md text-xs"
-								>
-									Sign Out
-								</button>
+								<>
+									<button
+										id="dropdownDefaultButton"
+										onClick={toggleDropdown1}
+										className="text-black justify-evenly px-2 py-[5px] w-44 font-bold hover:bg-gray-200 bg-white rounded-md text-xs flex items-center md:hidden "
+										type="button"
+									>
+										{userProfile && userProfile.user
+											? `Welcome ${userProfile.user.first_name}`
+											: "Loading..."}
+										<svg
+											className="w-2.5 h-2.5 ms-3"
+											aria-hidden="true"
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 10 6"
+										>
+											<path
+												stroke="currentColor"
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth="2"
+												d="m1 1 4 4 4-4"
+											/>
+										</svg>
+									</button>
+
+									{isOpen1 && (
+										<div
+											onClick={toggleDropdown1}
+											id="dropdown"
+											className="z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-40 dark:bg-gray-700 bottom-[-110px]"
+										>
+											<ul
+												className="py-2 text-sm text-gray-700 dark:text-gray-200"
+												aria-labelledby="dropdownDefaultButton"
+											>
+												<li onClick={toggleVisibility}>
+													<Link
+														href="/orders"
+														className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+													>
+														Orders
+													</Link>
+												</li>
+												<li onClick={toggleVisibility}>
+													<button
+														onClick={handleSignOut}
+														className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+													>
+														Sign out
+													</button>
+												</li>
+												<li onClick={toggleVisibility}>
+													<Link
+														href={"/resetPassword"}
+														className="block  bg-red-500 w-fit mx-auto text-left px-2 py-1 rounded-lg text-white hover:bg-red-800 dark:hover:bg-gray-600 dark:hover:text-white"
+													>
+														Reset Password
+													</Link>
+												</li>
+											</ul>
+										</div>
+									)}
+								</>
 							) : (
-								<Link
-									href="/login"
-									scroll={false}
-									className="text-white font-bold px-4 py-2 hover:bg-[#143452] bg-[#215585] rounded-md text-xs"
-								>
-									Login & Signup
-								</Link>
+								<>
+									<Link
+										href={"/login"}
+										className="text-black px-4 py-[5px]  font-bold hover:bg-gray-200 bg-white rounded-md text-xs"
+									>
+										Login or Signup
+									</Link>
+								</>
 							)}
 						</ul>
 					</div>

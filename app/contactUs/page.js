@@ -83,12 +83,12 @@ const Contact = () => {
 							<div className="rounded-lg overflow-hidden">
 								<iframe
 									src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3728.5411099430853!2d86.33570577586137!3d20.850229093885464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1be5f43e284ea3%3A0xaae1a85f557ee018!2sDevXplore!5e0!3m2!1sen!2sin!4v1724782084865!5m2!1sen!2sin"
-									width="600"
-									height="450"
-									className="border-none"
-									allowfullscreen=""
+									// width="600"
+									width="100%"
+									height="400"
+									style={{ border: 0 }}
 									loading="lazy"
-									referrerpolicy="no-referrer-when-downgrade"
+									referrerPolicy="no-referrer-when-downgrade"
 								></iframe>
 							</div>
 							<div>
