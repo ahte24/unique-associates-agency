@@ -377,6 +377,7 @@ const Navbar = () => {
 								<>
 									<Link
 										href={"/login"}
+										onClick={toggleVisibility}
 										className="text-black px-4 py-[5px]  font-bold hover:bg-gray-200 bg-white rounded-md text-xs"
 									>
 										Login or Signup
