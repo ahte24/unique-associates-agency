@@ -39,5 +39,6 @@ export const config = {
 		"/profile",
 		"/orders",
 		"/services/:id/form_fillup",
+		"/resetPassword"
 	], // Add the form fill-up page to the matcher
 };

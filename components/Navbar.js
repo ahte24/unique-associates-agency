@@ -151,36 +151,35 @@ const Navbar = () => {
 										<div
 											onClick={toggleDropdown}
 											id="dropdown"
-											className="z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-40 dark:bg-gray-700 top-7"
+											className="z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-44 top-7 "
 										>
 											<ul
-												className="py-2 text-sm text-gray-700 dark:text-gray-200"
+												className="py-2 text-sm text-gray-700 dark:text-gray-200 space-y-2"
 												aria-labelledby="dropdownDefaultButton"
 											>
 												<li>
 													<Link
 														href="/orders"
-														className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+														className="block px-4 py-2 hover:bg-gray-100 "
 													>
 														Orders
 													</Link>
 												</li>
-												<li>
-													<button
-														onClick={handleSignOut}
-														className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-													>
-														Sign out
-													</button>
-												</li>
+
 												<li>
 													<Link
 														href={"/resetPassword"}
-														className="block  bg-red-500 w-fit mx-auto text-left px-2 py-1 rounded-lg text-white hover:bg-red-800 dark:hover:bg-gray-600 dark:hover:text-white"
+														className=" block px-4 py-2 hover:bg-gray-100 "
 													>
-														Reset Password
+														Change Password
 													</Link>
 												</li>
+												<button
+													onClick={handleSignOut}
+													className="bg-red-500 w-fit ml-3 text-left px-2 py-1 rounded-lg text-white hover:bg-red-800"
+												>
+													Sign out
+												</button>
 											</ul>
 										</div>
 									)}
@@ -312,7 +311,7 @@ const Navbar = () => {
 									<button
 										id="dropdownDefaultButton"
 										onClick={toggleDropdown1}
-										className="text-black justify-evenly px-2 py-[5px] w-44 font-bold hover:bg-gray-200 bg-white rounded-md text-xs flex items-center md:hidden "
+										className="text-black justify-evenly px-2 py-[5px] w-44 font-bold hover:bg-gray-300 bg-gray-200 rounded-md text-xs flex items-center md:hidden "
 										type="button"
 									>
 										{userProfile && userProfile.user
@@ -339,35 +338,35 @@ const Navbar = () => {
 										<div
 											onClick={toggleDropdown1}
 											id="dropdown"
-											className="z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-40 dark:bg-gray-700 bottom-[-110px]"
+											className="z-10 absolute w-44 bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 bottom-[-120px]"
 										>
 											<ul
-												className="py-2 text-sm text-gray-700 dark:text-gray-200"
+												className="py-2 text-sm text-gray-700 dark:text-gray-200 space-y-3"
 												aria-labelledby="dropdownDefaultButton"
 											>
 												<li onClick={toggleVisibility}>
 													<Link
 														href="/orders"
-														className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+														className="block px-4 py-2 hover:bg-gray-100 "
 													>
 														Orders
 													</Link>
 												</li>
 												<li onClick={toggleVisibility}>
+													<Link
+														href={"/resetPassword"}
+														className="w-full text-left px-4 py-2 hover:bg-gray-100 "
+													>
+														Change Password
+													</Link>
+												</li>
+												<li onClick={toggleVisibility}>
 													<button
 														onClick={handleSignOut}
-														className="block w-full text-left px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+														className="bg-red-500 w-fit ml-3 text-left px-2 py-1 rounded-lg text-white hover:bg-red-800"
 													>
 														Sign out
 													</button>
-												</li>
-												<li onClick={toggleVisibility}>
-													<Link
-														href={"/resetPassword"}
-														className="block  bg-red-500 w-fit mx-auto text-left px-2 py-1 rounded-lg text-white hover:bg-red-800 dark:hover:bg-gray-600 dark:hover:text-white"
-													>
-														Reset Password
-													</Link>
 												</li>
 											</ul>
 										</div>
