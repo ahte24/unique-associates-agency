@@ -14,6 +14,7 @@ const LoginForm = () => {
 		password: "",
 	});
 	const [responseMessage, setResponseMessage] = useState("");
+	const [responseStatus, setResponseStatus] = useState(null); // State to track success/failure status
 	const [accessToken, setAccessToken] = useState(
 		Cookies.get("accessToken") || ""
 	);
@@ -21,7 +22,6 @@ const LoginForm = () => {
 		Cookies.get("refreshToken") || ""
 	);
 
-	// Handle input changes for login credentials
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setCredentials((prevCredentials) => ({
@@ -30,7 +30,6 @@ const LoginForm = () => {
 		}));
 	};
 
-	// Function to set a cookie
 	const setCookie = (name, value, hours) => {
 		const date = new Date();
 		date.setTime(date.getTime() + hours * 60 * 60 * 1000);
@@ -38,7 +37,6 @@ const LoginForm = () => {
 		document.cookie = `${name}=${value};${expires};path=/;Secure;SameSite=Strict`;
 	};
 
-	// Handle form submission for login
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
@@ -60,13 +58,12 @@ const LoginForm = () => {
 				setAccessToken(token.access);
 				setRefreshToken(token.refresh);
 
-				// Store tokens in cookies
 				setCookie("accessToken", token.access, 12);
 				setCookie("refreshToken", token.refresh, 12);
 
 				setResponseMessage("Successfully authenticated!");
+				setResponseStatus("success"); // Set status to success
 
-				// Reload the page after a successful login
 				window.location.reload();
 			}
 		} catch (error) {
@@ -81,66 +78,22 @@ const LoginForm = () => {
 			} else {
 				setResponseMessage("Something went wrong. Please try again later.");
 			}
-			console.error("Error:", error);
+			setResponseStatus("error"); // Set status to error
 		}
 	};
 
-	// Function to refresh the access token using the refresh token
-	const refreshAccessToken = async (refreshToken) => {
-		try {
-			const response = await axios.post(
-				`${endpoint}token/refresh/`,
-				{
-					refresh: refreshToken,
-				},
-				{
-					headers: {
-						"Content-Type": "application/json",
-					},
-				}
-			);
-			if (response.status === 200) {
-				const { access } = response.data;
-				setAccessToken(access);
-
-				// Update the access token in the cookie
-				setCookie("accessToken", access, 12);
-
-				console.log("Access token refreshed:", access);
-			}
-		} catch (error) {
-			console.error("Error refreshing access token:", error);
-			if (error.response && error.response.status === 401) {
-				setResponseMessage("Session expired, please log in again.");
-				router.push("/login"); // Redirect to login page
-			}
-		}
-	};
-
-	// Function to check for the refresh token and refresh it after 4.9 minutes
-	const setupTokenRefresh = () => {
-		const token = Cookies.get("refreshToken");
-		if (token) {
-			setTimeout(() => {
-				refreshAccessToken(token);
-			}, 2000); // Wait 4.9 minutes (4.9 * 60 * 1000 ms)
-		} else {
-			console.log("Refresh token not found, skipping refresh.");
-		}
-	};
-
-	// Use effect to set up the token refresh on mount
 	useEffect(() => {
 		if (refreshToken) {
-			setupTokenRefresh(); // Set up the refresh to happen once after 4.9 minutes
+			setupTokenRefresh();
 		}
 	}, [refreshToken]);
+
 	return (
-		<section className=" md:py-8 bg-gray-200 text-black py-14 min-h-screen flex  justify-center">
+		<section className="md:py-8 bg-gray-200 text-black py-14 min-h-screen flex justify-center">
 			<div className="flex flex-col items-center justify-center w-full px-6 mx-auto lg:py-0">
-				<div className="w-full  rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 bg-gray-300">
+				<div className="w-full rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 bg-gray-300">
 					<div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-						<h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:">
+						<h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
 							Sign in to your account
 						</h1>
 						<form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
@@ -207,7 +160,16 @@ const LoginForm = () => {
 								</Link>
 							</p>
 
-							<p className="text-red-500 mt-4">{responseMessage}</p>
+							{/* Conditional class for response message */}
+							<p
+								className={`${
+									responseStatus === "success"
+										? "text-green-500"
+										: "text-red-500"
+								} mt-4`}
+							>
+								{responseMessage}
+							</p>
 						</form>
 					</div>
 				</div>
