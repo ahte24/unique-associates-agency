@@ -4,17 +4,17 @@ import Link from "next/link";
 const Footer = () => {
 	return (
 		<footer className="text-gray-600 body-font bg-[#e1e5ec] ">
-			<div className="container sm:gap-0 gap-14 px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-				<div className="w-72 h-full flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
+			<div className="container sm:gap-0 gap-14 px-5 py-4 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+				<div className="w-full h-full flex-shrink-0 md:mx-0 mx-auto flex flex-wrap justify-center lg:justify-between items-center text-center md:text-left md:mt-0 ">
 					<a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 text-3xl">
-						UniqueAssociates
+						TaxClickIn
 					</a>
 					<p className="mt-2 text-sm text-gray-500">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
 						voluptatum.
 					</p>
 				</div>
-				<div className="flex-grow flex flex-wrap  md:gap-0 gap-8 -my-10 md:text-left text-center order-first">
+				{/* <div className="flex-grow flex flex-wrap  md:gap-0 gap-8 -my-10 md:text-left text-center order-first">
 					<div className="lg:w-1/4 md:w-1/2 w-full px-4">
 						<h2 className="title-font font-bold text-gray-900 tracking-widest text-sm mb-3">
 							BUSINESS REGISTRATION
@@ -245,15 +245,15 @@ const Footer = () => {
 							</li>
 						</ul>
 					</div>
-				</div>
+				</div> */}
 			</div>
 			<div className="bg-gray-300">
 				<div className="container mx-auto py-4 px-5 flex justify-center flex-col items-center">
 					<p className="text-gray-500 text-[12px] md:text-[14px] text-center sm:text-left ">
 						© 2024 TaxClickIn | All Right Reserved
 					</p>
-					<div className="flex flex-wrap flex-col sm:flex-row sm:gap-4">
-						<span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+					<div className="flex  flex-col justify-center items-center md:flex-row sm:gap-4">
+						<span className="inline-flex sm:mt-2 mt-2 justify-center sm:justify-start">
 							<Link
 								href={"/privacypolicy"}
 								className="text-gray-500 text-sm text-center sm:text-left"
@@ -261,7 +261,15 @@ const Footer = () => {
 								Privacy Policy
 							</Link>
 						</span>
-						<span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+						<span className="inline-flex  sm:mt-0 mt-2 justify-center sm:justify-start">
+							<Link
+								href={"/shippinganddelivery"}
+								className="text-gray-500 text-sm text-center sm:text-left"
+							>
+								Shipping and Delivery
+							</Link>
+						</span>
+						<span className="inline-flex  sm:mt-0 mt-2 justify-center sm:justify-start">
 							<Link
 								href={"/termsandconditions"}
 								className="text-gray-500 text-sm text-center sm:text-left"
@@ -269,20 +277,12 @@ const Footer = () => {
 								Terms and Conditions
 							</Link>
 						</span>
-						<span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+						<span className="inline-flex  sm:mt-0 mt-2 justify-center sm:justify-start">
 							<Link
 								href={"/cancellationandrefund"}
 								className="text-gray-500 text-sm text-center sm:text-left"
 							>
 								Cancellation and Refund
-							</Link>
-						</span>
-						<span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-							<Link
-								href={"/shippinganddelivery"}
-								className="text-gray-500 text-sm text-center sm:text-left"
-							>
-								Shipping and Delivery
 							</Link>
 						</span>
 					</div>

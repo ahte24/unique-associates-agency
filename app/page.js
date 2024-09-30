@@ -51,15 +51,44 @@ export default function Home() {
 	};
 	return (
 		<>
-			<div className="min-h-[150px] bg-slate-500">
-				<Image
-					src={banner}
-					alt="banner"
-					className="w-full h-[300px] sm:h-[550px] object-center md:object-cover object-cover"
-					width={750}
-					height={250}
-				/>
-			</div>
+			<section className="w-full py-12  bg-background">
+				<div className=" px-4 md:px-6">
+					<div className="flex flex-col  lg:flex-row  gap-6 lg:gap-12  ">
+						<div className="flex flex-col justify-center space-y-4 w-full lg:w-1/2">
+							<div className="space-y-8">
+								<h1 className="text-3xl font-bold sm:text-4xl xl:text-6xl/none">
+									We take care of the details, so you can focus on your vision.
+								</h1>
+								<p className="max-w-[600px] text-muted-foreground md:text-lg">
+									Whether it's taxation, government registration, or business
+									setup, our expert team is here to handle the complexities for
+									you. We provide tailored solutions in taxation, business
+									registration, compliance, and more, ensuring your operations
+									run smoothly. Focus on growing your business while we manage
+									the rest.
+								</p>
+							</div>
+							<div className="flex flex-col gap-2 min-[400px]:flex-row-[30%]">
+								<Link
+									href={""}
+									className="bg-gray-950 text-white w-fit px-4 py-2  rounded-lg hover:bg-gray-800"
+								>
+									Consult Now
+								</Link>
+							</div>
+						</div>
+						<div className="flex items-center w-full lg:w-1/2">
+							<Image
+								alt="Accounting and taxation services"
+								className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last "
+								height="550"
+								src={banner}
+								width="550"
+							/>
+						</div>
+					</div>
+				</div>
+			</section>
 			<div className=" flex items-center flex-col gap-8 bg-[#f3f4f6] py-8 ">
 				<div className="flex-col flex items-center">
 					<div className="text-[17px] font-extrabold">WE ARE</div>
