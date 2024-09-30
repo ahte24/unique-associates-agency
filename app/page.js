@@ -56,7 +56,7 @@ export default function Home() {
 					<div className="flex flex-col  lg:flex-row  gap-6 lg:gap-12  ">
 						<div className="flex flex-col justify-center space-y-4 w-full lg:w-1/2">
 							<div className="space-y-8">
-								<h1 className="text-3xl font-semibold sm:text-4xl xl:text-6xl/none">
+								<h1 className="text-3xl font-semibold sm:text-4xl xl:text-5xl/none">
 									We take care of the details, so you can focus on your vision.
 								</h1>
 								<p className="max-w-[600px] text-muted-foreground md:text-lg">
