@@ -60,7 +60,14 @@ export default function Home() {
 									We take care of the details, so you can focus on your vision.
 								</h1>
 								<p className="max-w-[600px] text-muted-foreground md:text-lg">
-								From taxation to business consultation and registration, we handle the intricate details while you focus on growing your business. Our expert services are tailored to meet your unique needs, ensuring compliance, efficiency, and peace of mind. Let us streamline your operations so you can concentrate on your goals.
+									At TaxClickIn, we provide expert business consultancy and
+									documentation services designed to simplify your business
+									processes and drive growth. Our team delivers tailored
+									strategies and professional documentation, including business
+									plans, financial reports, and compliance documents, to meet
+									your specific needs. Whether you're optimizing operations or
+									planning for expansion, TaxClickIn is here to support your
+									success every step of the way.
 								</p>
 							</div>
 							<div className="flex flex-col gap-2 min-[400px]:flex-row-[30%]">
