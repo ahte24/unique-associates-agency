@@ -60,12 +60,7 @@ export default function Home() {
 									We take care of the details, so you can focus on your vision.
 								</h1>
 								<p className="max-w-[600px] text-muted-foreground md:text-lg">
-									Whether it&apos;s taxation, government registration, or business
-									setup, our expert team is here to handle the complexities for
-									you. We provide tailored solutions in taxation, business
-									registration, compliance, and more, ensuring your operations
-									run smoothly. Focus on growing your business while we manage
-									the rest.
+								From taxation to business consultation and registration, we handle the intricate details while you focus on growing your business. Our expert services are tailored to meet your unique needs, ensuring compliance, efficiency, and peace of mind. Let us streamline your operations so you can concentrate on your goals.
 								</p>
 							</div>
 							<div className="flex flex-col gap-2 min-[400px]:flex-row-[30%]">
