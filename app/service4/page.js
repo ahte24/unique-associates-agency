@@ -179,7 +179,7 @@ const Page = () => {
 									Trademark registration is essential to protect your brand
 									identity and ensure exclusive rights to use your trademark. It
 									helps prevent others from using a similar mark that could
-									confuse consumers and damage your brand's reputation. Lorem
+									confuse consumers and damage your brand&apos;s reputation. Lorem
 									ipsum dolor sit amet, consectetur adipisicing elit. Sed quam
 									qui delectus accusamus voluptates facere laboriosam beatae.
 								</span>
@@ -190,7 +190,7 @@ const Page = () => {
 								<span className="text-gray-800 text-lg leading-relaxed">
 									<strong className="text-indigo-600">Brand Identity:</strong>{" "}
 									Establish a unique brand identity that stands out in the
-									market. Trademark registration solidifies your brand's
+									market. Trademark registration solidifies your brand&apos;s
 									presence and helps in building trust with your consumers.
 									Lorem ipsum dolor sit, amet consectetur adipisicing elit.
 								</span>
@@ -213,7 +213,7 @@ const Page = () => {
 									<strong className="text-indigo-600">Exclusive Rights:</strong>{" "}
 									Ensure that you have exclusive rights to use your trademark
 									across all marketing channels and products. Protect your
-									brand's uniqueness and prevent confusion in the market. Lorem
+									brand&apos;s uniqueness and prevent confusion in the market. Lorem
 									ipsum dolor sit, amet consectetur adipisicing elit.
 								</span>
 							</li>
@@ -247,8 +247,8 @@ const Page = () => {
 							<li className="flex items-center p-6 bg-white shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
 								<span className="text-gray-800 text-lg leading-relaxed">
 									<strong className="text-indigo-600">Global Reach:</strong>{" "}
-									Protect your brand's global presence with international
-									trademark registration. Expand your brand's reach while
+									Protect your brand&apos;s global presence with international
+									trademark registration. Expand your brand&apos;s reach while
 									ensuring legal protection across borders. Lorem ipsum dolor
 									sit, amet consectetur adipisicing elit.
 								</span>
@@ -344,7 +344,7 @@ const Page = () => {
 								<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
 								<span className="text-gray-700 text-lg">
 									<strong className="text-indigo-600">Proprietorship:</strong>{" "}
-									Provide the owner's identity proof, address proof, and any
+									Provide the owner&apos;s identity proof, address proof, and any
 									business registration certificate if applicable.
 								</span>
 							</li>
