@@ -60,7 +60,7 @@ export default function Home() {
 									We take care of the details, so you can focus on your vision.
 								</h1>
 								<p className="max-w-[600px] text-muted-foreground md:text-lg">
-									Whether it's taxation, government registration, or business
+									Whether it&apos;s taxation, government registration, or business
 									setup, our expert team is here to handle the complexities for
 									you. We provide tailored solutions in taxation, business
 									registration, compliance, and more, ensuring your operations
