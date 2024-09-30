@@ -73,7 +73,7 @@ export default function Home() {
 							<div className="flex flex-col gap-2 min-[400px]:flex-row-[30%]">
 								<Link
 									href={""}
-									className="bg-gray-950 text-white w-fit px-4 py-2  rounded-lg hover:bg-gray-800"
+									className="bg-[#215585] text-white w-fit px-4 py-2  rounded-lg hover:bg-[#3a6892]"
 								>
 									Consult Now
 								</Link>

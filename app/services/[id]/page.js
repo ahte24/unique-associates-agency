@@ -56,11 +56,10 @@ const Page = ({ params }) => {
 
 	const handlePayment = async (e) => {
 		try {
+			// Create the order first
 			const orderResponse = await axios.post(
 				`${endpoint}order/create_order/`,
-				{
-					service_id: id,
-				},
+				{ service_id: id }, // Assuming 'id' is the service ID
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
@@ -68,64 +67,48 @@ const Page = ({ params }) => {
 				}
 			);
 
+			// Extract the generated order_id from the response
 			const { order_id } = orderResponse.data;
 
-			if (typeof window.Razorpay === "undefined") {
-				alert("Razorpay SDK not loaded. Please try again.");
-				return;
+			
+			const previousUrl = window.location.href;
+			console.log(previousUrl);
+			
+			const paymentResponse = await axios.post(
+				`${endpoint}order/payment/${order_id}/`,
+				{ previousUrl }, 
+				{
+					headers: {
+						Authorization: `Bearer ${token}`,
+						"Content-Type": "application/json", 
+					},
+				}
+			);
+
+			// Log the payment response for debugging purposes
+			console.log("Payment Response:", paymentResponse.data);
+
+			// Check if the payment was successfully initiated and contains a redirect URL
+			if (paymentResponse.data && paymentResponse.data.success) {
+				const redirectUrl =
+					paymentResponse.data.data.instrumentResponse.redirectInfo.url;
+
+				if (redirectUrl) {
+					console.log("Redirecting to:", redirectUrl);
+					// Redirect the user to the payment gateway or success page
+					window.location.href = redirectUrl;
+				} else {
+					console.error("Redirect URL not found in the response.");
+				}
+			} else {
+				// Log an error if the payment initiation fails
+				console.error(
+					"Payment initiation failed:",
+					paymentResponse.data.message
+				);
 			}
-
-			const options = {
-				key: "rzp_test_1rQYVrWNjzdloj",
-				amount: serviceData.price * 100,
-				currency: "INR",
-				name: "DevXplore",
-				description: serviceData.name,
-				handler: async function (response) {
-					alert(
-						`Payment successful! Payment ID: ${response.razorpay_payment_id}`
-					);
-
-					try {
-						const paymentResponse = await axios.post(
-							`${endpoint}order/payment/${order_id}/`,
-							{
-								payment_id: response.razorpay_payment_id,
-							}
-						);
-						setIsPaymentSuccessful(true); // Update state to reflect payment success
-						console.log("Payment recorded successfully:", paymentResponse.data);
-					} catch (error) {
-						console.error(
-							"Error recording payment:",
-							error.response ? error.response.data : error.message
-						);
-						alert(
-							"There was an error recording the payment. Please contact support."
-						);
-					}
-				},
-				prefill: {
-					name: formData.name,
-					email: formData.email,
-					contact: formData.phone,
-				},
-				notes: {
-					service_id: id,
-					order_id: order_id,
-				},
-				theme: {
-					color: "#4f46e5",
-				},
-			};
-
-			const rzp1 = new window.Razorpay(options);
-			rzp1.on("payment.failed", function (response) {
-				alert(`Payment failed! Error: ${response.error.description}`);
-			});
-
-			rzp1.open();
 		} catch (error) {
+			// In case of error, redirect the user to the login page or handle it accordingly
 			alert("Login to proceed");
 			router.push("/login");
 			console.error(
@@ -141,33 +124,11 @@ const Page = ({ params }) => {
 		// Handle form submission logic (e.g., send the data to an API)
 		console.log("Form data submitted:", formData);
 	};
-
-	useEffect(() => {
-		console.log(isPaymentSuccessful);
-		const script = document.createElement("script");
-		script.src = "https://checkout.razorpay.com/v1/checkout.js";
-		script.async = true;
-		document.body.appendChild(script);
-
-		script.onload = () => {
-			console.log("Razorpay script loaded successfully");
-		};
-
-		script.onerror = () => {
-			console.error("Failed to load Razorpay script");
-		};
-
-		return () => {
-			document.body.removeChild(script);
-		};
-	}, []);
-
 	if (loading) return <p>Loading...</p>;
 	if (error) return <p>{error}</p>;
 
 	return (
 		<>
-			
 			<div>
 				<Head>
 					<title>{serviceData?.name || "Service Details"}</title>

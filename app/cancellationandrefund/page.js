@@ -15,13 +15,13 @@ const CancellationandRefund = () => {
 				<h2 class="text-2xl font-bold mb-2">Order Cancellation</h2>
 
 				<p class="mb-4">
-					You can cancel your order within [X hours/days] of placing it,
+					You can cancel your order within 24 hours of placing it,
 					provided that the order has not yet been processed or shipped. Once
 					the order is processed or shipped, cancellation is no longer possible.
 				</p>
 
 				<p class="mb-4">
-					To cancel your order, please contact us at [email protected] with your
+					To cancel your order, please contact us at contact@taxclickin.com with your
 					order details. We will confirm the cancellation and refund the payment
 					if applicable.
 				</p>
@@ -31,7 +31,7 @@ const CancellationandRefund = () => {
 				<p class="mb-4">
 					Refunds are only provided for products that are defective, damaged, or
 					significantly different from what was ordered. If you wish to request
-					a refund, please contact us within [X days] of receiving your product.
+					a refund, please contact us within 7 - 8 working days of receiving your product.
 				</p>
 
 				<p class="mb-4">

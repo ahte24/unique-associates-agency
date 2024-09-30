@@ -7,7 +7,7 @@ const Footer = () => {
 			<div className="container sm:gap-0 gap-14 px-5 py-4 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
 				<div className="w-full h-full flex-shrink-0 md:mx-0 mx-auto flex flex-wrap justify-center lg:justify-between items-center text-center md:text-left md:mt-0 ">
 					<a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 text-3xl">
-						TaxClickIn
+						Unique Associates
 					</a>
 					<p className="mt-2 text-sm text-gray-500">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
@@ -248,12 +248,12 @@ const Footer = () => {
 				</div> */}
 			</div>
 			<div className="bg-gray-300">
-				<div className="container mx-auto py-4 px-5 flex justify-center flex-col items-center">
+				<div className="container mx-auto gap-3 py-4 px-5 flex justify-center flex-col items-center">
 					<p className="text-gray-500 text-[12px] md:text-[14px] text-center sm:text-left ">
 						© 2024 TaxClickIn | All Right Reserved
 					</p>
 					<div className="flex  flex-col justify-center items-center md:flex-row sm:gap-4">
-						<span className="inline-flex sm:mt-2 mt-2 justify-center sm:justify-start">
+						<span className="inline-flex  sm:mt-0 mt-2 justify-center sm:justify-start">
 							<Link
 								href={"/privacypolicy"}
 								className="text-gray-500 text-sm text-center sm:text-left"
@@ -261,14 +261,14 @@ const Footer = () => {
 								Privacy Policy
 							</Link>
 						</span>
-						<span className="inline-flex  sm:mt-0 mt-2 justify-center sm:justify-start">
+						{/* <span className="inline-flex  sm:mt-0 mt-2 justify-center sm:justify-start">
 							<Link
 								href={"/shippinganddelivery"}
 								className="text-gray-500 text-sm text-center sm:text-left"
 							>
 								Shipping and Delivery
 							</Link>
-						</span>
+						</span> */}
 						<span className="inline-flex  sm:mt-0 mt-2 justify-center sm:justify-start">
 							<Link
 								href={"/termsandconditions"}
