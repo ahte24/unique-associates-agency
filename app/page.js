@@ -65,7 +65,7 @@ export default function Home() {
 									processes and drive growth. Our team delivers tailored
 									strategies and professional documentation, including business
 									plans, financial reports, and compliance documents, to meet
-									your specific needs. Whether you're optimizing operations or
+									your specific needs. Whether you&apos;re optimizing operations or
 									planning for expansion, TaxClickIn is here to support your
 									success every step of the way.
 								</p>
