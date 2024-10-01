@@ -6,10 +6,10 @@ const Footer = () => {
 		<footer className="text-gray-600 body-font bg-[#e1e5ec] ">
 			<div className="container sm:gap-0 gap-14 px-5 py-4 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
 				<div className="w-full h-full flex-shrink-0 md:mx-0 mx-auto flex flex-wrap justify-center lg:justify-between items-center text-center md:text-left md:mt-0 ">
-					<a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 text-3xl">
+					<a className="flex title-font font-medium items-center md:justify-start justify-center text-[#215585] text-3xl">
 						Unique Associates
 					</a>
-					<p className="mt-2 text-sm text-gray-500">
+					<p className="mt-2 text-sm text-[#215585dc]">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
 						voluptatum.
 					</p>

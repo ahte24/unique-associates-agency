@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import banner from "@/public/main-banner.jpg";
+import banner from "@/public/img.png";
 import about from "@/public/about.jpg";
 import { useEffect, useRef } from "react";
 import axios from "axios";
