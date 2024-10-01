@@ -10,8 +10,7 @@ const Footer = () => {
 						Unique Associates
 					</a>
 					<p className="mt-2 text-sm text-[#215585dc]">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia,
-						voluptatum.
+						We take care of the details, so you can focus on your vision.
 					</p>
 				</div>
 				{/* <div className="flex-grow flex flex-wrap  md:gap-0 gap-8 -my-10 md:text-left text-center order-first">

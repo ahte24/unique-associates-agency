@@ -2,6 +2,8 @@
 import "../globals.css";
 import { useRef } from "react";
 import React from "react";
+import Image from "next/image";
+import sadik from "@/public/sadik.jpg";
 
 const Page = () => {
 	const scrollContainer = useRef(null);
@@ -25,81 +27,99 @@ const Page = () => {
 	return (
 		<div>
 			<div className="bg-white">
-				<header className="bg-[#215585] text-white text-center py-12 flex items-center justify-center">
+				<header className="bg-[#ffff] text-[#215585] text-center py-12 flex items-center justify-center">
 					<h1 className="text-4xl font-bold ">About Us</h1>
 				</header>
 
 				<section className="text-center py-12 px-4">
 					<h2 className="text-2xl font-bold">Mission And Values</h2>
 					<p className="mt-4 text-gray-700 max-w-2xl mx-auto">
-						Our mission is to provide exceptional healthcare services with a
-						focus on availability, reliability, and support.
+						At TaxClickIn Pvt Ltd, our mission is to deliver exceptional
+						taxation, accounting, and registration services with a focus on
+						accuracy, compliance, and personalized support. We strive to help
+						businesses and individuals stay compliant while maximizing their
+						financial potential through expert guidance.
 					</p>
-					<div className="flex justify-center space-x-8 mt-8 animate-fadeIn">
+					<div className="flex justify-center  mt-8 animate-fadeIn flex-wrap gap-8 ">
 						<div className="transition transform hover:scale-110">
-							<h3 className="text-xl font-bold">85+</h3>
-							<p className="text-gray-700">Specialists</p>
+							<h3 className="text-xl font-bold">450+</h3>
+							<p className="text-gray-700">Satisfied Clients</p>
 						</div>
 						<div className="transition transform hover:scale-110">
-							<h3 className="text-xl font-bold">25+</h3>
+							<h3 className="text-xl font-bold">20+</h3>
 							<p className="text-gray-700">Years of Experience</p>
+						</div>
+						<div className="transition transform hover:scale-110">
+							<h3 className="text-xl font-bold">250+</h3>
+							<p className="text-gray-700">Successful Business Registrations</p>
+						</div>
+						<div className="transition transform hover:scale-110">
+							<h3 className="text-xl font-bold">1000+</h3>
+							<p className="text-gray-700">Tax Filings Completed</p>
 						</div>
 					</div>
 				</section>
 
-				<section className="bg-[#215585] text-white py-12 px-4">
-					<h2 className="text-2xl font-bold text-center">Our Vision</h2>
+				<section className=" py-12 px-4">
+					<h2 className=" text-center text-[#215585] text-4xl font-bold">
+						Our Vision
+					</h2>
 					<p className="mt-4 text-center max-w-2xl mx-auto">
-						Healthcare anytime, anywhere. We aim to revolutionize the healthcare
-						industry by making quality healthcare accessible to everyone.
+						To simplify taxation and accounting for businesses and individuals
+						alike. We aim to revolutionize financial management by offering
+						accessible, reliable, and affordable services to all.
 					</p>
 				</section>
 
 				<section className="text-center py-12 px-4">
-					<h2 className="text-2xl font-bold">Our Healthcare Specialties</h2>
+					<h2 className="text-2xl font-bold">Our Firm's Specialties</h2>
 					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-8">
-						<div className="p-4 shadow-lg rounded-lg bg-[#4c81b3] hover:bg-[#699ac8] transition-colors">
-							<h3 className="text-xl font-bold">Cardiology</h3>
+						<div className="p-4 shadow-lg text-white rounded-lg bg-[#215585] hover:bg-[#2a5d8c] transition-colors">
+							<h3 className="text-xl font-bold">Taxation</h3>
 						</div>
-						<div className="p-4 shadow-lg rounded-lg bg-[#4c81b3] hover:bg-[#699ac8] transition-colors">
-							<h3 className="text-xl font-bold">Neurology</h3>
+						<div className="p-4 shadow-lg text-white rounded-lg bg-[#215585] hover:bg-[#2a5d8c] transition-colors">
+							<h3 className="text-xl font-bold">Accounting</h3>
 						</div>
-						<div className="p-4 shadow-lg rounded-lg bg-[#4c81b3] hover:bg-[#699ac8] transition-colors">
-							<h3 className="text-xl font-bold">Pediatrics</h3>
+						<div className="p-4 shadow-lg text-white rounded-lg bg-[#215585] hover:bg-[#2a5d8c] transition-colors">
+							<h3 className="text-xl font-bold">Business Registration</h3>
 						</div>
-						<div className="p-4 shadow-lg rounded-lg bg-[#4c81b3] hover:bg-[#699ac8] transition-colors">
-							<h3 className="text-xl font-bold">Oncology</h3>
+						<div className="p-4 shadow-lg text-white rounded-lg bg-[#215585] hover:bg-[#2a5d8c] transition-colors">
+							<h3 className="text-xl font-bold">Financial Consulting</h3>
 						</div>
 					</div>
 				</section>
 
 				<section className="bg-gray-100 py-12 px-4">
 					<h2 className="text-2xl font-bold text-center">
-						State-Of-The-Art Technology
+						State-Of-The-Art Services
 					</h2>
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 max-w-5xl mx-auto">
 						<div className="p-4 shadow-lg rounded-lg bg-white hover:shadow-xl transition-shadow">
-							<h3 className="text-xl font-bold">Advanced Diagnostics</h3>
+							<h3 className="text-xl font-bold">Tax Filing & Compliance</h3>
 							<p className="text-gray-700 mt-2">
-								We utilize the latest technology for accurate diagnostics.
+								We ensure accurate and timely filing of taxes while complying
+								with all applicable regulations.
 							</p>
 						</div>
 						<div className="p-4 shadow-lg rounded-lg bg-white hover:shadow-xl transition-shadow">
-							<h3 className="text-xl font-bold">Telemedicine</h3>
+							<h3 className="text-xl font-bold">Business Registration</h3>
 							<p className="text-gray-700 mt-2">
-								Consult with our specialists from the comfort of your home.
+								Assistance with setting up your business, including
+								registration, incorporation, and licensing.
 							</p>
 						</div>
 						<div className="p-4 shadow-lg rounded-lg bg-white hover:shadow-xl transition-shadow">
-							<h3 className="text-xl font-bold">Robotic Surgery</h3>
+							<h3 className="text-xl font-bold">Financial Planning</h3>
 							<p className="text-gray-700 mt-2">
-								Minimally invasive procedures with precision.
+								Comprehensive financial planning services tailored to both
+								businesses and individuals.
 							</p>
 						</div>
 						<div className="p-4 shadow-lg rounded-lg bg-white hover:shadow-xl transition-shadow">
-							<h3 className="text-xl font-bold">Electronic Health Records</h3>
+							<h3 className="text-xl font-bold">Bookkeeping & Audits</h3>
 							<p className="text-gray-700 mt-2">
-								Secure and easy access to your medical records.
+								We provide accurate bookkeeping and thorough audits to ensure
+								financial transparency.
 							</p>
 						</div>
 					</div>
@@ -107,47 +127,93 @@ const Page = () => {
 
 				<section className="text-center py-12 px-4">
 					<h2 className="text-2xl font-bold">
-						Committed To Your Health And Happiness
+						Committed To Your Financial Success
 					</h2>
 					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-8">
-						<div className="p-4 shadow-lg rounded-lg bg-[#4c81b3] hover:bg-[#699ac8]  transition-colors">
-							<h3 className="text-xl font-bold">Book Appointment</h3>
+						<div className="p-4 shadow-lg rounded-lg bg-[#215585] hover:bg-[#2a5d8c]  transition-colors">
+							<h3 className="text-xl font-bold text-white">
+								Schedule a Consultation
+							</h3>
 						</div>
-						<div className="p-4 shadow-lg rounded-lg bg-[#4c81b3] hover:bg-[#699ac8]  transition-colors">
-							<h3 className="text-xl font-bold">Informed Staff</h3>
+						<div className="p-4 shadow-lg rounded-lg bg-[#215585] hover:bg-[#2a5d8c]  transition-colors">
+							<h3 className="text-xl font-bold text-white">
+								{" "}
+								Experienced Accountants
+							</h3>
 						</div>
-						<div className="p-4 shadow-lg rounded-lg bg-[#4c81b3] hover:bg-[#699ac8]  transition-colors">
-							<h3 className="text-xl font-bold">Total Health</h3>
+						<div className="p-4 shadow-lg rounded-lg bg-[#215585] hover:bg-[#2a5d8c]  transition-colors">
+							<h3 className="text-xl font-bold text-white">
+								Full Financial Solutions
+							</h3>
 						</div>
-						<div className="p-4 shadow-lg rounded-lg bg-[#4c81b3] hover:bg-[#699ac8]  transition-colors">
-							<h3 className="text-xl font-bold">Get Consultation</h3>
+						<div className="p-4 shadow-lg rounded-lg bg-[#215585] hover:bg-[#2a5d8c]  transition-colors">
+							<h3 className="text-xl font-bold text-white">
+								Get Expert Advice
+							</h3>
 						</div>
 					</div>
 				</section>
 
-				<section className="bg-[#215585] text-white text-center py-12 px-4">
-					<h2 className="text-2xl font-bold">Patient Testimonials</h2>
-					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-8 max-w-5xl mx-auto">
-						<div className="p-4 shadow-lg rounded-lg bg-[#153654] hover:bg-[#2a5d8c] transition-colors">
+				<section className=" text-white text-center py-12 px-4">
+					<h2 className="text-2xl font-bold text-[#215585]">
+						Client Testimonials
+					</h2>
+					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-8 container mx-auto">
+						<div className="p-4 shadow-lg rounded-lg bg-[#215585] hover:bg-[#2a5d8c] transition-colors">
 							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-								sit amet tristique mi.
+								Professional and reliable services. Their expertise in tax
+								planning saved us a lot of time and money
 							</p>
-							<h3 className="mt-4 font-bold">- Patient A</h3>
+							<h3 className="mt-4 font-bold">– Rajesh Kumar</h3>
 						</div>
-						<div className="p-4 shadow-lg rounded-lg bg-[#153654] hover:bg-[#2a5d8c] transition-colors">
+						<div className="p-4 shadow-lg rounded-lg bg-[#215585] hover:bg-[#2a5d8c] transition-colors">
 							<p>
-								Nullam ac augue eget diam posuere vehicula. Vivamus quis nulla
-								ac justo euismod posuere.
+								Quick and prompt business registration process. Seamless
+								services by their team.
 							</p>
-							<h3 className="mt-4 font-bold">- Patient B</h3>
+							<h3 className="mt-4 font-bold">- Pooja Sharma</h3>
 						</div>
-						<div className="p-4 shadow-lg rounded-lg bg-[#153654] hover:bg-[#2a5d8c] transition-colors">
+						<div className="p-4 shadow-lg rounded-lg bg-[#215585] hover:bg-[#2a5d8c] transition-colors">
 							<p>
-								Fusce tincidunt, arcu nec vestibulum tincidunt, eros massa
-								ullamcorper urna.
+								Great advice on maintaining our books of account, and they
+								ensured we remained compliant.
 							</p>
-							<h3 className="mt-4 font-bold">- Patient C</h3>
+							<h3 className="mt-4 font-bold">- Anil Mehta</h3>
+						</div>
+						<div className="p-4 shadow-lg rounded-lg bg-[#215585] hover:bg-[#2a5d8c] transition-colors">
+							<p>
+								Their knowledge in the field of taxation laws is invaluable in
+								helping us reach optimization in our tax liabilities.
+							</p>
+							<h3 className="mt-4 font-bold">- Rohit Verma</h3>
+						</div>
+						<div className="p-4 shadow-lg rounded-lg bg-[#215585] hover:bg-[#2a5d8c] transition-colors">
+							<p>
+								Excellent services provided! They guided us with every minute
+								problem related to accounting with such ease.
+							</p>
+							<h3 className="mt-4 font-bold">- Neha Patel</h3>
+						</div>
+						<div className="p-4 shadow-lg rounded-lg bg-[#215585] hover:bg-[#2a5d8c] transition-colors">
+							<p>
+								Very responsive and transparent. Their financial consulting
+								services are top-notch.
+							</p>
+							<h3 className="mt-4 font-bold">- Amit Bhargava</h3>
+						</div>
+						<div className="p-4 shadow-lg rounded-lg bg-[#215585] hover:bg-[#2a5d8c] transition-colors">
+							<p>
+								Thanks to their diligent bookkeeping services, we've had smooth
+								audits for the last few years.
+							</p>
+							<h3 className="mt-4 font-bold">- Vikram Desai</h3>
+						</div>
+						<div className="p-4 shadow-lg rounded-lg bg-[#215585] hover:bg-[#2a5d8c] transition-colors">
+							<p>
+								Their team is extremely professional and detail-oriented,
+								helping us streamline our finances effortlessly.
+							</p>
+							<h3 className="mt-4 font-bold">- Priya Menon</h3>
 						</div>
 					</div>
 				</section>
@@ -159,28 +225,83 @@ const Page = () => {
 					<div className="mt-8">
 						<div className="p-4 border rounded-lg shadow-md transition transform hover:scale-100 scale-90">
 							<h3 className="text-xl font-bold">
-								How do I make an appointment online?
+								How do I book a consultation?
 							</h3>
 							<p className="mt-2 text-gray-700">
-								You can book an appointment online through our website or mobile
-								app.
+								You can book a consultation online through our website by
+								clicking on Consult Now button, phone, or via email.
 							</p>
 						</div>
 						<div className="p-4 border rounded-lg shadow-md transition transform hover:scale-100 scale-90 mt-4">
 							<h3 className="text-xl font-bold">
-								What types of medical tests do you offer?
+								What types of business registrations do you handle?
 							</h3>
 							<p className="mt-2 text-gray-700">
-								We offer a wide range of medical tests including blood tests,
-								imaging, and more.
+								We assist with company incorporation, GST registration, MSME
+								registration, and many other business-related registrations.
 							</p>
 						</div>
 						<div className="p-4 border rounded-lg shadow-md transition transform hover:scale-100 scale-90 mt-4">
 							<h3 className="text-xl font-bold">
-								Do you accept insurance plans?
+								Do you offer assistance with tax filing?
 							</h3>
 							<p className="mt-2 text-gray-700">
-								Yes, we accept most major insurance plans.
+								Yes, we offer tax filing services for individuals, small
+								businesses, and large corporations.
+							</p>
+						</div>
+						<div className="p-4 border rounded-lg shadow-md transition transform hover:scale-100 scale-90 mt-4">
+							<h3 className="text-xl font-bold">
+								What accounting services do you provide?
+							</h3>
+							<p className="mt-2 text-gray-700">
+								We provide bookkeeping, financial statement preparation, payroll
+								processing, and auditing services.
+							</p>
+						</div>
+						<div className="p-4 border rounded-lg shadow-md transition transform hover:scale-100 scale-90 mt-4">
+							<h3 className="text-xl font-bold">
+								Can you help with financial planning?
+							</h3>
+							<p className="mt-2 text-gray-700">
+								Yes, our team offers comprehensive financial planning, including
+								investment advice, budgeting, and retirement planning.
+							</p>
+						</div>
+						<div className="p-4 border rounded-lg shadow-md transition transform hover:scale-100 scale-90 mt-4">
+							<h3 className="text-xl font-bold">
+								How can I track my tax filings?
+							</h3>
+							<p className="mt-2 text-gray-700">
+								We provide real-time updates through our client portal so you
+								can track the status of your tax filings and submissions.
+							</p>
+						</div>
+						<div className="p-4 border rounded-lg shadow-md transition transform hover:scale-100 scale-90 mt-4">
+							<h3 className="text-xl font-bold">
+								Are your services available remotely?
+							</h3>
+							<p className="mt-2 text-gray-700">
+								Yes, we offer all our services remotely, ensuring flexibility
+								and convenience for our clients.
+							</p>
+						</div>
+						<div className="p-4 border rounded-lg shadow-md transition transform hover:scale-100 scale-90 mt-4">
+							<h3 className="text-xl font-bold">
+								Do you provide audit services?
+							</h3>
+							<p className="mt-2 text-gray-700">
+								Yes, we conduct both internal and external audits to ensure
+								financial accuracy and compliance.
+							</p>
+						</div>
+						<div className="p-4 border rounded-lg shadow-md transition transform hover:scale-100 scale-90 mt-4">
+							<h3 className="text-xl font-bold">
+								How much do your services cost?
+							</h3>
+							<p className="mt-2 text-gray-700">
+								Our pricing depends on the scope and complexity of services
+								required. Contact us for a customized quote.
 							</p>
 						</div>
 					</div>
@@ -190,19 +311,19 @@ const Page = () => {
 					<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 						<div className="mb-24">
 							<h2 className="font-manrope text-4xl text-center font-bold text-gray-900 mb-6">
-								Meet our Founders
+								Meet our Team
 							</h2>
 							<p className="text-lg text-gray-500 text-center">
-								We provide all the advantages that can simplify all your
-								financial and banking support without any further issues
+								We provide expert advice and personalized solutions to simplify
+								your financial, accounting, and registration processes.
 							</p>
 						</div>
 						<div className="swiper teamswiper pb-10">
 							<div
 								ref={scrollContainer}
-								className="flex items-center overflow-x-auto hide-scrollbar"
+								className="flex items-center justify-center flex-wrap"
 							>
-								<div className="swiper-slide">
+								<div className="">
 									<div className="group w-full flex-wrap flex items-center gap-8 transition-all duration-500 p-8 lg:flex-nowrap">
 										<div className="w-full lg:w-48 h-64">
 											<img
@@ -216,16 +337,17 @@ const Page = () => {
 												<h6 className="text-lg text-gray-900 font-semibold mb-1">
 													Shah Mohammad Shakhil
 												</h6>
-												<span className="text-sm text-gray-500 group-hover:text-indigo-600">
+												<span className="text-sm text-gray-500 group-hover:text-[#215585]">
 													Founder & CEO
 												</span>
 											</div>
 											<p className="text-gray-500 leading-6 mb-7">
-												I am the co-founder of pagedone and we’ve pushed our
-												limits so far to make it successful.
+												Shah Mohammad Shakhil founded the firm to make taxation
+												and accounting simple and accessible, building a trusted
+												service focused on client success.
 											</p>
 											<div className="flex items-center gap-4 justify-center lg:justify-start">
-												<p className="cursor-pointer text-gray-900 hover:text-white group w-12 h-12 rounded-full flex justify-center items-center bg-gray-100 transition-all duration-500 hover:bg-indigo-600">
+												<p className="cursor-pointer text-gray-900 hover:text-white group w-12 h-12 rounded-full flex justify-center items-center bg-gray-100 transition-all duration-500 hover:bg-[#215585]">
 													<svg
 														className="w-5 h-5"
 														width="32"
@@ -240,7 +362,7 @@ const Page = () => {
 														/>
 													</svg>
 												</p>
-												<p className="cursor-pointer text-gray-900 hover:text-white group w-12 h-12 rounded-full flex justify-center items-center bg-gray-100 transition-all duration-500 hover:bg-indigo-600">
+												<p className="cursor-pointer text-gray-900 hover:text-white group w-12 h-12 rounded-full flex justify-center items-center bg-gray-100 transition-all duration-500 hover:bg-[#215585]">
 													<svg
 														className="w-5 h-5"
 														viewBox="0 0 24 24"
@@ -253,7 +375,7 @@ const Page = () => {
 														/>
 													</svg>
 												</p>
-												<p className="cursor-pointer text-gray-900 hover:text-white group w-12 h-12 rounded-full flex justify-center items-center bg-gray-100 transition-all duration-500 hover:bg-indigo-600">
+												<p className="cursor-pointer text-gray-900 hover:text-white group w-12 h-12 rounded-full flex justify-center items-center bg-gray-100 transition-all duration-500 hover:bg-[#215585]">
 													<svg
 														className="w-5 h-5"
 														viewBox="0 0 20 19"
@@ -270,11 +392,13 @@ const Page = () => {
 										</div>
 									</div>
 								</div>
-								<div className="swiper-slide">
+								<div className="">
 									<div className="group w-full flex-wrap flex items-center gap-8 flex-col md:flex-row transition-all duration-500 p-8 lg:flex-nowrap">
 										<div className="w-full lg:w-48 h-64 max-lg:max-w-[204px] max-lg:mx-auto">
-											<img
-												src="https://pagedone.io/asset/uploads/1696238869.png"
+											<Image
+												width={450}
+												height={400}
+												src={sadik}
 												alt="image"
 												className="rounded-2xl h-full object-cover mx-auto lg:mx-0 lg:w-full"
 											/>
@@ -282,18 +406,19 @@ const Page = () => {
 										<div className="text-center lg:text-left lg:max-w-xs flex-1 flex flex-col justify-between">
 											<div className="mb-5 pb-5 border-b border-solid border-gray-300">
 												<h6 className="text-lg text-gray-900 font-semibold mb-1">
-													Alexa Kimberly
+													Md Sadikul Amin
 												</h6>
-												<span className="text-sm text-gray-500 group-hover:text-indigo-600">
-													Lead Designer
+												<span className="text-sm text-gray-500 group-hover:text-[#215585]">
+													Managing Director
 												</span>
 											</div>
 											<p className="text-gray-500 leading-6 mb-7">
-												I’ve been lead designer for pagedone since the beginning
-												of it and enjoyed every bit.
+												Md Sadikul Amin now oversees the firm’s operations,
+												continuing the legacy of excellence and ensuring the
+												highest level of service for all clients.
 											</p>
 											<div className="flex items-center gap-4 justify-center lg:justify-start max-sm:bottom-0 relative">
-												<p className="cursor-pointer text-gray-900 hover:text-white group w-12 h-12 rounded-full flex justify-center items-center bg-gray-100 transition-all duration-500 hover:bg-indigo-600">
+												<p className="cursor-pointer text-gray-900 hover:text-white group w-12 h-12 rounded-full flex justify-center items-center bg-gray-100 transition-all duration-500 hover:bg-[#215585]">
 													<svg
 														className="w-5 h-5"
 														width="32"
@@ -308,7 +433,7 @@ const Page = () => {
 														/>
 													</svg>
 												</p>
-												<p className="cursor-pointer text-gray-900 hover:text-white group w-12 h-12 rounded-full flex justify-center items-center bg-gray-100 transition-all duration-500 hover:bg-indigo-600">
+												<p className="cursor-pointer text-gray-900 hover:text-white group w-12 h-12 rounded-full flex justify-center items-center bg-gray-100 transition-all duration-500 hover:bg-[#215585]">
 													<svg
 														className="w-5 h-5"
 														viewBox="0 0 24 24"
@@ -321,7 +446,7 @@ const Page = () => {
 														/>
 													</svg>
 												</p>
-												<p className="cursor-pointer text-gray-900 hover:text-white group w-12 h-12 rounded-full flex justify-center items-center bg-gray-100 transition-all duration-500 hover:bg-indigo-600">
+												<p className="cursor-pointer text-gray-900 hover:text-white group w-12 h-12 rounded-full flex justify-center items-center bg-gray-100 transition-all duration-500 hover:bg-[#215585]">
 													<svg
 														className="w-5 h-5"
 														viewBox="0 0 20 19"
@@ -338,9 +463,7 @@ const Page = () => {
 										</div>
 									</div>
 								</div>
-								
 							</div>
-							
 						</div>
 					</div>
 				</section>

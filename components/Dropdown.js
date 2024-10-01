@@ -8,6 +8,8 @@ import { useEffect, useState } from "react";
 const Dropdown = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const toggleDropdownClick = () => setIsOpen(!isOpen);
+	const toggleDropdownHoverClose = () => setIsOpen(false);
+	const toggleDropdownHoverOpen = () => setIsOpen(true);
 	const [categories, setCategories] = useState([]);
 	const [categoryDetails, setCategoryDetails] = useState({});
 	const [serviceNames, setServiceNames] = useState({});
@@ -64,10 +66,16 @@ const Dropdown = () => {
 	}, []);
 
 	return (
-		<div className="relative">
+		<div
+			onMouseLeave={toggleDropdownHoverClose}
+			onMouseEnter={toggleDropdownHoverOpen}
+			onClick={toggleDropdownClick}
+			className="relative"
+		>
 			<button
-				onClick={toggleDropdownClick}
-				className="transition-all font-medium hover:bg-gray-300 text-sm py-2 px-4 rounded inline-flex items-center"
+				// onClick={toggleDropdownClick}
+
+				className="transition-all  font-medium hover:bg-gray-300 text-sm py-2 px-4 rounded inline-flex items-center"
 			>
 				<span>Services</span>
 				<svg
@@ -81,12 +89,12 @@ const Dropdown = () => {
 				</svg>
 			</button>
 			<div
-				onClick={toggleDropdownClick}
-				className={`absolute mt-2  w-[75vw] left-[-61vw] z-30 bg-white border rounded shadow-md shadow-gray-700 transition-opacity duration-300 ${
+				// onMouseLeave={toggleDropdownClick}
+				className={`absolute w-[75vw] p-4 left-[-61vw] z-30 bg-white border rounded shadow-md shadow-gray-700 transition-opacity duration-300 ${
 					isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
 				}`}
 			>
-				<div className="grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
+				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
 					{categories.map((category) => (
 						<div key={category.id}>
 							<div>
@@ -118,9 +126,9 @@ const Dropdown = () => {
 					<Link
 						href={"/services"}
 						scroll={false}
-						className="rounded-lg mb-5 font-medium py-2 px-4 transition-all text-white hover:text-black bg-[#215585] hover:bg-gray-300 text-sm"
+						className="rounded-lg  font-medium py-2 px-4 transition-all text-white hover:text-black bg-[#215585] hover:bg-gray-300 text-sm"
 					>
-						Services
+						All Services
 					</Link>
 				</div>
 			</div>

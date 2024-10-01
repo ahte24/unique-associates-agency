@@ -104,17 +104,17 @@ const Navbar = () => {
 						<div className="flex items-center gap-4">
 							<Link
 								className="text-sm flex items-center gap-2 text-white"
-								href={"tel:+919114111987"}
+								href={"tel:+918383918798"}
 							>
 								<Image src={call} width={20} height={20} alt="" />
-								+91 911 411 1987
+								+91 838 391 8798
 							</Link>
 							<Link
 								className="text-sm flex items-center gap-2 text-white"
-								href={"mailto:zaman.dev26@gmail.com"}
+								href={"mailto:contact@taxclickin.com"}
 							>
 								<Image src={mail} width={20} height={20} alt="" />
-								zaman.dev26@gmail.com
+								contact@taxclickin.com
 							</Link>
 						</div>
 

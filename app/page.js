@@ -65,8 +65,8 @@ export default function Home() {
 									processes and drive growth. Our team delivers tailored
 									strategies and professional documentation, including business
 									plans, financial reports, and compliance documents, to meet
-									your specific needs. Whether you&apos;re optimizing operations or
-									planning for expansion, TaxClickIn is here to support your
+									your specific needs. Whether you&apos;re optimizing operations
+									or planning for expansion, TaxClickIn is here to support your
 									success every step of the way.
 								</p>
 							</div>
@@ -123,15 +123,15 @@ export default function Home() {
 								<h4 className=" text-left text-2xl font-bold">About Us</h4>
 							</div>
 							<p>
-								FastInfo Legal Services Pvt Ltd. is registered under the
-								Companies Act, 2013. Our core team consists of a diligent team
-								of professionals, all under one roof. They provide solution to
-								all the individual, business person, corporate body and others
-								for the issues faced by them in their everyday life. Lorem ipsum
-								dolor sit, amet consectetur adipisicing elit. Eligendi saepe
-								quidem perspiciatis, dolorum maxime obcaecati quibusdam ratione
-								aut illo quisquam. Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. A, illo.
+								TaxClickIn Pvt Ltd is registered under the Companies Act, 2013.
+								Our core team consists of a diligent group of professionals, all
+								under one roof. We provide comprehensive solutions to
+								individuals, business professionals, corporate entities, and
+								more for all taxation, accounting, and registration needs.
+								Whether it's GST compliance, income tax filing, or company
+								incorporation, we ensure expert guidance at every step, helping
+								our clients navigate their financial and regulatory challenges
+								with ease.
 							</p>
 						</div>
 					</div>
@@ -223,7 +223,7 @@ export default function Home() {
 										<path d="M22 4L12 14.01l-3-3"></path>
 									</svg>
 									<span className="title-font font-medium">
-										Authentic Cliche Forage
+										Expert Tax Consulting
 									</span>
 								</div>
 							</div>
@@ -242,7 +242,7 @@ export default function Home() {
 										<path d="M22 4L12 14.01l-3-3"></path>
 									</svg>
 									<span className="title-font font-medium">
-										Kinfolk Chips Snackwave
+										Business Registration Services
 									</span>
 								</div>
 							</div>
@@ -261,7 +261,7 @@ export default function Home() {
 										<path d="M22 4L12 14.01l-3-3"></path>
 									</svg>
 									<span className="title-font font-medium">
-										Coloring Book Ethical
+										GST Filing and Compliance
 									</span>
 								</div>
 							</div>
@@ -280,7 +280,7 @@ export default function Home() {
 										<path d="M22 4L12 14.01l-3-3"></path>
 									</svg>
 									<span className="title-font font-medium">
-										Typewriter Polaroid Cray
+										Accurate Financial Reporting
 									</span>
 								</div>
 							</div>
@@ -299,7 +299,7 @@ export default function Home() {
 										<path d="M22 4L12 14.01l-3-3"></path>
 									</svg>
 									<span className="title-font font-medium">
-										Pack Truffaut Blue
+										Affordable Accounting Solutions
 									</span>
 								</div>
 							</div>
@@ -318,7 +318,7 @@ export default function Home() {
 										<path d="M22 4L12 14.01l-3-3"></path>
 									</svg>
 									<span className="title-font font-medium">
-										The Catcher In The Rye
+										Company Incorporation Support
 									</span>
 								</div>
 							</div>
@@ -337,7 +337,7 @@ export default function Home() {
 										<path d="M22 4L12 14.01l-3-3"></path>
 									</svg>
 									<span className="title-font font-medium">
-										Pack Truffaut Blue
+										Personalized Financial Advice
 									</span>
 								</div>
 							</div>
@@ -356,7 +356,7 @@ export default function Home() {
 										<path d="M22 4L12 14.01l-3-3"></path>
 									</svg>
 									<span className="title-font font-medium">
-										The Catcher In The Rye
+										24/7 Client Assistance
 									</span>
 								</div>
 							</div>
