@@ -72,7 +72,7 @@ const Page = () => {
 				</section>
 
 				<section className="text-center py-12 px-4">
-					<h2 className="text-2xl font-bold">Our Firm's Specialties</h2>
+					<h2 className="text-2xl font-bold">Our Firm&apos;s Specialties</h2>
 					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-8">
 						<div className="p-4 shadow-lg text-white rounded-lg bg-[#215585] hover:bg-[#2a5d8c] transition-colors">
 							<h3 className="text-xl font-bold">Taxation</h3>
@@ -203,7 +203,7 @@ const Page = () => {
 						</div>
 						<div className="p-4 shadow-lg rounded-lg bg-[#215585] hover:bg-[#2a5d8c] transition-colors">
 							<p>
-								Thanks to their diligent bookkeeping services, we've had smooth
+								Thanks to their diligent bookkeeping services, we&apos;ve had smooth
 								audits for the last few years.
 							</p>
 							<h3 className="mt-4 font-bold">- Vikram Desai</h3>

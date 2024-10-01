@@ -128,7 +128,7 @@ export default function Home() {
 								under one roof. We provide comprehensive solutions to
 								individuals, business professionals, corporate entities, and
 								more for all taxation, accounting, and registration needs.
-								Whether it's GST compliance, income tax filing, or company
+								Whether it&apos;s GST compliance, income tax filing, or company
 								incorporation, we ensure expert guidance at every step, helping
 								our clients navigate their financial and regulatory challenges
 								with ease.
