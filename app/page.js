@@ -123,7 +123,7 @@ export default function Home() {
 								<h4 className=" text-left text-2xl font-bold">About Us</h4>
 							</div>
 							<p>
-								TaxClickIn Pvt Ltd is registered under the Companies Act, 2013.
+								TaxClickIn is registered under the Companies Act, 2013.
 								Our core team consists of a diligent group of professionals, all
 								under one roof. We provide comprehensive solutions to
 								individuals, business professionals, corporate entities, and

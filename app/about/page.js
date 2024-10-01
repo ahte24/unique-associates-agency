@@ -34,7 +34,7 @@ const Page = () => {
 				<section className="text-center py-12 px-4">
 					<h2 className="text-2xl font-bold">Mission And Values</h2>
 					<p className="mt-4 text-gray-700 max-w-2xl mx-auto">
-						At TaxClickIn Pvt Ltd, our mission is to deliver exceptional
+						At TaxClickIn, our mission is to deliver exceptional
 						taxation, accounting, and registration services with a focus on
 						accuracy, compliance, and personalized support. We strive to help
 						businesses and individuals stay compliant while maximizing their
