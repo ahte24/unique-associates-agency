@@ -73,7 +73,7 @@ const Services = () => {
 									</svg>
 								</div>
 							</Link>
-							<Link
+							{/* <Link
 								href={"/service2"}
 								className="p-6 md:w-1/2 lg:w-1/3 xl:w-1/4 sm:mb-0 mb-6"
 							>
@@ -142,7 +142,7 @@ const Services = () => {
 										<path d="M5 12h14M12 5l7 7-7 7"></path>
 									</svg>
 								</div>
-							</Link>
+							</Link> */}
 
 							{/* <Link
 								href={"/service4"}
