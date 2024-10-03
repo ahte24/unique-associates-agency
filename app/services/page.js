@@ -157,13 +157,13 @@ const Services = () => {
 									/>
 								</div>
 								<h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-									Tax Audit / Statutory Audit Service
+									GST Compliances
 								</h2>
 								<div className="w-[60px] rounded-xl bg-[#18ba60] h-[5px]"></div>
 								<p className="text-base leading-relaxed mt-2">
-									Providing comprehensive audit services to ensure compliance
-									with tax and statutory regulations, minimizing risks for your
-									business.
+									Comprehensive GST management services, from registration to
+									timely filing, ensuring compliance with GST laws and
+									minimizing tax liabilities.
 								</p>
 								<div className="text-indigo-500 inline-flex items-center mt-3">
 									Learn More

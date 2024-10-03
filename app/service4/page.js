@@ -35,7 +35,7 @@ const Page = () => {
 	return (
 		<div>
 			<Head>
-				<title>Tax Planning Consultancy</title>
+				<title>GST Compliances</title>
 				<meta
 					name="description"
 					content="Comprehensive trademark registration services to protect your brand and intellectual property."
@@ -47,12 +47,12 @@ const Page = () => {
 					<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 lg:flex lg:items-center lg:justify-between">
 						<div className="max-w-2xl">
 							<h1 className="text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl">
-								Tax Audit / Statutory Audit Service
+								GST Compliances
 							</h1>
 							<p className="mt-4 text-xl text-indigo-200">
-								Providing comprehensive audit services to ensure compliance with
-								tax and statutory regulations, minimizing risks for your
-								business.
+								Comprehensive GST management services, from registration to
+								timely filing, ensuring compliance with GST laws and minimizing
+								tax liabilities.
 							</p>
 						</div>
 						<div className="mt-8 lg:mt-0 lg:ml-8 lg:flex-shrink-0">
@@ -180,8 +180,6 @@ const Page = () => {
 							</div>
 						</div>
 					</div>
-
-					
 				</div>
 			</main>
 		</div>
