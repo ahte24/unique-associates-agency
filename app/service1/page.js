@@ -50,12 +50,15 @@ const Page = () => {
 					<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 lg:flex lg:items-center lg:justify-between">
 						<div className="max-w-2xl">
 							<h1 className="text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl">
-								Tax Planning Consultancy
+								Business Consulting Services
 							</h1>
 							<p className="mt-4 text-xl text-indigo-200">
-								Tailored tax strategies to reduce liabilities while ensuring
-								full compliance with tax regulations, optimizing business
-								financial efficiency.
+								We provide strategic business consulting to help organizations
+								streamline operations, improve efficiency, and scale
+								sustainably. Our consulting services include market research,
+								competitive analysis, business strategy development, and process
+								optimization, all designed to help businesses achieve their
+								goals and grow effectively.
 							</p>
 						</div>
 						<div className="mt-8 lg:mt-0 lg:ml-8 lg:flex-shrink-0">
