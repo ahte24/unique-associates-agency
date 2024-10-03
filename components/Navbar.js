@@ -118,7 +118,7 @@ const Navbar = () => {
 							</Link>
 						</div>
 
-						<div className="relative inline-block text-left z-50">
+						{/* <div className="relative inline-block text-left z-50">
 							{hasAccessToken ? (
 								<>
 									<button
@@ -194,7 +194,7 @@ const Navbar = () => {
 									</Link>
 								</>
 							)}
-						</div>
+						</div> */}
 					</div>
 				</div>
 				<div className="h-20 flex items-center relative w-full bg-[#e1e5ec] z-30">
@@ -306,7 +306,7 @@ const Navbar = () => {
 							>
 								Contact Us
 							</Link>
-							{hasAccessToken ? (
+							{/* {hasAccessToken ? (
 								<>
 									<button
 										id="dropdownDefaultButton"
@@ -382,7 +382,7 @@ const Navbar = () => {
 										Login or Signup
 									</Link>
 								</>
-							)}
+							)} */}
 						</ul>
 					</div>
 				</div>
