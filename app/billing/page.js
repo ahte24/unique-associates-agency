@@ -4,17 +4,17 @@ import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 const BillingPage = () => {
-	const searchParams = useSearchParams();
-
 	// Wrap the content in a Suspense component
 	return (
 		<Suspense fallback={<div>Loading...</div>}>
-			<BillingContent searchParams={searchParams} />
+			<BillingContent />
 		</Suspense>
 	);
 };
 
-const BillingContent = ({ searchParams }) => {
+const BillingContent = () => {
+	const searchParams = useSearchParams();
+
 	const formData = {
 		name: searchParams.get("name"),
 		email: searchParams.get("email"),
