@@ -1,6 +1,7 @@
 "use client";
 import Head from "next/head";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
 	FaShieldAlt,
 	FaRegCheckCircle,
@@ -18,18 +19,20 @@ const Page = () => {
 		message: "",
 		service: "Trademark Registration",
 	});
+	const router = useRouter();
 
 	const handleChange = (e) => {
-		setFormData({
-			...formData,
-			[e.target.name]: e.target.value,
-		});
+		const { name, value } = e.target;
+		setFormData((prevData) => ({
+			...prevData,
+			[name]: value,
+		}));
 	};
-
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		// Handle form submission logic (e.g., send the data to an API)
-		console.log("Form data submitted:", formData);
+		// Construct the query string manually
+		const queryString = new URLSearchParams(formData).toString();
+		router.push(`/billing?${queryString}`);
 	};
 
 	return (
@@ -47,18 +50,18 @@ const Page = () => {
 					<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 lg:flex lg:items-center lg:justify-between">
 						<div className="max-w-2xl">
 							<h1 className="text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl">
-								Accounting Services
+								Tax Planning Consultancy
 							</h1>
 							<p className="mt-4 text-xl text-indigo-200">
-								Offering accounting, bookkeeping, and financial reporting
-								services to maintain accurate financial records and ensure
-								regulatory compliance.
+								Tailored tax strategies to reduce liabilities while ensuring
+								full compliance with tax regulations, optimizing business
+								financial efficiency.
 							</p>
 						</div>
 						<div className="mt-8 lg:mt-0 lg:ml-8 lg:flex-shrink-0">
 							<div className="bg-white shadow-lg rounded-lg p-6 w-full lg:w-96">
 								<h2 className="text-2xl font-bold text-gray-900">
-									Inquiry Form
+									Payment Form
 								</h2>
 								<form onSubmit={handleSubmit} className="mt-6 space-y-4">
 									<div>
@@ -112,7 +115,7 @@ const Page = () => {
 											className="mt-1 border p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
 										/>
 									</div>
-									<div>
+									{/* <div>
 										<label
 											htmlFor="message"
 											className="block text-sm font-medium text-gray-700"
@@ -128,13 +131,25 @@ const Page = () => {
 											required
 											className="mt-1 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md outline-none p-2"
 										/>
-									</div>
-									<div className="text-right">
+									</div> */}
+									<div className="text-right flex justify-between items-center">
+										<div>
+											<label
+												htmlFor="price"
+												className="block text-sm font-medium text-gray-700"
+											>
+												Price
+											</label>
+											<p className="mt-1 text-xl font-bold text-gray-900">
+												₹ 500
+											</p>
+										</div>
+
 										<button
 											type="submit"
 											className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
 										>
-											Submit
+											Proceede to pay
 										</button>
 									</div>
 								</form>
@@ -144,44 +159,39 @@ const Page = () => {
 				</div>
 
 				<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
-					<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-20 lg:px-8">
-						<div className=" container flex items-center justify-between">
-							<div>
-								<label
-									htmlFor="price"
-									className="block text-sm font-medium text-gray-700"
-								>
-									Price
-								</label>
-								<p className="mt-1 text-xl font-bold text-gray-900">₹ 500</p>
-							</div>
-
-							<button className="inline-flex justify-center py-3 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[#4f46e5] hover:bg-[#4338ca]">
-								Proceed to Pay
-							</button>
+					{/* <div className=" container flex items-center justify-between">
+						<div>
+							<label
+								htmlFor="price"
+								className="block text-sm font-medium text-gray-700"
+							>
+								Price
+							</label>
+							<p className="mt-1 text-xl font-bold text-gray-900">₹ 500</p>
 						</div>
 
-						<div className="mt-12 text-center">
-							<h2 className="text-3xl font-extrabold text-gray-900">
-								Why Choose Us?
-							</h2>
-							<p className="mt-4 text-xl text-gray-500">
-								We offer expert guidance, personalized service, and
-								comprehensive support throughout the trademark registration
-								process.
-							</p>
-							<div className="mt-8 flex justify-center">
-								<a
-									href="/contact"
-									className="bg-indigo-600 text-white py-3 px-6 rounded-lg shadow hover:bg-indigo-700"
-								>
-									Contact Us
-								</a>
-							</div>
+						<button className="inline-flex justify-center py-3 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[#4f46e5] hover:bg-[#4338ca]">
+							Proceed to Pay
+						</button>
+					</div> */}
+
+					<div className="mt-12 text-center">
+						<h2 className="text-3xl font-extrabold text-gray-900">
+							Why Choose Us?
+						</h2>
+						<p className="mt-4 text-xl text-gray-500">
+							We offer expert guidance, personalized service, and comprehensive
+							support throughout the trademark registration process.
+						</p>
+						<div className="mt-8 flex justify-center">
+							<a
+								href="/contact"
+								className="bg-indigo-600 text-white py-3 px-6 rounded-lg shadow hover:bg-indigo-700"
+							>
+								Contact Us
+							</a>
 						</div>
 					</div>
-
-					
 				</div>
 			</main>
 		</div>

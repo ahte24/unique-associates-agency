@@ -45,7 +45,7 @@ const Services = () => {
 									<img
 										alt="content"
 										className="object-cover object-center h-full w-full"
-										src="https://dummyimage.com/1203x503"
+										src="https://www.manishanilgupta.com/public/assets/upload/blog/6385b70e089ba_how-tax-consultants-are-helpful-to-your-business.jpg"
 									/>
 								</div>
 								<h2 className="text-xl font-medium title-font text-gray-900 mt-5">
@@ -81,7 +81,7 @@ const Services = () => {
 									<img
 										alt="content"
 										className="object-cover object-center h-full w-full"
-										src="https://dummyimage.com/1203x503"
+										src="https://5.imimg.com/data5/SELLER/Default/2022/3/MK/RS/ZZ/3072116/investment-consulatncy-service-1--500x500.jpg"
 									/>
 								</div>
 								<h2 className="text-xl font-medium title-font text-gray-900 mt-5">
@@ -117,7 +117,7 @@ const Services = () => {
 									<img
 										alt="content"
 										className="object-cover object-center h-full w-full"
-										src="https://dummyimage.com/1203x503"
+										src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReuUNDPCWxFcNBQD7-0y4qehkMGr2tSWpfuA&s"
 									/>
 								</div>
 								<h2 className="text-xl font-medium title-font text-gray-900 mt-5">
