@@ -49,14 +49,17 @@ const Services = () => {
 									/>
 								</div>
 								<h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-									Tax Planning Consultancy
+									Business Consulting Services
 								</h2>
 								<div className="w-[60px] rounded-xl bg-[#18ba60] h-[5px]"></div>
 
 								<p className="text-base leading-relaxed mt-2">
-									Tailored tax strategies to reduce liabilities while ensuring
-									full compliance with tax regulations, optimizing business
-									financial efficiency.
+									We provide strategic business consulting to help organizations
+									streamline operations, improve efficiency, and scale
+									sustainably. Our consulting services include market research,
+									competitive analysis, business strategy development, and
+									process optimization, all designed to help businesses achieve
+									their goals and grow effectively.
 								</p>
 								<div className="text-indigo-500 inline-flex items-center mt-3">
 									Learn More
