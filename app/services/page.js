@@ -44,8 +44,8 @@ const Services = () => {
 								<div className="rounded-lg h-48 overflow-hidden">
 									<img
 										alt="content"
-										className="object-cover object-center h-full w-full"
-										src="https://www.manishanilgupta.com/public/assets/upload/blog/6385b70e089ba_how-tax-consultants-are-helpful-to-your-business.jpg"
+										className="object-cover object-right h-full w-full"
+										src="https://illuminationconsulting.com/wp-content/uploads/2024/01/Business-Consulting-Services-for-Companies-of-All-Sizes.jpg"
 									/>
 								</div>
 								<h2 className="text-xl font-medium title-font text-gray-900 mt-5">
