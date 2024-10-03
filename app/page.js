@@ -75,7 +75,7 @@ export default function Home() {
 									href={""}
 									className="bg-[#215585] text-white w-fit px-4 py-2  rounded-lg hover:bg-[#3a6892]"
 								>
-									Consult Now
+									Book Free consultation
 								</Link>
 							</div>
 						</div>
@@ -123,15 +123,14 @@ export default function Home() {
 								<h4 className=" text-left text-2xl font-bold">About Us</h4>
 							</div>
 							<p>
-								TaxClickIn is registered under the Companies Act, 2013.
-								Our core team consists of a diligent group of professionals, all
-								under one roof. We provide comprehensive solutions to
-								individuals, business professionals, corporate entities, and
-								more for all taxation, accounting, and registration needs.
-								Whether it&apos;s GST compliance, income tax filing, or company
-								incorporation, we ensure expert guidance at every step, helping
-								our clients navigate their financial and regulatory challenges
-								with ease.
+								TaxClickIn is registered under the Companies Act, 2013. Our core
+								team consists of a diligent group of professionals, all under
+								one roof. We provide comprehensive solutions to individuals,
+								business professionals, corporate entities, and more for all
+								taxation, accounting, and registration needs. Whether it&apos;s
+								GST compliance, income tax filing, or company incorporation, we
+								ensure expert guidance at every step, helping our clients
+								navigate their financial and regulatory challenges with ease.
 							</p>
 						</div>
 					</div>
