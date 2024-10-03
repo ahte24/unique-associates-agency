@@ -181,7 +181,7 @@ const Page = () => {
 						</h2>
 						<p className="mt-4 text-xl text-gray-500">
 							We offer expert guidance, personalized service, and comprehensive
-							support throughout the trademark registration process.
+							support.
 						</p>
 						<div className="mt-8 flex justify-center">
 							<a
