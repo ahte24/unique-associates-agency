@@ -125,9 +125,8 @@ const Services = () => {
 								</h2>
 								<div className="w-[60px] rounded-xl bg-[#18ba60] h-[5px]"></div>
 								<p className="text-base leading-relaxed mt-2">
-									Offering accounting, bookkeeping, and financial reporting
-									services to maintain accurate financial records and ensure
-									regulatory compliance.
+									Offering accounting services to maintain accurate financial
+									records and ensure regulatory compliance.
 								</p>
 								<div className="text-indigo-500 inline-flex items-center mt-3">
 									Learn More
