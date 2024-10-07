@@ -36,12 +36,12 @@ const Services = () => {
 			<div>
 				<section className="text-gray-600 body-font">
 					<div className="container px-5 py-14 mx-auto">
-						<div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 xl:px-10 ">
+						<div className="flex justify-center flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 xl:px-10 ">
 							<Link
 								href={"/service1"}
-								className=" p-6 md:w-1/2 lg:w-1/3 xl:w-1/4 sm:mb-0 mb-6"
+								className=" p-6 md:w-1/2 lg:w-1/2 xl:w-1/2 sm:mb-0 mb-6"
 							>
-								<div className="rounded-lg h-48 overflow-hidden">
+								<div className="rounded-lg overflow-hidden">
 									<img
 										alt="content"
 										className="object-cover object-right h-full w-full"
