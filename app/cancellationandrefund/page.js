@@ -37,7 +37,7 @@ const CancellationandRefund = () => {
 				<p class="mb-4">
 					We may request additional information, such as images of the defective
 					or damaged item, to process your refund. Once approved, refunds will
-					be processed within [X business days], and the amount will be credited
+					be processed within 7 - 8 business days, and the amount will be credited
 					to the original payment method used during purchase.
 				</p>
 

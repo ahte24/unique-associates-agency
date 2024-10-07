@@ -115,7 +115,7 @@ export default function Home() {
 					<div className="min-w-[170px] h-[70px] bg-slate-400 rounded-lg"></div>
 				</div>
 			</div>
-			<div className="About-us hidden md:block  h-[400px] bg-[#f3f4f6]">
+			{/* <div className="About-us hidden md:block  h-[400px] bg-[#f3f4f6]">
 				<div className="w-full flex items-center h-full pl-16">
 					<div className="w-[60%] h-full">
 						<div className="flex flex-col justify-center h-full  gap-10 w-full mx-auto">
@@ -144,7 +144,7 @@ export default function Home() {
 						/>
 					</div>
 				</div>
-			</div>
+			</div> */}
 			<div className="mt-16">
 				<div className="w-full flex flex-col items-center gap-1">
 					<h2 className="text-3xl font-bold">Top Services</h2>
@@ -199,7 +199,7 @@ export default function Home() {
 					</Link>
 				</div>
 			</div>
-			<div className="mt-16">
+			{/* <div className="mt-16">
 				<div className="w-full flex flex-col items-center gap-1">
 					<h2 className="text-3xl font-bold">Why Us?</h2>
 					<div className="w-[70px] rounded-xl bg-[#18ba60] h-[5px]"></div>
@@ -365,7 +365,7 @@ export default function Home() {
 						</button>
 					</div>
 				</section>
-			</div>
+			</div> */}
 		</>
 	);
 }
