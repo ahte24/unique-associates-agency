@@ -49,17 +49,23 @@ const Services = () => {
 									/>
 								</div>
 								<h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-									Business Analytics
+									Business Analytics Course
 								</h2>
 								<div className="w-[60px] rounded-xl bg-[#18ba60] h-[5px]"></div>
 
 								<p className="text-base leading-relaxed mt-2">
-									We provide comprehensive business analytics to help
-									organizations optimize operations, enhance decision-making,
-									and drive growth. Our analytics services include data-driven
-									insights, performance metrics, predictive modeling, and
-									process optimization, all designed to help businesses achieve
-									their goals and scale effectively.
+									In this course, we provide comprehensive training on business
+									analytics to help organizations optimize operations, enhance
+									decision-making, and drive growth. You will learn how to
+									leverage data-driven insights, analyze performance metrics,
+									apply predictive modeling, and optimize processes, all aimed
+									at helping businesses achieve their goals and scale
+									effectively. Key Learning Objectives: (1)Understanding the
+									fundamentals of business analytics (2) Mastering data collection
+									and analysis techniques (3) Applying predictive models to solve
+									real-world business problems (4) Optimizing business processes
+									based on analytical insights (5) Enhancing decision-making through
+									performance metrics
 								</p>
 								<div className="text-indigo-500 inline-flex items-center mt-3">
 									Learn More
