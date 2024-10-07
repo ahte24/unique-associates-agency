@@ -45,7 +45,7 @@ const Services = () => {
 									<img
 										alt="content"
 										className="object-cover object-right h-full w-full"
-										src="https://illuminationconsulting.com/wp-content/uploads/2024/01/Business-Consulting-Services-for-Companies-of-All-Sizes.jpg"
+										src="https://financesonline.com/uploads/2019/10/business-analytics-head-image.png"
 									/>
 								</div>
 								<h2 className="text-xl font-medium title-font text-gray-900 mt-5">
