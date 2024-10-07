@@ -50,15 +50,21 @@ const Page = () => {
 					<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 lg:flex lg:items-center lg:justify-between">
 						<div className="max-w-2xl">
 							<h1 className="text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl">
-								Business Analytics
+								Business Analytics Course
 							</h1>
 							<p className="mt-4 text-xl text-indigo-200">
-								We provide comprehensive business analytics to help
-								organizations optimize operations, enhance decision-making, and
-								drive growth. Our analytics services include data-driven
-								insights, performance metrics, predictive modeling, and process
-								optimization, all designed to help businesses achieve their
-								goals and scale effectively.
+								In this course, we provide comprehensive training on business
+								analytics to help organizations optimize operations, enhance
+								decision-making, and drive growth. You will learn how to
+								leverage data-driven insights, analyze performance metrics,
+								apply predictive modeling, and optimize processes, all aimed at
+								helping businesses achieve their goals and scale effectively.
+								Key Learning Objectives: (1)Understanding the fundamentals of
+								business analytics (2) Mastering data collection and analysis
+								techniques (3) Applying predictive models to solve real-world
+								business problems (4) Optimizing business processes based on
+								analytical insights (5) Enhancing decision-making through
+								performance metrics
 							</p>
 						</div>
 						<div className="mt-8 lg:mt-0 lg:ml-8 lg:flex-shrink-0">
