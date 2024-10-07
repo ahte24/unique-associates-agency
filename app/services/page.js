@@ -49,17 +49,17 @@ const Services = () => {
 									/>
 								</div>
 								<h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-									Business Consulting Services
+									Business Analytics
 								</h2>
 								<div className="w-[60px] rounded-xl bg-[#18ba60] h-[5px]"></div>
 
 								<p className="text-base leading-relaxed mt-2">
-									We provide strategic business consulting to help organizations
-									streamline operations, improve efficiency, and scale
-									sustainably. Our consulting services include market research,
-									competitive analysis, business strategy development, and
+									We provide comprehensive business analytics to help
+									organizations optimize operations, enhance decision-making,
+									and drive growth. Our analytics services include data-driven
+									insights, performance metrics, predictive modeling, and
 									process optimization, all designed to help businesses achieve
-									their goals and grow effectively.
+									their goals and scale effectively.
 								</p>
 								<div className="text-indigo-500 inline-flex items-center mt-3">
 									Learn More

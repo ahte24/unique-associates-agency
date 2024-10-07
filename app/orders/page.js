@@ -39,23 +39,22 @@ export default function ServicesPage() {
 				);
 			}
 		};
-
 		fetchOrders();
 	}, [selectedStatus, router]); // Re-fetch orders when selectedStatus or router changes
 
-	const handleStatusChange = (e) => {
-		setSelectedStatus(e.target.value); // Update selectedStatus when dropdown value changes
-	};
+	// const handleStatusChange = (e) => {
+	// 	setSelectedStatus(e.target.value); // Update selectedStatus when dropdown value changes
+	// };
 
-	const handleEditService = (serviceId) => {
-		router.push(`/services/edit/${serviceId}`); // Navigate to edit page
-	};
+	// const handleEditService = (serviceId) => {
+	// 	router.push(`/services/edit/${serviceId}`); // Navigate to edit page
+	// };
 
-	const handleLogout = () => {
-		Cookies.remove("accessToken");
-		Cookies.remove("refreshToken");
-		router.push("/"); // Redirect to login page after logout
-	};
+	// const handleLogout = () => {
+	// 	Cookies.remove("accessToken");
+	// 	Cookies.remove("refreshToken");
+	// 	router.push("/"); // Redirect to login page after logout
+	// };
 
 	return (
 		<>

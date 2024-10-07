@@ -36,6 +36,38 @@ const Page = ({ params }) => {
 				setLoading(false);
 			}
 		};
+
+		const order_id = Cookies.get("order_id"); // Fetch the order_id from the cookie
+
+		const verifyPayment = async (order_id) => {
+			try {
+				const response = await axios.post(
+					`${endpoint}order/payment/${order_id}/`,
+					{},
+					{
+						headers: {
+							Authorization: `Bearer ${token}`,
+						},
+					}
+				);
+
+				if (
+					response.data.success === true &&
+					response.data.code === "PAYMENT_INITIATED"
+				) {
+					setIsPaymentSuccessful(true);
+
+					// Redirect the user to the payment page
+				} else {
+					throw new Error(response.data.message || "Payment failed");
+				}
+			} catch (error) {
+				setIsPaymentSuccessful(false);
+				console.error("Payment verification failed:", error.message);
+			}
+		};
+
+		verifyPayment(order_id);
 		fetchData();
 	}, [id]);
 
@@ -69,18 +101,19 @@ const Page = ({ params }) => {
 
 			// Extract the generated order_id from the response
 			const { order_id } = orderResponse.data;
+			Cookies.set("order_id", order_id, { expires: 1 / 144 });
 
-			
+			// Get the current page URL to store as the previousUrl
 			const previousUrl = window.location.href;
-			console.log(previousUrl);
-			
+
+			// Send the payment request, passing the previous URL along with it
 			const paymentResponse = await axios.post(
 				`${endpoint}order/payment/${order_id}/`,
-				{ previousUrl }, 
+				{ previousUrl }, // Send previousUrl in the request body
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
-						"Content-Type": "application/json", 
+						"Content-Type": "application/json", // Ensure the content type is correct
 					},
 				}
 			);
