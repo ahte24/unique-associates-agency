@@ -219,12 +219,12 @@ const Navbar = () => {
 
 								<Dropdown />
 
-								<Link
+								{/* <Link
 									href={"/about"}
 									className="rounded-lg font-medium py-2 px-4 transition-all hover:bg-gray-300 text-sm"
 								>
 									About
-								</Link>
+								</Link> */}
 								<Link
 									href={"/contactUs"}
 									className="rounded-lg font-medium py-2 px-4 transition-all hover:bg-gray-300 text-sm"
@@ -289,14 +289,14 @@ const Navbar = () => {
 								Services
 							</Link>
 
-							<Link
+							{/* <Link
 								onClick={toggleVisibility}
 								href="/about"
 								scroll={false}
 								className="rounded-lg font-medium py-2 px-4 transition-all hover:bg-gray-300 text-sm"
 							>
 								About Us
-							</Link>
+							</Link> */}
 
 							<Link
 								onClick={toggleVisibility}

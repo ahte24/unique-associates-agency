@@ -80,14 +80,14 @@ export default function Home() {
 									of your analytics journey.
 								</p>
 							</div>
-							<div className="flex flex-col gap-2 min-[400px]:flex-row-[30%]">
+							{/* <div className="flex flex-col gap-2 min-[400px]:flex-row-[30%]">
 								<Link
 									href={""}
 									className="bg-[#215585] text-white w-fit px-4 py-2  rounded-lg hover:bg-[#3a6892]"
 								>
 									Book Free consultation
 								</Link>
-							</div>
+							</div> */}
 						</div>
 						<div className="flex items-center w-full lg:w-1/2">
 							<Image
@@ -155,7 +155,7 @@ export default function Home() {
 					</div>
 				</div>
 			</div> */}
-			<div className="mt-16">
+			{/* <div className="mt-16">
 				<div className="w-full flex flex-col items-center gap-1">
 					<h2 className="text-3xl font-bold">Top Services</h2>
 				</div>
@@ -208,7 +208,7 @@ export default function Home() {
 						More Services
 					</Link>
 				</div>
-			</div>
+			</div> */}
 			{/* <div className="mt-16">
 				<div className="w-full flex flex-col items-center gap-1">
 					<h2 className="text-3xl font-bold">Why Us?</h2>
