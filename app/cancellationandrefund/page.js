@@ -15,55 +15,43 @@ const CancellationandRefund = () => {
 				<h2 class="text-2xl font-bold mb-2">Order Cancellation</h2>
 
 				<p class="mb-4">
-					You can cancel your order within 24 hours of placing it,
-					provided that the order has not yet been processed or shipped. Once
-					the order is processed or shipped, cancellation is no longer possible.
+					You can cancel your order within 24 hours of placing it, provided that
+					the order has not yet been processed. Once the order is processed,
+					cancellation is no longer possible.
 				</p>
 
 				<p class="mb-4">
-					To cancel your order, please contact us at contact@taxclickin.com with your
-					order details. We will confirm the cancellation and refund the payment
-					if applicable.
+					To cancel your order, please contact us at contact@taxclickin.com with
+					your order details. We will confirm the cancellation and refund the
+					payment if applicable.
 				</p>
 
 				<h2 class="text-2xl font-bold mb-2">Refund Policy</h2>
 
 				<p class="mb-4">
-					Refunds are only provided for products that are defective, damaged, or
-					significantly different from what was ordered. If you wish to request
-					a refund, please contact us within 7 - 8 working days of receiving your product.
+					Once we reveive the cancellation request out team will review it once
+					the team is confirm with the refund then we will initaiate the refund
+					and you will get the payment directly to the original payment method
+					within 7 - 8 business days
 				</p>
 
 				<p class="mb-4">
-					We may request additional information, such as images of the defective
-					or damaged item, to process your refund. Once approved, refunds will
-					be processed within 7 - 8 business days, and the amount will be credited
-					to the original payment method used during purchase.
+					If our team didnot verify the refund then we are not allowed to
+					process any kind of refund.
 				</p>
-
-				<h2 class="text-2xl font-bold mb-2">Non-Refundable Items</h2>
-
-				<p class="mb-4">The following items are not eligible for a refund:</p>
-
-				<ul class="list-disc list-inside mb-4">
-					<li>Digital products or services once delivered</li>
-					<li>Gift cards or vouchers</li>
-					<li>Items purchased on sale or as part of a promotion</li>
-					<li>Any product that has been used or altered after delivery</li>
-				</ul>
 
 				<h2 class="text-2xl font-bold mb-2">Late or Missing Refunds</h2>
 
 				<p class="mb-4">
-					If you haven&apos;t received a refund yet, first check your bank account or
-					credit card statement again. Then contact your bank or credit card
-					company, as it may take some time before your refund is officially
-					posted.
+					If you haven&apos;t received a refund yet, first check your bank
+					account or credit card statement again. Then contact your bank or
+					credit card company, as it may take some time before your refund is
+					officially posted.
 				</p>
 
 				<p class="mb-4">
-					If you&apos;ve done all of this and still have not received your refund,
-					please contact us at [email protected].
+					If you&apos;ve done all of this and still have not received your
+					refund, please contact us at contact@taxclickin.com.
 				</p>
 
 				<h2 class="text-2xl font-bold mb-2">Changes to This Policy</h2>
@@ -78,7 +66,7 @@ const CancellationandRefund = () => {
 
 				<p class="mb-4">
 					If you have any questions about this Cancellation and Refund Policy,
-					please contact us at [email protected].
+					please contact us at contact@taxclickin.com.
 				</p>
 			</div>
 		</div>
