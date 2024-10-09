@@ -150,7 +150,7 @@ const Page = () => {
 												Price
 											</label>
 											<p className="mt-1 text-xl font-bold text-gray-900">
-												₹ 500
+												₹ 4999
 											</p>
 										</div>
 
