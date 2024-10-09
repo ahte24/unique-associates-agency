@@ -97,7 +97,7 @@ const Privacypolicy = () => {
 					<li>
 						If you have previously agreed to us using your personal information
 						for direct marketing purposes, you may change your mind at any time
-						by writing to or emailing us at [email protected]
+						by writing to or emailing us at contact@taxclickin.com
 					</li>
 					<li>
 						We will not sell, distribute, or lease your personal information to
@@ -109,8 +109,9 @@ const Privacypolicy = () => {
 					<li>
 						You may request details of personal information which we hold about
 						you. If you would like a copy of the information held on you, please
-						write to [Your Company Name, Address, City, State, Zip Code] or
-						email [email protected]
+						write to UNIQUE ASSOCIATES Address: First Floor, Flat No B-6,
+						F-311/1, Jawahar Park, Khanpur, New Delhi, South Delhi, Delhi,
+						110080 or email contact@taxclickin.com
 					</li>
 					<li>
 						If you believe that any information we are holding on you is

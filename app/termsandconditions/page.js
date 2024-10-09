@@ -99,7 +99,7 @@ const Termsandconditions = () => {
 
 				<p class="mb-4">
 					If you have any questions about these Terms and Conditions, please
-					contact us at [email protected].
+					contact us at contact@taxclickin.com .
 				</p>
 			</div>
 		</div>
