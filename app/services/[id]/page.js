@@ -15,6 +15,9 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import CryptoJS from "crypto-js";
+import { ToastContainer, toast } from "react-toastify";
+import { Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Page = ({ params }) => {
 	const router = useRouter();
@@ -207,16 +210,16 @@ const Page = ({ params }) => {
 
 			if (response.ok) {
 				console.log("done");
-				// toast.success("Inquiry Sent Successfully.", {
-				// 	position: "top-right",
-				// 	autoClose: 5000,
-				// 	hideProgressBar: false,
-				// 	closeOnClick: true,
-				// 	pauseOnHover: true,
-				// 	draggable: true,
-				// 	theme: "dark",
-				// 	transition: Bounce,
-				// });
+				toast.success("Inquiry Sent Successfully.", {
+					position: "top-right",
+					autoClose: 5000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					theme: "light",
+					transition: Bounce,
+				});
 				setFormData({
 					name: "",
 					email: "",
@@ -226,30 +229,30 @@ const Page = ({ params }) => {
 				});
 			} else {
 				const errorData = await response.json();
-				// toast.error("Something went wrong.", {
-				// 	position: "top-right",
-				// 	autoClose: 5000,
-				// 	hideProgressBar: false,
-				// 	closeOnClick: true,
-				// 	pauseOnHover: true,
-				// 	draggable: true,
-				// 	progress: undefined,
-				// 	theme: "dark",
-				// 	transition: Bounce,
-				// });
+				toast.error("Something went wrong.", {
+					position: "top-right",
+					autoClose: 5000,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+					theme: "light",
+					transition: Bounce,
+				});
 			}
 		} catch (error) {
-			// toast.error(`Error: ${error.message}`, {
-			// 	position: "top-right",
-			// 	autoClose: 5000,
-			// 	hideProgressBar: false,
-			// 	closeOnClick: true,
-			// 	pauseOnHover: true,
-			// 	draggable: true,
-			// 	progress: undefined,
-			// 	theme: "dark",
-			// 	transition: Bounce,
-			// });
+			toast.error(`Error: ${error.message}`, {
+				position: "top-right",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "light",
+				transition: Bounce,
+			});
 			console.log(error);
 		}
 	};
@@ -373,6 +376,21 @@ const Page = ({ params }) => {
 
 	return (
 		<>
+			<ToastContainer
+				position="top-right"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+				theme="light"
+				transition={Bounce}
+			/>
+
+			<ToastContainer />
 			<div>
 				<Head>
 					<title>{serviceData?.name || "Service Details"}</title>
