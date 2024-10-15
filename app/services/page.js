@@ -26,324 +26,140 @@ const Services = () => {
 			});
 	}, []);
 
+	const trimText = (text, maxLength) => {
+		if (text.length <= maxLength) {
+			return text;
+		}
+		return text.substring(0, maxLength) + "...";
+	};
+
 	if (loading) {
-		return <p>Loading...</p>;
+		return (
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-4 w-full">
+				<div class="relative p-4 w-full bg-white  overflow-hidden shadow hover:shadow-md rounded-lg">
+					<div class="animate-pulse flex flex-col">
+						<div class="rounded w-full h-52 bg-gray-200"></div>
+						<div class="flex flex-col mt-5">
+							<div class="w-full h-5 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-10/12 h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-8/12 h-3 bg-gray-200 rounded"></div>
+						</div>
+
+						<div class="grid grid-cols-2 mt-5 gap-x-2 gap-y-1">
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+						</div>
+
+						<div class="flex items-center mt-5">
+							<div>
+								<div class="rounded-full bg-gray-200 w-10 h-10"></div>
+							</div>
+							<div class="flex justify-between w-full ml-3">
+								<div class="w-5/12 h-3 bg-gray-200 rounded"></div>
+								<div class="w-2/12 h-3 bg-gray-200 rounded"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="relative p-4 w-full bg-white  overflow-hidden shadow hover:shadow-md rounded-lg">
+					<div class="animate-pulse flex flex-col">
+						<div class="rounded w-full h-52 bg-gray-200"></div>
+						<div class="flex flex-col mt-5">
+							<div class="w-full h-5 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-10/12 h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-8/12 h-3 bg-gray-200 rounded"></div>
+						</div>
+
+						<div class="grid grid-cols-2 mt-5 gap-x-2 gap-y-1">
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+						</div>
+
+						<div class="flex items-center mt-5">
+							<div>
+								<div class="rounded-full bg-gray-200 w-10 h-10"></div>
+							</div>
+							<div class="flex justify-between w-full ml-3">
+								<div class="w-5/12 h-3 bg-gray-200 rounded"></div>
+								<div class="w-2/12 h-3 bg-gray-200 rounded"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="relative p-4 w-full bg-white rounded-lg overflow-hidden shadow hover:shadow-md ">
+					<div class="animate-pulse flex flex-col">
+						<div class="rounded w-full h-52 bg-gray-200"></div>
+						<div class="flex flex-col mt-5">
+							<div class="w-full h-5 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-10/12 h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-8/12 h-3 bg-gray-200 rounded"></div>
+						</div>
+
+						<div class="grid grid-cols-2 mt-5 gap-x-2 gap-y-1">
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+						</div>
+
+						<div class="flex items-center mt-5">
+							<div>
+								<div class="rounded-full bg-gray-200 w-10 h-10"></div>
+							</div>
+							<div class="flex justify-between w-full ml-3">
+								<div class="w-5/12 h-3 bg-gray-200 rounded"></div>
+								<div class="w-2/12 h-3 bg-gray-200 rounded"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="relative p-4 w-full bg-white overflow-hidden shadow hover:shadow-md rounded-lg">
+					<div class="animate-pulse flex flex-col">
+						<div class="rounded w-full h-52 bg-gray-200"></div>
+						<div class="flex flex-col mt-5">
+							<div class="w-full h-5 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-10/12 h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-8/12 h-3 bg-gray-200 rounded"></div>
+						</div>
+
+						<div class="grid grid-cols-2 mt-5 gap-x-2 gap-y-1">
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+						</div>
+
+						<div class="flex items-center mt-5">
+							<div>
+								<div class="rounded-full bg-gray-200 w-10 h-10"></div>
+							</div>
+							<div class="flex justify-between w-full ml-3">
+								<div class="w-5/12 h-3 bg-gray-200 rounded"></div>
+								<div class="w-2/12 h-3 bg-gray-200 rounded"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		);
 	}
 
 	if (error) {
-		return (
-			// <p>Error: {error}</p>
-			<div>
-				<section className="text-gray-600 body-font">
-					<div className="container px-5 py-14 mx-auto">
-						<div className="flex justify-center flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 xl:px-10 ">
-							<Link
-								href={"/service1"}
-								className=" p-6 md:w-1/2 lg:w-1/2 xl:w-1/2 sm:mb-0 mb-6"
-							>
-								<div className="rounded-lg overflow-hidden">
-									<img
-										alt="content"
-										className="object-cover object-right h-full w-full"
-										src="https://financesonline.com/uploads/2019/10/business-analytics-head-image.png"
-									/>
-								</div>
-								<h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-									Business Analytics Course
-								</h2>
-								<div className="w-[60px] rounded-xl bg-[#18ba60] h-[5px]"></div>
-
-								<p className="text-base leading-relaxed mt-2">
-									In this course, we provide comprehensive training on business
-									analytics to help organizations optimize operations, enhance
-									decision-making, and drive growth. You will learn how to
-									leverage data-driven insights, analyze performance metrics,
-									apply predictive modeling, and optimize processes, all aimed
-									at helping businesses achieve their goals and scale
-									effectively. Key Learning Objectives: (1)Understanding the
-									fundamentals of business analytics (2) Mastering data collection
-									and analysis techniques (3) Applying predictive models to solve
-									real-world business problems (4) Optimizing business processes
-									based on analytical insights (5) Enhancing decision-making through
-									performance metrics
-								</p>
-								<div className="text-indigo-500 inline-flex items-center mt-3">
-									Learn More
-									<svg
-										fill="none"
-										stroke="currentColor"
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth="2"
-										className="w-4 h-4 ml-2"
-										viewBox="0 0 24 24"
-									>
-										<path d="M5 12h14M12 5l7 7-7 7"></path>
-									</svg>
-								</div>
-							</Link>
-							{/* <Link
-								href={"/service2"}
-								className="p-6 md:w-1/2 lg:w-1/3 xl:w-1/4 sm:mb-0 mb-6"
-							>
-								<div className="rounded-lg h-48 overflow-hidden">
-									<img
-										alt="content"
-										className="object-cover object-center h-full w-full"
-										src="https://5.imimg.com/data5/SELLER/Default/2022/3/MK/RS/ZZ/3072116/investment-consulatncy-service-1--500x500.jpg"
-									/>
-								</div>
-								<h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-									Investment Consultancy
-								</h2>
-								<div className="w-[60px] rounded-xl bg-[#18ba60] h-[5px]"></div>
-								<p className="text-base leading-relaxed mt-2">
-									Professional advice on managing your investment portfolio,
-									helping you make informed decisions to maximize returns and
-									meet financial objectives.
-								</p>
-								<div className="text-indigo-500 inline-flex items-center mt-3">
-									Learn More
-									<svg
-										fill="none"
-										stroke="currentColor"
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth="2"
-										className="w-4 h-4 ml-2"
-										viewBox="0 0 24 24"
-									>
-										<path d="M5 12h14M12 5l7 7-7 7"></path>
-									</svg>
-								</div>
-							</Link>
-
-							<Link
-								href={"/service3"}
-								className="p-6 md:w-1/2 lg:w-1/3 xl:w-1/4 sm:mb-0 mb-6"
-							>
-								<div className="rounded-lg h-48 overflow-hidden">
-									<img
-										alt="content"
-										className="object-cover object-center h-full w-full"
-										src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReuUNDPCWxFcNBQD7-0y4qehkMGr2tSWpfuA&s"
-									/>
-								</div>
-								<h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-									Accounting Services
-								</h2>
-								<div className="w-[60px] rounded-xl bg-[#18ba60] h-[5px]"></div>
-								<p className="text-base leading-relaxed mt-2">
-									Offering accounting services to maintain accurate financial
-									records and ensure regulatory compliance.
-								</p>
-								<div className="text-indigo-500 inline-flex items-center mt-3">
-									Learn More
-									<svg
-										fill="none"
-										stroke="currentColor"
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth="2"
-										className="w-4 h-4 ml-2"
-										viewBox="0 0 24 24"
-									>
-										<path d="M5 12h14M12 5l7 7-7 7"></path>
-									</svg>
-								</div>
-							</Link> */}
-
-							{/* <Link
-								href={"/service4"}
-								className="p-6 md:w-1/2 lg:w-1/3 xl:w-1/4 sm:mb-0 mb-6"
-							>
-								<div className="rounded-lg h-48 overflow-hidden">
-									<img
-										alt="content"
-										className="object-cover object-center h-full w-full"
-										src="https://dummyimage.com/1203x503"
-									/>
-								</div>
-								<h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-									GST Compliances
-								</h2>
-								<div className="w-[60px] rounded-xl bg-[#18ba60] h-[5px]"></div>
-								<p className="text-base leading-relaxed mt-2">
-									Comprehensive GST management services, from registration to
-									timely filing, ensuring compliance with GST laws and
-									minimizing tax liabilities.
-								</p>
-								<div className="text-indigo-500 inline-flex items-center mt-3">
-									Learn More
-									<svg
-										fill="none"
-										stroke="currentColor"
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth="2"
-										className="w-4 h-4 ml-2"
-										viewBox="0 0 24 24"
-									>
-										<path d="M5 12h14M12 5l7 7-7 7"></path>
-									</svg>
-								</div>
-							</Link> */}
-
-							{/* <Link
-								href={"/service"}
-								className="p-6 md:w-1/2 lg:w-1/3 xl:w-1/4 sm:mb-0 mb-6"
-							>
-								<div className="rounded-lg h-48 overflow-hidden">
-									<img
-										alt="content"
-										className="object-cover object-center h-full w-full"
-										src="https://dummyimage.com/1203x503"
-									/>
-								</div>
-								<h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-									Legal Advice
-								</h2>
-								<div className="w-[60px] rounded-xl bg-[#18ba60] h-[5px]"></div>
-								<p className="text-base leading-relaxed mt-2">
-									Expert legal consultation on various business-related issues
-									to help you navigate legal challenges and ensure full
-									compliance.
-								</p>
-								<div className="text-indigo-500 inline-flex items-center mt-3">
-									Learn More
-									<svg
-										fill="none"
-										stroke="currentColor"
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth="2"
-										className="w-4 h-4 ml-2"
-										viewBox="0 0 24 24"
-									>
-										<path d="M5 12h14M12 5l7 7-7 7"></path>
-									</svg>
-								</div>
-							</Link>
-
-							<Link
-								href={"/service"}
-								className="p-6 md:w-1/2 lg:w-1/3 xl:w-1/4 sm:mb-0 mb-6"
-							>
-								<div className="rounded-lg h-48 overflow-hidden">
-									<img
-										alt="content"
-										className="object-cover object-center h-full w-full"
-										src="https://dummyimage.com/1203x503"
-									/>
-								</div>
-								<h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-									Labour Law Compliances
-								</h2>
-								<div className="w-[60px] rounded-xl bg-[#18ba60] h-[5px]"></div>
-								<p className="text-base leading-relaxed mt-2">
-									Ensuring your business complies with all labor laws, including
-									employee rights, wages, and workplace regulations, to avoid
-									legal penalties.
-								</p>
-								<div className="text-indigo-500 inline-flex items-center mt-3">
-									Learn More
-									<svg
-										fill="none"
-										stroke="currentColor"
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth="2"
-										className="w-4 h-4 ml-2"
-										viewBox="0 0 24 24"
-									>
-										<path d="M5 12h14M12 5l7 7-7 7"></path>
-									</svg>
-								</div>
-							</Link>
-
-							<Link
-								href={"/service"}
-								className="p-6 md:w-1/2 lg:w-1/3 xl:w-1/4 sm:mb-0 mb-6"
-							>
-								<div className="rounded-lg h-48 overflow-hidden">
-									<img
-										alt="content"
-										className="object-cover object-center h-full w-full"
-										src="https://dummyimage.com/1203x503"
-									/>
-								</div>
-								<h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-									GST Compliances
-								</h2>
-								<div className="w-[60px] rounded-xl bg-[#18ba60] h-[5px]"></div>
-								<p className="text-base leading-relaxed mt-2">
-									Comprehensive GST management services, from registration to
-									timely filing, ensuring compliance with GST laws and
-									minimizing tax liabilities.
-								</p>
-								<div className="text-indigo-500 inline-flex items-center mt-3">
-									Learn More
-									<svg
-										fill="none"
-										stroke="currentColor"
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth="2"
-										className="w-4 h-4 ml-2"
-										viewBox="0 0 24 24"
-									>
-										<path d="M5 12h14M12 5l7 7-7 7"></path>
-									</svg>
-								</div>
-							</Link>
-
-							<Link
-								href={"/service"}
-								className="p-6 md:w-1/2 lg:w-1/3 xl:w-1/4 sm:mb-0 mb-6"
-							>
-								<div className="rounded-lg h-48 overflow-hidden">
-									<img
-										alt="content"
-										className="object-cover object-center h-full w-full"
-										src="https://dummyimage.com/1203x503"
-									/>
-								</div>
-								<h2 className="text-xl font-medium title-font text-gray-900 mt-5">
-									ROC Compliances
-								</h2>
-								<div className="w-[60px] rounded-xl bg-[#18ba60] h-[5px]"></div>
-								<p className="text-base leading-relaxed mt-2">
-									Helping your business stay compliant with ROC by filing
-									essential forms, maintaining records, and ensuring corporate
-									law adherence.
-								</p>
-								<div className="text-indigo-500 inline-flex items-center mt-3">
-									Learn More
-									<svg
-										fill="none"
-										stroke="currentColor"
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth="2"
-										className="w-4 h-4 ml-2"
-										viewBox="0 0 24 24"
-									>
-										<path d="M5 12h14M12 5l7 7-7 7"></path>
-									</svg>
-								</div>
-							</Link> */}
-						</div>
-					</div>
-				</section>
-			</div>
-		);
+		return <p>Error: {error}</p>;
 	}
 
 	// Base URL for your local server
 
 	return (
 		<div>
-			<section className="text-gray-600 body-font ">
+			<section className="text-gray-600 body-font min-h-[700px]">
 				<div className="container px-5 py-14 mx-auto">
 					<div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 xl:px-10">
 						{data.map((service, index) => (
@@ -368,7 +184,7 @@ const Services = () => {
 								</h2>
 								<div className="w-[60px] rounded-xl bg-[#18ba60] h-[5px]"></div>
 								<p className="text-base leading-relaxed mt-2">
-									{service.short_description}
+									{trimText(service.short_description, 100)}
 								</p>
 								<div className="text-indigo-500 inline-flex items-center mt-3">
 									Learn More

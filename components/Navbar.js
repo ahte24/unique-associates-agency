@@ -30,9 +30,6 @@ const fetchUserProfile = async () => {
 	if (!response.ok) {
 		Cookies.remove("accessToken");
 		Cookies.remove("refreshToken");
-
-		// Redirect to the login page
-		// window.location.href = "/login"; // Adjust the path according to your routing setup
 		throw new Error(`Error: ${response.status}`);
 	}
 
@@ -77,14 +74,7 @@ const Navbar = () => {
 		};
 
 		loadUserProfile();
-
-		// Check access token every 1 second
-		const intervalId = setInterval(() => {
-			checkAccessToken();
-		}, 1000);
-
-		// Cleanup interval on component unmount
-		return () => clearInterval(intervalId);
+		checkAccessToken();
 	}, []);
 
 	const handleSignOut = () => {
@@ -118,7 +108,7 @@ const Navbar = () => {
 							</Link>
 						</div>
 
-						{/* <div className="relative inline-block text-left z-50">
+						<div className="relative inline-block text-left z-50">
 							{hasAccessToken ? (
 								<>
 									<button
@@ -154,7 +144,7 @@ const Navbar = () => {
 											className="z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-44 top-7 "
 										>
 											<ul
-												className="py-2 text-sm text-gray-700 dark:text-gray-200 space-y-2"
+												className="py-2 text-sm text-gray-700  space-y-2"
 												aria-labelledby="dropdownDefaultButton"
 											>
 												<li>
@@ -176,7 +166,7 @@ const Navbar = () => {
 												</li>
 												<button
 													onClick={handleSignOut}
-													className="bg-red-500 w-fit ml-3 text-left px-2 py-1 rounded-lg text-white hover:bg-red-800"
+													className="bg-red-500 w-[150px] ml-3 text-left px-2 py-1 rounded-lg text-white hover:bg-red-800"
 												>
 													Sign out
 												</button>
@@ -194,7 +184,7 @@ const Navbar = () => {
 									</Link>
 								</>
 							)}
-						</div> */}
+						</div>
 					</div>
 				</div>
 				<div className="h-20 flex items-center relative w-full bg-[#e1e5ec] z-30">
@@ -219,12 +209,12 @@ const Navbar = () => {
 
 								<Dropdown />
 
-								{/* <Link
+								<Link
 									href={"/about"}
 									className="rounded-lg font-medium py-2 px-4 transition-all hover:bg-gray-300 text-sm"
 								>
-									About
-								</Link> */}
+									About Us
+								</Link>
 								<Link
 									href={"/contactUs"}
 									className="rounded-lg font-medium py-2 px-4 transition-all hover:bg-gray-300 text-sm"
@@ -289,14 +279,14 @@ const Navbar = () => {
 								Services
 							</Link>
 
-							{/* <Link
+							<Link
 								onClick={toggleVisibility}
 								href="/about"
 								scroll={false}
 								className="rounded-lg font-medium py-2 px-4 transition-all hover:bg-gray-300 text-sm"
 							>
 								About Us
-							</Link> */}
+							</Link>
 
 							<Link
 								onClick={toggleVisibility}
@@ -306,7 +296,7 @@ const Navbar = () => {
 							>
 								Contact Us
 							</Link>
-							{/* {hasAccessToken ? (
+							{hasAccessToken ? (
 								<>
 									<button
 										id="dropdownDefaultButton"
@@ -382,7 +372,7 @@ const Navbar = () => {
 										Login or Signup
 									</Link>
 								</>
-							)} */}
+							)}
 						</ul>
 					</div>
 				</div>

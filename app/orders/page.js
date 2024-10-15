@@ -58,27 +58,27 @@ export default function ServicesPage() {
 
 	return (
 		<>
-			<section className="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
+			<section className="bg-white py-8 antialiased  md:py-16">
 				<div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
 					<div className="mx-auto max-w-5xl">
 						<div className="gap-4 sm:flex sm:items-center sm:justify-between">
-							<h2 className="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
-								All Orders
+							<h2 className="text-xl font-semibold text-gray-900  sm:text-2xl">
+								My Orders
 							</h2>
 						</div>
 
 						<div className="mt-6 flow-root sm:mt-8">
-							<div className=" divide-gray-200 dark:divide-gray-700 ">
+							<div className=" divide-gray-200  ">
 								{orders.map((order) => (
 									<div
 										key={order.id}
 										className="flex flex-wrap items-center gap-y-4 py-6 border mt-4 rounded-xl p-4"
 									>
 										<dl className="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
-											<dt className="text-base font-medium text-gray-500 dark:text-gray-400">
+											<dt className="text-base font-medium text-gray-500 ">
 												Order Id :
 											</dt>
-											<dd className="mt-1.5 text-base font-semibold text-gray-900 dark:text-white">
+											<dd className="mt-1.5 text-base font-semibold text-gray-900 ">
 												<a
 													href={`orders/${order.id}`}
 													className="hover:underline"
@@ -90,10 +90,10 @@ export default function ServicesPage() {
 										</dl>
 
 										<dl className="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
-											<dt className="text-base font-medium text-gray-500 dark:text-gray-400">
+											<dt className="text-base font-medium text-gray-500 ">
 												Date:
 											</dt>
-											<dd className="mt-1.5 text-sm font-semibold text-gray-900 dark:text-white ">
+											<dd className="mt-1.5 text-sm font-semibold text-gray-900  ">
 												{new Date(order.order_date).toLocaleString("en-US", {
 													year: "numeric",
 													month: "long",
@@ -107,39 +107,39 @@ export default function ServicesPage() {
 										</dl>
 
 										<dl className="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
-											<dt className="text-base font-medium text-gray-500 dark:text-gray-400">
+											<dt className="text-base font-medium text-gray-500 ">
 												Price:
 											</dt>
-											<dd className="mt-1.5 text-base font-semibold text-gray-900 dark:text-white">
+											<dd className="mt-1.5 text-base font-semibold text-gray-900 ">
 												₹{order.service.price}
 											</dd>
 										</dl>
 
 										<dl className="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
-											<dt className="text-base font-medium text-gray-500 dark:text-gray-400">
+											<dt className="text-base font-medium text-gray-500 ">
 												Status:
 											</dt>
 											<dd
 												className={`me-2 mt-1.5 inline-flex items-center rounded px-2.5 py-0.5 text-xs font-medium ${
 													order.order_status === "pending"
-														? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300"
+														? "bg-yellow-100 text-yellow-800 "
 														: order.order_status === "payment done"
-														? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
+														? "bg-green-100 text-green-800 "
 														: order.order_status === "order delivered"
-														? "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300"
+														? "bg-blue-100 text-blue-800 "
 														: order.order_status === "document uploaded"
-														? "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300"
-														: "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300"
+														? "bg-purple-100 text-purple-800 "
+														: "bg-gray-100 text-gray-800 "
 												}`}
 											>
 												{order.order_status}
 											</dd>
 										</dl>
 										<dl className="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
-											<dt className="text-base font-medium text-gray-500 dark:text-gray-400">
+											<dt className="text-base font-medium text-gray-500">
 												Name :
 											</dt>
-											<dd className="mt-1.5 text-base font-semibold text-gray-900 dark:text-white">
+											<dd className="mt-1.5 text-base font-semibold text-gray-900 ">
 												<a
 													href={`orders/${order.id}`}
 													className="hover:underline"
@@ -153,7 +153,7 @@ export default function ServicesPage() {
 										<div className="grid sm:grid-cols-2 lg:flex lg:w-fit lg:items-center lg:justify-end gap-4">
 											<a
 												href={`orders/${order.id}`}
-												className="w-full inline-flex justify-center rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700 lg:w-auto"
+												className="w-full inline-flex justify-center rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100   lg:w-auto"
 											>
 												View details
 											</a>

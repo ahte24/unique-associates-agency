@@ -14,6 +14,7 @@ import endpoint from "@/utills/endpoint";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import CryptoJS from "crypto-js";
 
 const Page = ({ params }) => {
 	const router = useRouter();
@@ -36,38 +37,7 @@ const Page = ({ params }) => {
 				setLoading(false);
 			}
 		};
-
 		const order_id = Cookies.get("order_id"); // Fetch the order_id from the cookie
-
-		const verifyPayment = async (order_id) => {
-			try {
-				const response = await axios.post(
-					`${endpoint}order/payment/${order_id}/`,
-					{},
-					{
-						headers: {
-							Authorization: `Bearer ${token}`,
-						},
-					}
-				);
-
-				if (
-					response.data.success === true &&
-					response.data.code === "PAYMENT_INITIATED"
-				) {
-					setIsPaymentSuccessful(true);
-
-					// Redirect the user to the payment page
-				} else {
-					throw new Error(response.data.message || "Payment failed");
-				}
-			} catch (error) {
-				setIsPaymentSuccessful(false);
-				console.error("Payment verification failed:", error.message);
-			}
-		};
-
-		verifyPayment(order_id);
 		fetchData();
 	}, [id]);
 
@@ -88,10 +58,16 @@ const Page = ({ params }) => {
 
 	const handlePayment = async (e) => {
 		try {
-			// Create the order first
+			const userProfile = await axios.get(`${endpoint}user/profile/`, {
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			});
+			console.log("hello", userProfile.data.user.email);
+			// Step 1: Create the order and get order_id
 			const orderResponse = await axios.post(
 				`${endpoint}order/create_order/`,
-				{ service_id: id }, // Assuming 'id' is the service ID
+				{ service_id: id }, // 'id' is your service ID
 				{
 					headers: {
 						Authorization: `Bearer ${token}`,
@@ -101,52 +77,114 @@ const Page = ({ params }) => {
 
 			// Extract the generated order_id from the response
 			const { order_id } = orderResponse.data;
-			Cookies.set("order_id", order_id, { expires: 1 / 144 });
+			console.log(order_id);
+			Cookies.set("order_id", order_id, { expires: 1 });
 
-			// Get the current page URL to store as the previousUrl
-			const previousUrl = window.location.href;
+			// Step 2: Prepare payment parameters
+			const merchantKey = "BrmYrE"; // Replace with your actual merchant key
+			const merchantSalt = "zO2kz8ThUDbekRFBX0SZYzHuomUMeHKj"; // Replace with your actual merchant salt
 
-			// Send the payment request, passing the previous URL along with it
-			const paymentResponse = await axios.post(
-				`${endpoint}order/payment/${order_id}/`,
-				{ previousUrl }, // Send previousUrl in the request body
-				{
-					headers: {
-						Authorization: `Bearer ${token}`,
-						"Content-Type": "application/json", // Ensure the content type is correct
-					},
+			// Generate a unique transaction ID
+			const txnid = order_id; // Using order_id as txnid
+
+			// Payment parameters
+			const amount = `${serviceData.price}`; // Replace with the actual amount
+			const productinfo = `${serviceData.name}`; // Replace with actual product info
+			const firstname = `${userProfile.data.user.first_name}`; // Replace with actual first name
+			const email = `${userProfile.data.user.email}`; // Replace with actual email
+			const phone = `${userProfile.data.phone_number}`; // Replace with actual phone number
+
+			// Success and failure URLs (adjust according to your routes)
+			const surl = `${endpoint}order/verify/`; // Success URL
+			const furl = `${endpoint}order/verify/`; // Failure URL
+
+			// User-defined fields (optional)
+			const udf1 = `${serviceData.id}`;
+			const udf2 = `${window.location.href}`;
+			const udf3 = "";
+			const udf4 = "";
+			const udf5 = "";
+
+			// Step 3: Generate the hash (Not secure on frontend)
+			const hashString =
+				merchantKey +
+				"|" +
+				txnid +
+				"|" +
+				amount +
+				"|" +
+				productinfo +
+				"|" +
+				firstname +
+				"|" +
+				email +
+				"|" +
+				udf1 +
+				"|" +
+				udf2 +
+				"|" +
+				udf3 +
+				"|" +
+				udf4 +
+				"|" +
+				udf5 +
+				"||||||" +
+				merchantSalt;
+
+			const hash = CryptoJS.SHA512(hashString).toString();
+			Cookies.set("hash", hash, { expires: 1 });
+
+			// Step 4: Prepare form data
+			const payuParams = {
+				key: merchantKey,
+				txnid: txnid,
+				amount: amount,
+				productinfo: productinfo,
+				firstname: firstname,
+				email: email,
+				phone: phone,
+				surl: surl,
+				furl: furl,
+				hash: hash,
+				udf1: udf1,
+				udf2: udf2,
+				udf3: udf3,
+				udf4: udf4,
+				udf5: udf5,
+				service_provider: "payu_paisa", // For PayU Paisa
+			};
+
+			// PayU payment gateway URL (use sandbox for testing)
+			const payuURL = "https://secure.payu.in/_payment"; // Sandbox URL
+			// For production, use: 'https://secure.payu.in/_payment'
+			console.log(hash);
+			console.log(payuParams);
+			// Step 5: Create and submit the payment form
+			const form = document.createElement("form");
+			form.method = "POST";
+			form.action = payuURL;
+
+			for (const key in payuParams) {
+				if (payuParams.hasOwnProperty(key)) {
+					const input = document.createElement("input");
+					input.type = "hidden";
+					input.name = key;
+					input.value = payuParams[key];
+					form.appendChild(input);
 				}
-			);
-
-			// Log the payment response for debugging purposes
-			console.log("Payment Response:", paymentResponse.data);
-
-			// Check if the payment was successfully initiated and contains a redirect URL
-			if (paymentResponse.data && paymentResponse.data.success) {
-				const redirectUrl =
-					paymentResponse.data.data.instrumentResponse.redirectInfo.url;
-
-				if (redirectUrl) {
-					console.log("Redirecting to:", redirectUrl);
-					// Redirect the user to the payment gateway or success page
-					window.location.href = redirectUrl;
-				} else {
-					console.error("Redirect URL not found in the response.");
-				}
-			} else {
-				// Log an error if the payment initiation fails
-				console.error(
-					"Payment initiation failed:",
-					paymentResponse.data.message
-				);
 			}
+
+			document.body.appendChild(form);
+			form.submit();
+			console.log(form.data);
 		} catch (error) {
-			// In case of error, redirect the user to the login page or handle it accordingly
-			alert("Login to proceed");
-			router.push("/login");
+			// Handle errors
 			console.error(
 				"Error processing payment:",
 				error.response ? error.response.data : error.message
+			);
+			alert(
+				"An error occurred while processing your payment. Please try again."
 			);
 		}
 	};
@@ -157,7 +195,122 @@ const Page = ({ params }) => {
 		// Handle form submission logic (e.g., send the data to an API)
 		console.log("Form data submitted:", formData);
 	};
-	if (loading) return <p>Loading...</p>;
+	if (loading)
+		return (
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-4 w-full">
+				<div class="relative p-4 w-full bg-white  overflow-hidden shadow hover:shadow-md rounded-lg">
+					<div class="animate-pulse flex flex-col">
+						<div class="rounded w-full h-52 bg-gray-200"></div>
+						<div class="flex flex-col mt-5">
+							<div class="w-full h-5 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-10/12 h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-8/12 h-3 bg-gray-200 rounded"></div>
+						</div>
+
+						<div class="grid grid-cols-2 mt-5 gap-x-2 gap-y-1">
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+						</div>
+
+						<div class="flex items-center mt-5">
+							<div>
+								<div class="rounded-full bg-gray-200 w-10 h-10"></div>
+							</div>
+							<div class="flex justify-between w-full ml-3">
+								<div class="w-5/12 h-3 bg-gray-200 rounded"></div>
+								<div class="w-2/12 h-3 bg-gray-200 rounded"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="relative p-4 w-full bg-white  overflow-hidden shadow hover:shadow-md rounded-lg">
+					<div class="animate-pulse flex flex-col">
+						<div class="rounded w-full h-52 bg-gray-200"></div>
+						<div class="flex flex-col mt-5">
+							<div class="w-full h-5 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-10/12 h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-8/12 h-3 bg-gray-200 rounded"></div>
+						</div>
+
+						<div class="grid grid-cols-2 mt-5 gap-x-2 gap-y-1">
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+						</div>
+
+						<div class="flex items-center mt-5">
+							<div>
+								<div class="rounded-full bg-gray-200 w-10 h-10"></div>
+							</div>
+							<div class="flex justify-between w-full ml-3">
+								<div class="w-5/12 h-3 bg-gray-200 rounded"></div>
+								<div class="w-2/12 h-3 bg-gray-200 rounded"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="relative p-4 w-full bg-white rounded-lg overflow-hidden shadow hover:shadow-md ">
+					<div class="animate-pulse flex flex-col">
+						<div class="rounded w-full h-52 bg-gray-200"></div>
+						<div class="flex flex-col mt-5">
+							<div class="w-full h-5 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-10/12 h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-8/12 h-3 bg-gray-200 rounded"></div>
+						</div>
+
+						<div class="grid grid-cols-2 mt-5 gap-x-2 gap-y-1">
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+						</div>
+
+						<div class="flex items-center mt-5">
+							<div>
+								<div class="rounded-full bg-gray-200 w-10 h-10"></div>
+							</div>
+							<div class="flex justify-between w-full ml-3">
+								<div class="w-5/12 h-3 bg-gray-200 rounded"></div>
+								<div class="w-2/12 h-3 bg-gray-200 rounded"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="relative p-4 w-full bg-white  overflow-hidden shadow hover:shadow-md rounded-lg">
+					<div class="animate-pulse flex flex-col">
+						<div class="rounded w-full h-52 bg-gray-200"></div>
+						<div class="flex flex-col mt-5">
+							<div class="w-full h-5 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-10/12 h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-8/12 h-3 bg-gray-200 rounded"></div>
+						</div>
+
+						<div class="grid grid-cols-2 mt-5 gap-x-2 gap-y-1">
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+						</div>
+
+						<div class="flex items-center mt-5">
+							<div>
+								<div class="rounded-full bg-gray-200 w-10 h-10"></div>
+							</div>
+							<div class="flex justify-between w-full ml-3">
+								<div class="w-5/12 h-3 bg-gray-200 rounded"></div>
+								<div class="w-2/12 h-3 bg-gray-200 rounded"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		);
 	if (error) return <p>{error}</p>;
 
 	return (
@@ -285,7 +438,9 @@ const Page = ({ params }) => {
 							</div>
 							{!isPaymentSuccessful ? (
 								<button
-									onClick={handlePayment}
+									onClick={() => {
+										handlePayment();
+									}}
 									className="inline-flex justify-center py-3 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[#4f46e5] hover:bg-[#4338ca]"
 								>
 									Proceed to Pay

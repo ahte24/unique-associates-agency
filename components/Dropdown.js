@@ -90,7 +90,7 @@ const Dropdown = () => {
 			</button>
 			<div
 				// onMouseLeave={toggleDropdownClick}
-				className={`absolute w-[75vw] p-4 left-[-61vw] z-30 bg-[#f5f7fa] rounded-lg shadow-md shadow-gray-700 transition-opacity duration-300 ${
+				className={`absolute w-[75vw] p-4 left-[-62vw] z-30 bg-[#f5f7fa] rounded-lg shadow-md shadow-gray-700 transition-opacity duration-300 ${
 					isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
 				}`}
 			>

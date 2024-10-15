@@ -57,19 +57,19 @@ export default function Home() {
 						<div className="flex flex-col justify-center space-y-4 w-full lg:w-1/2">
 							<div className="space-y-8">
 								<h1 className="text-3xl font-semibold sm:text-4xl xl:text-5xl/none text-[#215585]">
-									{/* We take care of the details, so you can focus on your vision. */}
-									We focus on the data, so you can focus on your strategy
+									We take care of the details, so you can focus on your vision.
+									{/* We focus on the data, so you can focus on your strategy */}
 								</h1>
 								<p className="max-w-[600px] text-muted-foreground md:text-lg">
-									{/* At TaxClickIn, we provide expert business consultancy and
+									At TaxClickIn, we provide expert business consultancy and
 									documentation services designed to simplify your business
 									processes and drive growth. Our team delivers tailored
 									strategies and professional documentation, including business
 									plans, financial reports, and compliance documents, to meet
 									your specific needs. Whether you&apos;re optimizing operations
 									or planning for expansion, TaxClickIn is here to support your
-									success every step of the way. */}
-									At TaxClickIn, we offer specialized business analytics courses
+									success every step of the way.
+									{/* At TaxClickIn, we offer specialized business analytics courses
 									designed to empower you with data-driven insights to enhance
 									your decision-making processes. Our expert-led programs focus
 									on key areas such as data analysis, visualization, and
@@ -77,7 +77,7 @@ export default function Home() {
 									drive growth and optimize operations. Whether you&apos;re looking
 									to gain a competitive edge or make informed business
 									decisions, TaxClickIn is here to guide you through every step
-									of your analytics journey.
+									of your analytics journey. */}
 								</p>
 							</div>
 							{/* <div className="flex flex-col gap-2 min-[400px]:flex-row-[30%]">
@@ -125,7 +125,7 @@ export default function Home() {
 					<div className="min-w-[170px] h-[70px] bg-slate-400 rounded-lg"></div>
 				</div>
 			</div>
-			{/* <div className="About-us hidden md:block  h-[400px] bg-[#f3f4f6]">
+			<div className="About-us hidden md:block  h-[400px] bg-[#f3f4f6]">
 				<div className="w-full flex items-center h-full pl-16">
 					<div className="w-[60%] h-full">
 						<div className="flex flex-col justify-center h-full  gap-10 w-full mx-auto">
@@ -154,8 +154,8 @@ export default function Home() {
 						/>
 					</div>
 				</div>
-			</div> */}
-			{/* <div className="mt-16">
+			</div>
+			<div className="mt-16">
 				<div className="w-full flex flex-col items-center gap-1">
 					<h2 className="text-3xl font-bold">Top Services</h2>
 				</div>
@@ -208,8 +208,8 @@ export default function Home() {
 						More Services
 					</Link>
 				</div>
-			</div> */}
-			{/* <div className="mt-16">
+			</div>
+			<div className="mt-16">
 				<div className="w-full flex flex-col items-center gap-1">
 					<h2 className="text-3xl font-bold">Why Us?</h2>
 					<div className="w-[70px] rounded-xl bg-[#18ba60] h-[5px]"></div>
@@ -375,7 +375,7 @@ export default function Home() {
 						</button>
 					</div>
 				</section>
-			</div> */}
+			</div>
 		</>
 	);
 }
