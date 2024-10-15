@@ -18,7 +18,7 @@ export async function POST(req) {
 			to: process.env.EMAIL_FIRM,
 			subject: `New Enquiry from ${service} Form`,
 			html: `<div style="font-family: 'Sora', Arial, sans-serif; color: #333; max-width: 600px; margin: 40px auto; padding: 20px;">
-    <h2 style="color: #007ACC; text-align: center; margin-bottom: 20px;">New Contact Enquiry</h2>
+    <h2 style="color: #007ACC; text-align: center; margin-bottom: 20px;">New Enquiry</h2>
     <p style="text-align: center; margin-bottom: 30px;">A potential client has filled out the contact form. Here are their details:</p>
     <table style="width: 100%; border-collapse: collapse;">
         <tr>
