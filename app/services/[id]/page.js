@@ -58,6 +58,7 @@ const Page = ({ params }) => {
 			}));
 		}
 	}, [serviceData]);
+
 	const handleChange = (e) => {
 		setFormData({
 			...formData,
@@ -196,7 +197,7 @@ const Page = ({ params }) => {
 		e.preventDefault();
 
 		try {
-			const response = await fetch("/api/contact", {
+			const response = await fetch("/api/service", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
@@ -427,7 +428,6 @@ const Page = ({ params }) => {
 												id="email"
 												value={formData.email || ""}
 												onChange={handleChange}
-												required
 												className="mt-1 border p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
 											/>
 										</div>

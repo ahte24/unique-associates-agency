@@ -1,6 +1,81 @@
+"use client";
 import React from "react";
-
+import { useState } from "react";
 const Contact = () => {
+	const [formData, setFormData] = useState({
+		name: "",
+		email: "",
+		phone: "",
+		message: "",
+		service: "",
+	});
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		try {
+			const response = await fetch("/api/contactus", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(formData),
+			});
+
+			if (response.ok) {
+				console.log("done");
+				// toast.success("Inquiry Sent Successfully.", {
+				// 	position: "top-right",
+				// 	autoClose: 5000,
+				// 	hideProgressBar: false,
+				// 	closeOnClick: true,
+				// 	pauseOnHover: true,
+				// 	draggable: true,
+				// 	theme: "dark",
+				// 	transition: Bounce,
+				// });
+				setFormData({
+					name: "",
+					email: "",
+					phone: "",
+					services: "",
+					message: "",
+				});
+			} else {
+				const errorData = await response.json();
+				// toast.error("Something went wrong.", {
+				// 	position: "top-right",
+				// 	autoClose: 5000,
+				// 	hideProgressBar: false,
+				// 	closeOnClick: true,
+				// 	pauseOnHover: true,
+				// 	draggable: true,
+				// 	progress: undefined,
+				// 	theme: "dark",
+				// 	transition: Bounce,
+				// });
+			}
+		} catch (error) {
+			// toast.error(`Error: ${error.message}`, {
+			// 	position: "top-right",
+			// 	autoClose: 5000,
+			// 	hideProgressBar: false,
+			// 	closeOnClick: true,
+			// 	pauseOnHover: true,
+			// 	draggable: true,
+			// 	progress: undefined,
+			// 	theme: "dark",
+			// 	transition: Bounce,
+			// });
+			console.log(error);
+		}
+	};
+	const handleChange = (e) => {
+		setFormData({
+			...formData,
+			[e.target.name]: e.target.value,
+		});
+	};
+
 	return (
 		<div className="bg-gray-100">
 			<section>
@@ -12,7 +87,25 @@ const Contact = () => {
 						Got a technical issue? Want to send feedback about a beta feature?
 						Need details about our Business plan? Let us know.
 					</p>
-					<form action="#" className="space-y-8">
+					<form onSubmit={handleSubmit} className="space-y-8">
+						<div>
+							<label
+								htmlFor="email"
+								className="block mb-2 text-sm font-medium text-gray-900 "
+							>
+								Full Name
+							</label>
+							<input
+								name="name"
+								type="name"
+								id="name"
+								className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 :bg-gray-700 "
+								placeholder="John Doe"
+								required
+								value={formData.name || ""}
+								onChange={handleChange}
+							/>
+						</div>
 						<div>
 							<label
 								htmlFor="email"
@@ -22,10 +115,30 @@ const Contact = () => {
 							</label>
 							<input
 								type="email"
+								name="email"
 								id="email"
+								value={formData.email || ""}
+								onChange={handleChange}
 								className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 :bg-gray-700 "
 								placeholder="name@uniqueassociates.com"
+							/>
+						</div>
+						<div>
+							<label
+								htmlFor="email"
+								className="block mb-2 text-sm font-medium text-gray-900 "
+							>
+								Phone Number
+							</label>
+							<input
+								type="tel"
+								name="phone"
+								id="phone"
+								value={formData.phone || ""}
+								onChange={handleChange}
 								required
+								className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 :bg-gray-700 "
+								placeholder="+91 99999 99999"
 							/>
 						</div>
 						<div>
@@ -33,13 +146,16 @@ const Contact = () => {
 								htmlFor="subject"
 								className="block mb-2 text-sm font-medium text-gray-900 "
 							>
-								Subject
+								Service Name
 							</label>
 							<input
-								type="text"
-								id="subject"
 								className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 "
 								placeholder="Let us know how we can help you"
+								type="text"
+								name="service"
+								id="service"
+								value={formData.service || ""} // Service value from formData
+								onChange={handleChange}
 								required
 							/>
 						</div>
@@ -52,6 +168,10 @@ const Contact = () => {
 							</label>
 							<textarea
 								id="message"
+								name="message"
+								value={formData.message || ""}
+								onChange={handleChange}
+								required
 								rows="6"
 								className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 "
 								placeholder="Leave a comment..."
