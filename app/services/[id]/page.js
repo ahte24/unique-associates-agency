@@ -187,9 +187,8 @@ const Page = ({ params }) => {
 				"Error processing payment:",
 				error.response ? error.response.data : error.message
 			);
-			alert(
-				"An error occurred while processing your payment. Please try again."
-			);
+			alert("Please Login to Proceed.");
+			router.push("/login");
 		}
 	};
 
