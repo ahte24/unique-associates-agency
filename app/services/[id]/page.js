@@ -46,9 +46,18 @@ const Page = ({ params }) => {
 		email: "",
 		phone: "",
 		message: "",
-		service: "Trademark Registration",
+		service: "",
 	});
 
+	// Assuming serviceData is fetched asynchronously, useEffect to set the service name
+	useEffect(() => {
+		if (serviceData && serviceData.name) {
+			setFormData((prevFormData) => ({
+				...prevFormData,
+				service: serviceData.name || "", // Ensure service is never undefined
+			}));
+		}
+	}, [serviceData]);
 	const handleChange = (e) => {
 		setFormData({
 			...formData,
@@ -63,7 +72,6 @@ const Page = ({ params }) => {
 					Authorization: `Bearer ${token}`,
 				},
 			});
-			console.log("hello", userProfile.data.user.email);
 			// Step 1: Create the order and get order_id
 			const orderResponse = await axios.post(
 				`${endpoint}order/create_order/`,
@@ -77,7 +85,6 @@ const Page = ({ params }) => {
 
 			// Extract the generated order_id from the response
 			const { order_id } = orderResponse.data;
-			console.log(order_id);
 			Cookies.set("order_id", order_id, { expires: 1 });
 
 			// Step 2: Prepare payment parameters
@@ -157,8 +164,6 @@ const Page = ({ params }) => {
 			// PayU payment gateway URL (use sandbox for testing)
 			const payuURL = "https://secure.payu.in/_payment"; // Sandbox URL
 			// For production, use: 'https://secure.payu.in/_payment'
-			console.log(hash);
-			console.log(payuParams);
 			// Step 5: Create and submit the payment form
 			const form = document.createElement("form");
 			form.method = "POST";
@@ -176,7 +181,6 @@ const Page = ({ params }) => {
 
 			document.body.appendChild(form);
 			form.submit();
-			console.log(form.data);
 		} catch (error) {
 			// Handle errors
 			console.error(
@@ -192,119 +196,173 @@ const Page = ({ params }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		// Handle form submission logic (e.g., send the data to an API)
-		console.log("Form data submitted:", formData);
+		try {
+			const response = await fetch("/api/contact", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(formData),
+			});
+
+			if (response.ok) {
+				console.log("done");
+				// toast.success("Inquiry Sent Successfully.", {
+				// 	position: "top-right",
+				// 	autoClose: 5000,
+				// 	hideProgressBar: false,
+				// 	closeOnClick: true,
+				// 	pauseOnHover: true,
+				// 	draggable: true,
+				// 	theme: "dark",
+				// 	transition: Bounce,
+				// });
+				setFormData({
+					name: "",
+					email: "",
+					phone: "",
+					services: "",
+					message: "",
+				});
+			} else {
+				const errorData = await response.json();
+				// toast.error("Something went wrong.", {
+				// 	position: "top-right",
+				// 	autoClose: 5000,
+				// 	hideProgressBar: false,
+				// 	closeOnClick: true,
+				// 	pauseOnHover: true,
+				// 	draggable: true,
+				// 	progress: undefined,
+				// 	theme: "dark",
+				// 	transition: Bounce,
+				// });
+			}
+		} catch (error) {
+			// toast.error(`Error: ${error.message}`, {
+			// 	position: "top-right",
+			// 	autoClose: 5000,
+			// 	hideProgressBar: false,
+			// 	closeOnClick: true,
+			// 	pauseOnHover: true,
+			// 	draggable: true,
+			// 	progress: undefined,
+			// 	theme: "dark",
+			// 	transition: Bounce,
+			// });
+			console.log(error);
+		}
 	};
 	if (loading)
 		return (
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-4 w-full">
-				<div class="relative p-4 w-full bg-white  overflow-hidden shadow hover:shadow-md rounded-lg">
-					<div class="animate-pulse flex flex-col">
-						<div class="rounded w-full h-52 bg-gray-200"></div>
-						<div class="flex flex-col mt-5">
-							<div class="w-full h-5 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-10/12 h-3 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-8/12 h-3 bg-gray-200 rounded"></div>
+			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-4 w-full">
+				<div className="relative p-4 w-full bg-white  overflow-hidden shadow hover:shadow-md rounded-lg">
+					<div className="animate-pulse flex flex-col">
+						<div className="rounded w-full h-52 bg-gray-200"></div>
+						<div className="flex flex-col mt-5">
+							<div className="w-full h-5 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-10/12 h-3 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-8/12 h-3 bg-gray-200 rounded"></div>
 						</div>
 
-						<div class="grid grid-cols-2 mt-5 gap-x-2 gap-y-1">
-							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+						<div className="grid grid-cols-2 mt-5 gap-x-2 gap-y-1">
+							<div className="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-full h-3 bg-gray-200 rounded"></div>
 						</div>
 
-						<div class="flex items-center mt-5">
+						<div className="flex items-center mt-5">
 							<div>
-								<div class="rounded-full bg-gray-200 w-10 h-10"></div>
+								<div className="rounded-full bg-gray-200 w-10 h-10"></div>
 							</div>
-							<div class="flex justify-between w-full ml-3">
-								<div class="w-5/12 h-3 bg-gray-200 rounded"></div>
-								<div class="w-2/12 h-3 bg-gray-200 rounded"></div>
+							<div className="flex justify-between w-full ml-3">
+								<div className="w-5/12 h-3 bg-gray-200 rounded"></div>
+								<div className="w-2/12 h-3 bg-gray-200 rounded"></div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="relative p-4 w-full bg-white  overflow-hidden shadow hover:shadow-md rounded-lg">
-					<div class="animate-pulse flex flex-col">
-						<div class="rounded w-full h-52 bg-gray-200"></div>
-						<div class="flex flex-col mt-5">
-							<div class="w-full h-5 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-10/12 h-3 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-8/12 h-3 bg-gray-200 rounded"></div>
+				<div className="relative p-4 w-full bg-white  overflow-hidden shadow hover:shadow-md rounded-lg">
+					<div className="animate-pulse flex flex-col">
+						<div className="rounded w-full h-52 bg-gray-200"></div>
+						<div className="flex flex-col mt-5">
+							<div className="w-full h-5 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-10/12 h-3 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-8/12 h-3 bg-gray-200 rounded"></div>
 						</div>
 
-						<div class="grid grid-cols-2 mt-5 gap-x-2 gap-y-1">
-							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+						<div className="grid grid-cols-2 mt-5 gap-x-2 gap-y-1">
+							<div className="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-full h-3 bg-gray-200 rounded"></div>
 						</div>
 
-						<div class="flex items-center mt-5">
+						<div className="flex items-center mt-5">
 							<div>
-								<div class="rounded-full bg-gray-200 w-10 h-10"></div>
+								<div className="rounded-full bg-gray-200 w-10 h-10"></div>
 							</div>
-							<div class="flex justify-between w-full ml-3">
-								<div class="w-5/12 h-3 bg-gray-200 rounded"></div>
-								<div class="w-2/12 h-3 bg-gray-200 rounded"></div>
+							<div className="flex justify-between w-full ml-3">
+								<div className="w-5/12 h-3 bg-gray-200 rounded"></div>
+								<div className="w-2/12 h-3 bg-gray-200 rounded"></div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="relative p-4 w-full bg-white rounded-lg overflow-hidden shadow hover:shadow-md ">
-					<div class="animate-pulse flex flex-col">
-						<div class="rounded w-full h-52 bg-gray-200"></div>
-						<div class="flex flex-col mt-5">
-							<div class="w-full h-5 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-10/12 h-3 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-8/12 h-3 bg-gray-200 rounded"></div>
+				<div className="relative p-4 w-full bg-white rounded-lg overflow-hidden shadow hover:shadow-md ">
+					<div className="animate-pulse flex flex-col">
+						<div className="rounded w-full h-52 bg-gray-200"></div>
+						<div className="flex flex-col mt-5">
+							<div className="w-full h-5 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-10/12 h-3 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-8/12 h-3 bg-gray-200 rounded"></div>
 						</div>
 
-						<div class="grid grid-cols-2 mt-5 gap-x-2 gap-y-1">
-							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+						<div className="grid grid-cols-2 mt-5 gap-x-2 gap-y-1">
+							<div className="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-full h-3 bg-gray-200 rounded"></div>
 						</div>
 
-						<div class="flex items-center mt-5">
+						<div className="flex items-center mt-5">
 							<div>
-								<div class="rounded-full bg-gray-200 w-10 h-10"></div>
+								<div className="rounded-full bg-gray-200 w-10 h-10"></div>
 							</div>
-							<div class="flex justify-between w-full ml-3">
-								<div class="w-5/12 h-3 bg-gray-200 rounded"></div>
-								<div class="w-2/12 h-3 bg-gray-200 rounded"></div>
+							<div className="flex justify-between w-full ml-3">
+								<div className="w-5/12 h-3 bg-gray-200 rounded"></div>
+								<div className="w-2/12 h-3 bg-gray-200 rounded"></div>
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="relative p-4 w-full bg-white  overflow-hidden shadow hover:shadow-md rounded-lg">
-					<div class="animate-pulse flex flex-col">
-						<div class="rounded w-full h-52 bg-gray-200"></div>
-						<div class="flex flex-col mt-5">
-							<div class="w-full h-5 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-10/12 h-3 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-8/12 h-3 bg-gray-200 rounded"></div>
+				<div className="relative p-4 w-full bg-white  overflow-hidden shadow hover:shadow-md rounded-lg">
+					<div className="animate-pulse flex flex-col">
+						<div className="rounded w-full h-52 bg-gray-200"></div>
+						<div className="flex flex-col mt-5">
+							<div className="w-full h-5 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-10/12 h-3 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-8/12 h-3 bg-gray-200 rounded"></div>
 						</div>
 
-						<div class="grid grid-cols-2 mt-5 gap-x-2 gap-y-1">
-							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
-							<div class="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+						<div className="grid grid-cols-2 mt-5 gap-x-2 gap-y-1">
+							<div className="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-full h-3 bg-gray-200 rounded"></div>
+							<div className="mt-2 w-full h-3 bg-gray-200 rounded"></div>
 						</div>
 
-						<div class="flex items-center mt-5">
+						<div className="flex items-center mt-5">
 							<div>
-								<div class="rounded-full bg-gray-200 w-10 h-10"></div>
+								<div className="rounded-full bg-gray-200 w-10 h-10"></div>
 							</div>
-							<div class="flex justify-between w-full ml-3">
-								<div class="w-5/12 h-3 bg-gray-200 rounded"></div>
-								<div class="w-2/12 h-3 bg-gray-200 rounded"></div>
+							<div className="flex justify-between w-full ml-3">
+								<div className="w-5/12 h-3 bg-gray-200 rounded"></div>
+								<div className="w-2/12 h-3 bg-gray-200 rounded"></div>
 							</div>
 						</div>
 					</div>
@@ -351,7 +409,7 @@ const Page = ({ params }) => {
 												type="text"
 												name="name"
 												id="name"
-												value={formData.name}
+												value={formData.name || ""}
 												onChange={handleChange}
 												required
 												className="mt-1 border p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -368,7 +426,7 @@ const Page = ({ params }) => {
 												type="email"
 												name="email"
 												id="email"
-												value={formData.email}
+												value={formData.email || ""}
 												onChange={handleChange}
 												required
 												className="mt-1 border p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
@@ -385,10 +443,27 @@ const Page = ({ params }) => {
 												type="tel"
 												name="phone"
 												id="phone"
-												value={formData.phone}
+												value={formData.phone || ""}
 												onChange={handleChange}
 												required
 												className="mt-1 border p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+											/>
+										</div>
+										<div className="hidden">
+											{/* Hidden input to store the service name */}
+											<label
+												htmlFor="service"
+												className="block text-sm font-medium text-gray-700"
+											>
+												Service
+											</label>
+											<input
+												type="hidden"
+												name="service"
+												id="service"
+												value={formData.service || ""} // Service value from formData
+												onChange={handleChange}
+												required
 											/>
 										</div>
 										<div>
@@ -401,7 +476,7 @@ const Page = ({ params }) => {
 											<textarea
 												name="message"
 												id="message"
-												value={formData.message}
+												value={formData.message || ""}
 												onChange={handleChange}
 												rows="4"
 												required
@@ -561,7 +636,7 @@ const Page = ({ params }) => {
 							</p>
 							<div className="mt-8 flex justify-center">
 								<a
-									href="/contact"
+									href="/contactUs"
 									className="bg-indigo-600 text-white py-3 px-6 rounded-lg shadow hover:bg-indigo-700"
 								>
 									Contact Us

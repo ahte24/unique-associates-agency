@@ -69,25 +69,17 @@ export default function Home() {
 									your specific needs. Whether you&apos;re optimizing operations
 									or planning for expansion, TaxClickIn is here to support your
 									success every step of the way.
-									{/* At TaxClickIn, we offer specialized business analytics courses
-									designed to empower you with data-driven insights to enhance
-									your decision-making processes. Our expert-led programs focus
-									on key areas such as data analysis, visualization, and
-									predictive modeling, equipping you with the skills needed to
-									drive growth and optimize operations. Whether you&apos;re looking
-									to gain a competitive edge or make informed business
-									decisions, TaxClickIn is here to guide you through every step
-									of your analytics journey. */}
+								
 								</p>
 							</div>
-							{/* <div className="flex flex-col gap-2 min-[400px]:flex-row-[30%]">
+							<div className="flex flex-col gap-2 min-[400px]:flex-row-[30%]">
 								<Link
 									href={""}
 									className="bg-[#215585] text-white w-fit px-4 py-2  rounded-lg hover:bg-[#3a6892]"
 								>
 									Book Free consultation
 								</Link>
-							</div> */}
+							</div>
 						</div>
 						<div className="flex items-center w-full lg:w-1/2">
 							<Image
