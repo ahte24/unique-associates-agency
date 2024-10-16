@@ -86,7 +86,7 @@ const ForgotPass = () => {
 		<section className="">
 			<div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-[550px] md:h-[800px] lg:py-0">
 				<div className="flex w-full justify-center">
-					<div className="md:w-1/2 container mx-auto p-6 bg-white rounded-lg shadow dark:border sm:max-w-md  sm:p-8">
+					<div className="md:w-1/2 container mx-auto p-6 bg-white rounded-lg shadow sm:max-w-md  sm:p-8">
 						<h2 className="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
 							Forgot Password
 						</h2>
@@ -100,7 +100,7 @@ const ForgotPass = () => {
 								<div>
 									<label
 										htmlFor="email"
-										className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+										className="block mb-2 text-sm font-medium text-gray-900 "
 									>
 										Your email
 									</label>
@@ -108,7 +108,7 @@ const ForgotPass = () => {
 										type="email"
 										name="email"
 										id="email"
-										className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+										className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
 										placeholder="name@company.com"
 										required
 										value={email}
@@ -119,7 +119,7 @@ const ForgotPass = () => {
 								{success && <p className="text-green-500">{success}</p>}
 								<button
 									type="submit"
-									className="w-full text-white bg-blue-500 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+									className="w-full text-white bg-blue-500 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
 								>
 									Send OTP
 								</button>
@@ -133,7 +133,7 @@ const ForgotPass = () => {
 								<div>
 									<label
 										htmlFor="otp"
-										className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+										className="block mb-2 text-sm font-medium text-gray-900 "
 									>
 										Otp:
 									</label>
@@ -142,7 +142,7 @@ const ForgotPass = () => {
 										name="otp"
 										id="otp"
 										placeholder="Enter OTP"
-										className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+										className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
 										required
 										value={otp}
 										onChange={(e) => setOtp(e.target.value)}
@@ -151,7 +151,7 @@ const ForgotPass = () => {
 								<div>
 									<label
 										htmlFor="password"
-										className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+										className="block mb-2 text-sm font-medium text-gray-900"
 									>
 										New Password
 									</label>
@@ -160,7 +160,7 @@ const ForgotPass = () => {
 										name="password"
 										id="password"
 										placeholder="New Password"
-										className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+										className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
 										required
 										value={newPassword}
 										onChange={(e) => setNewPassword(e.target.value)}
@@ -169,7 +169,7 @@ const ForgotPass = () => {
 								<div>
 									<label
 										htmlFor="confirm-password"
-										className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+										className="block mb-2 text-sm font-medium text-gray-900"
 									>
 										Confirm Password
 									</label>
@@ -178,7 +178,7 @@ const ForgotPass = () => {
 										name="confirm-password"
 										id="confirm-password"
 										placeholder="Confirm Password"
-										className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+										className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
 										required
 										value={confirmPassword}
 										onChange={(e) => setConfirmPassword(e.target.value)}
@@ -188,7 +188,7 @@ const ForgotPass = () => {
 								{success && <p className="text-green-500">{success}</p>}
 								<button
 									type="submit"
-									className="w-full text-white bg-blue-500 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+									className="w-full text-white bg-blue-500 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
 								>
 									Reset Password
 								</button>
