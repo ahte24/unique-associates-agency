@@ -71,6 +71,7 @@ const ForgotPass = () => {
 			setSuccess("Password reset successfully!");
 			setOtpSent(false); // Reset OTP sent status after successful password reset
 			console.log("Password reset successful:", response.data);
+			window.location.href = "/login";
 		} catch (error) {
 			setError(
 				"Failed to reset password. Please check your details and try again."
