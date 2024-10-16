@@ -198,7 +198,7 @@ const Navbar = () => {
 								MultiTaxIn
 							</span>
 						</Link>
-						<div className="min-w-[300px] h-full sm:flex justify-center hidden">
+						<div className="min-w-[300px] h-full md:flex justify-center hidden">
 							<ul className="flex gap-2 items-center">
 								<Link
 									href={"/"}

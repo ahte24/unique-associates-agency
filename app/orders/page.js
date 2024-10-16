@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -9,8 +8,9 @@ import endpoint from "@/utills/endpoint";
 
 export default function ServicesPage() {
 	const [orders, setOrders] = useState([]);
-	const [selectedStatus, setSelectedStatus] = useState(""); // State to track the selected order status
+	const [selectedStatus, setSelectedStatus] = useState("");
 	const router = useRouter();
+	const [paymentStatuses, setPaymentStatuses] = useState({}); // Object to track payment status for each order
 
 	useEffect(() => {
 		// Check login status
@@ -30,8 +30,20 @@ export default function ServicesPage() {
 						Authorization: `Bearer ${Cookies.get("accessToken")}`,
 					},
 				});
-				setOrders(response.data || []); // Set the results array or an empty array if undefined
-				console.log(response.data);
+				// Sort orders by date in descending order (latest first)
+				const sortedOrders = response.data.sort(
+					(a, b) => new Date(b.order_date) - new Date(a.order_date)
+				);
+
+				// Create a payment status object where key is order ID and value is whether payment is done
+				const paymentStatusMap = {};
+				sortedOrders.forEach((order) => {
+					paymentStatusMap[order.id] = order.order_status === "payment done";
+				});
+				setPaymentStatuses(paymentStatusMap); // Set payment statuses for each order
+				setOrders(sortedOrders || []); // Set sorted orders
+
+				console.log(sortedOrders);
 			} catch (error) {
 				console.error(
 					"Error:",
@@ -40,21 +52,7 @@ export default function ServicesPage() {
 			}
 		};
 		fetchOrders();
-	}, [selectedStatus, router]); // Re-fetch orders when selectedStatus or router changes
-
-	// const handleStatusChange = (e) => {
-	// 	setSelectedStatus(e.target.value); // Update selectedStatus when dropdown value changes
-	// };
-
-	// const handleEditService = (serviceId) => {
-	// 	router.push(`/services/edit/${serviceId}`); // Navigate to edit page
-	// };
-
-	// const handleLogout = () => {
-	// 	Cookies.remove("accessToken");
-	// 	Cookies.remove("refreshToken");
-	// 	router.push("/"); // Redirect to login page after logout
-	// };
+	}, [selectedStatus, router]);
 
 	return (
 		<>
@@ -84,7 +82,6 @@ export default function ServicesPage() {
 													className="hover:underline"
 												>
 													#{order.id.slice(0, 12)}...
-													{/* {order.service.id} */}
 												</a>
 											</dd>
 										</dl>
@@ -135,28 +132,24 @@ export default function ServicesPage() {
 												{order.order_status}
 											</dd>
 										</dl>
-										<dl className="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
-											<dt className="text-base font-medium text-gray-500">
-												Name :
-											</dt>
-											<dd className="mt-1.5 text-base font-semibold text-gray-900 ">
-												<a
-													href={`orders/${order.id}`}
-													className="hover:underline"
-												>
-													{/* #{order.id.slice(0, 12)}... */}
-													{order.service.name}
-												</a>
-											</dd>
-										</dl>
 
 										<div className="grid sm:grid-cols-2 lg:flex lg:w-fit lg:items-center lg:justify-end gap-4">
-											<a
-												href={`orders/${order.id}`}
-												className="w-full inline-flex justify-center rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100   lg:w-auto"
-											>
-												View details
-											</a>
+											{/* Check individual payment status for each order */}
+											{!paymentStatuses[order.id] ? (
+												<Link
+													href={`orders/${order.id}`}
+													className="w-full inline-flex justify-center rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100   lg:w-auto"
+												>
+													View details
+												</Link>
+											) : (
+												<Link
+													href={`/orders/form_fillup/${order.id}`}
+													className="w-full inline-flex justify-center rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100   lg:w-auto"
+												>
+													Fill the Form
+												</Link>
+											)}
 										</div>
 									</div>
 								))}

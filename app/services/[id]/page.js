@@ -25,7 +25,7 @@ const Page = ({ params }) => {
 	const [serviceData, setServiceData] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(false);
-	const [isPaymentSuccessful, setIsPaymentSuccessful] = useState(false); // New state variable
+
 	const token = Cookies.get("accessToken");
 
 	useEffect(() => {
@@ -40,7 +40,7 @@ const Page = ({ params }) => {
 				setLoading(false);
 			}
 		};
-		const order_id = Cookies.get("order_id"); // Fetch the order_id from the cookie
+		// const order_id = Cookies.get("order_id"); // Fetch the order_id from the cookie
 		fetchData();
 	}, [id]);
 
@@ -401,7 +401,7 @@ const Page = ({ params }) => {
 				</Head>
 				<main className="bg-gray-50 min-h-screen">
 					<div className="bg-indigo-600">
-						<div className="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8 lg:flex lg:items-center lg:justify-between">
+						<div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 lg:flex lg:items-center lg:justify-between">
 							<div className="max-w-2xl">
 								<h1 className="text-4xl font-extrabold text-white sm:text-5xl lg:text-6xl">
 									{serviceData.name}
@@ -515,7 +515,7 @@ const Page = ({ params }) => {
 						</div>
 					</div>
 
-					<div className="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:py-20 lg:px-8">
+					<div className="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:py-10 lg:px-8">
 						<div className="flex items-center justify-between">
 							<div>
 								<label
@@ -528,25 +528,14 @@ const Page = ({ params }) => {
 									₹ {serviceData.price || "Price not available"}
 								</p>
 							</div>
-							{!isPaymentSuccessful ? (
-								<button
-									onClick={() => {
-										handlePayment();
-									}}
-									className="inline-flex justify-center py-3 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[#4f46e5] hover:bg-[#4338ca]"
-								>
-									Proceed to Pay
-								</button>
-							) : (
-								<Link
-									href={
-										"/services/7f0993ca-a42c-4744-9396-2603a84bf2ea/form_fillup"
-									}
-									className="inline-flex justify-center py-3 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
-								>
-									Fill the Form
-								</Link>
-							)}
+							<button
+								onClick={() => {
+									handlePayment();
+								}}
+								className="inline-flex justify-center py-3 px-4 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-[#4f46e5] hover:bg-[#4338ca]"
+							>
+								Proceed to Pay
+							</button>
 						</div>
 						{serviceData.services_description.length > 0 && (
 							<div className="mt-12">
