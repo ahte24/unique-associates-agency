@@ -146,137 +146,144 @@ export default function Component({ params }) {
 									</h2>
 									{orderData.order_status === "pending" ? (
 										<p className="text-sm text-gray-500">
-											Payment was not Successfulpointe
+											Payment was not Successful
 										</p>
 									) : (
-										<div>
-											{orderData.order_docs.length > 0 ? (
-												<div className="space-y-4">
-													<div>
-														<label
-															htmlFor="name"
-															className="block text-sm font-medium text-gray-700"
-														>
-															Name
-														</label>
-														<span className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-															{orderData.order_docs[0].customer_name}
-														</span>
+										<>
+											<div>
+												{orderData.order_docs.length > 0 ? (
+													<div className="space-y-4">
+														<div>
+															<label
+																htmlFor="name"
+																className="block text-sm font-medium text-gray-700"
+															>
+																Name
+															</label>
+															<span className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+																{orderData.order_docs[0].customer_name}
+															</span>
+														</div>
+														<div>
+															<label
+																htmlFor="businessType"
+																className="block text-sm font-medium text-gray-700"
+															>
+																Business Type
+															</label>
+															<span className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+																{/* {orderData.order_docs[0].customer_name} */}
+																XYZ
+															</span>
+														</div>
+														<div>
+															<label
+																htmlFor="state"
+																className="block text-sm font-medium text-gray-700"
+															>
+																State
+															</label>
+															<span className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+																{orderData.order_docs[0].state}
+															</span>
+														</div>
+														<div>
+															<label
+																htmlFor="gstPan"
+																className="block text-sm font-medium text-gray-700"
+															>
+																GST/PAN
+															</label>
+															<span className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+																{orderData.order_docs[0].pan_gstin.toUpperCase()}
+															</span>
+														</div>
+														<div>
+															<label
+																htmlFor="pincode"
+																className="block text-sm font-medium text-gray-700"
+															>
+																Pincode
+															</label>
+															<span className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+																{orderData.order_docs[0].pincode}
+															</span>
+														</div>
 													</div>
-													<div>
-														<label
-															htmlFor="businessType"
-															className="block text-sm font-medium text-gray-700"
-														>
-															Business Type
-														</label>
-														<span className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-															{/* {orderData.order_docs[0].customer_name} */}
-															XYZ
-														</span>
-													</div>
-													<div>
-														<label
-															htmlFor="state"
-															className="block text-sm font-medium text-gray-700"
-														>
-															State
-														</label>
-														<span className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-															{orderData.order_docs[0].state}
-														</span>
-													</div>
-													<div>
-														<label
-															htmlFor="gstPan"
-															className="block text-sm font-medium text-gray-700"
-														>
-															GST/PAN
-														</label>
-														<span className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-															{orderData.order_docs[0].pan_gstin}
-														</span>
-													</div>
-													<div>
-														<label
-															htmlFor="pincode"
-															className="block text-sm font-medium text-gray-700"
-														>
-															Pincode
-														</label>
-														<span className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
-															{orderData.order_docs[0].pincode}
-														</span>
+												) : (
+													<Link
+														href={`/orders/form_fillup/${orderData.id}`}
+														className="w-full inline-flex justify-center rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100   l"
+													>
+														Fill the Form
+													</Link>
+												)}
+											</div>
+											<div className="space-y-6">
+												<div className="bg-white rounded-lg shadow-md overflow-hidden">
+													<div className="bg-white shadow-md rounded-lg p-2">
+														<h2 className="text-xl font-semibold mb-4">
+															Documents
+														</h2>
+														{orderData.order_docs.length > 0 ? (
+															<table className="min-w-full mx-auto divide-y divide-gray-200">
+																<thead className="bg-gray-50">
+																	<tr>
+																		<th
+																			scope="col"
+																			className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+																		>
+																			Document Name
+																		</th>
+																		<th
+																			scope="col"
+																			className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+																		>
+																			Type
+																		</th>
+																		<th
+																			scope="col"
+																			className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+																		>
+																			Action
+																		</th>
+																	</tr>
+																</thead>
+																<tbody className="bg-white divide-y divide-gray-200">
+																	{orderData.order_docs.map((doc) => (
+																		<tr key={doc.id}>
+																			<td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+																				{doc.document_name}
+																			</td>
+																			<td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+																				.pdf
+																			</td>
+																			<td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+																				<Link
+																					href={`${endpoint}media/docs/ahteshamzaman026gmailcom/a655cf4f-3c5a-43d1-b4a4-1ecae06bcfd5/voter-id-ahteshamzama_PJLlxyt.pdf`}
+																					className="text-indigo-600 hover:text-indigo-900 flex items-center"
+																				>
+																					<FileIcon className="w-4 h-4 mr-2" />
+																					View
+																				</Link>
+																			</td>
+																		</tr>
+																	))}
+																</tbody>
+															</table>
+														) : (
+															<Link
+																href={`/orders/form_fillup/${orderData.id}`}
+																className="w-full inline-flex justify-center rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100   l"
+															>
+																Upload Dosc
+															</Link>
+														)}
 													</div>
 												</div>
-											) : (
-												<Link
-													href={`/orders/form_fillup/${orderData.id}`}
-													className="w-full inline-flex justify-center rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100   l"
-												>
-													Fill the Form
-												</Link>
-											)}
-										</div>
+											</div>
+										</>
 									)}
-								</div>
-								<div className="space-y-6">
-									<div className="bg-white rounded-lg shadow-md overflow-hidden">
-										<div className="bg-white shadow-md rounded-lg p-2">
-											<h2 className="text-xl font-semibold mb-4">Documents</h2>
-											{orderData.order_docs.length > 0 ? (
-												<table className="min-w-full mx-auto divide-y divide-gray-200">
-													<thead className="bg-gray-50">
-														<tr>
-															<th
-																scope="col"
-																className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-															>
-																Document Name
-															</th>
-															<th
-																scope="col"
-																className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-															>
-																Type
-															</th>
-															<th
-																scope="col"
-																className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-															>
-																Action
-															</th>
-														</tr>
-													</thead>
-													<tbody className="bg-white divide-y divide-gray-200">
-														{orderData.order_docs.map((doc) => (
-															<tr key={doc.id}>
-																<td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-																	{doc.document_name}
-																</td>
-																<td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-																	.pdf
-																</td>
-																<td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-																	<Link
-																		href={`${endpoint}media/docs/ahteshamzaman026gmailcom/a655cf4f-3c5a-43d1-b4a4-1ecae06bcfd5/voter-id-ahteshamzama_PJLlxyt.pdf`}
-																		className="text-indigo-600 hover:text-indigo-900 flex items-center"
-																	>
-																		<FileIcon className="w-4 h-4 mr-2" />
-																		View
-																	</Link>
-																</td>
-															</tr>
-														))}
-													</tbody>
-												</table>
-											) : (
-												<p className="text-sm text-gray-500">
-													No documents available
-												</p>
-											)}
-										</div>
-									</div>
 								</div>
 							</div>
 						</div>
