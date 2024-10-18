@@ -84,6 +84,7 @@ const Navbar = () => {
 		setHasAccessToken(false); // Update the state to reflect the user is logged out
 		setIsOpen(false); // Close the dropdown
 		setIsOpen1(false); // Close the dropdown
+		window.location.reload();
 	};
 
 	return (
@@ -118,7 +119,7 @@ const Navbar = () => {
 										type="button"
 									>
 										{userProfile && userProfile.user
-											? `Welcome ${userProfile.user.first_name}`
+											? `Welcome ${userProfile.user.last_name}`
 											: "Loading..."}
 										<svg
 											className="w-2.5 h-2.5 ms-3"

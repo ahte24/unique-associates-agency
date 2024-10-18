@@ -42,8 +42,6 @@ export default function ServicesPage() {
 				});
 				setPaymentStatuses(paymentStatusMap); // Set payment statuses for each order
 				setOrders(sortedOrders || []); // Set sorted orders
-
-				console.log(sortedOrders);
 			} catch (error) {
 				console.error(
 					"Error:",
@@ -58,7 +56,7 @@ export default function ServicesPage() {
 		<>
 			<section className="bg-white py-8 antialiased  md:py-16">
 				<div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
-					<div className="mx-auto max-w-5xl">
+					<div className="mx-auto container min-h-[650px]">
 						<div className="gap-4 sm:flex sm:items-center sm:justify-between">
 							<h2 className="text-xl font-semibold text-gray-900  sm:text-2xl">
 								My Orders
@@ -78,10 +76,23 @@ export default function ServicesPage() {
 											</dt>
 											<dd className="mt-1.5 text-base font-semibold text-gray-900 ">
 												<a
-													href={`orders/${order.id}`}
+													href={`orders/details/${order.id}`}
 													className="hover:underline"
 												>
-													#{order.id.slice(0, 12)}...
+													#...{order.id.slice(24)}
+												</a>
+											</dd>
+										</dl>
+										<dl className="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
+											<dt className="text-base font-medium text-gray-500 ">
+												Service Name:
+											</dt>
+											<dd className="mt-1.5 text-base font-semibold text-gray-900 ">
+												<a
+													href={`orders/details/${order.id}`}
+													className="hover:underline"
+												>
+													{order.service.name}
 												</a>
 											</dd>
 										</dl>
@@ -135,21 +146,21 @@ export default function ServicesPage() {
 
 										<div className="grid sm:grid-cols-2 lg:flex lg:w-fit lg:items-center lg:justify-end gap-4">
 											{/* Check individual payment status for each order */}
-											{!paymentStatuses[order.id] ? (
-												<Link
-													href={`orders/${order.id}`}
-													className="w-full inline-flex justify-center rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100   lg:w-auto"
-												>
-													View details
-												</Link>
-											) : (
+											{/* {!paymentStatuses[order.id] ? ( */}
+											<Link
+												href={`orders/details/${order.id}`}
+												className="w-full inline-flex justify-center rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100   lg:w-auto"
+											>
+												View details
+											</Link>
+											{/* ) : (
 												<Link
 													href={`/orders/form_fillup/${order.id}`}
 													className="w-full inline-flex justify-center rounded-lg border-2 border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100   lg:w-auto"
 												>
 													Fill the Form
 												</Link>
-											)}
+											)} */}
 										</div>
 									</div>
 								))}

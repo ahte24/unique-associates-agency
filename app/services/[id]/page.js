@@ -18,6 +18,7 @@ import CryptoJS from "crypto-js";
 import { ToastContainer, toast } from "react-toastify";
 import { Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { CircleChevronRight } from "lucide-react";
 
 const Page = ({ params }) => {
 	const router = useRouter();
@@ -68,7 +69,7 @@ const Page = ({ params }) => {
 			[e.target.name]: e.target.value,
 		});
 	};
-
+	// console.log(`${Window.location.href}`);
 	const handlePayment = async (e) => {
 		try {
 			const userProfile = await axios.get(`${endpoint}user/profile/`, {
@@ -90,6 +91,7 @@ const Page = ({ params }) => {
 			// Extract the generated order_id from the response
 			const { order_id } = orderResponse.data;
 			Cookies.set("order_id", order_id, { expires: 1 });
+			const url = window.location.href;
 
 			// Step 2: Prepare payment parameters
 			const merchantKey = "BrmYrE"; // Replace with your actual merchant key
@@ -111,8 +113,8 @@ const Page = ({ params }) => {
 
 			// User-defined fields (optional)
 			const udf1 = `${serviceData.id}`;
-			const udf2 = `${window.location.href}`;
-			const udf3 = "";
+			const udf2 = `${window.location.origin}/orders/form_fillup/${txnid}`;
+			const udf3 = `${url}`;
 			const udf4 = "";
 			const udf5 = "";
 
@@ -547,9 +549,13 @@ const Page = ({ params }) => {
 										<ul className="mt-4 space-y-4">
 											{desc.point1 && (
 												<li className="flex items-center p-6 bg-white shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
-													<span className="text-gray-800 text-lg leading-relaxed">
-														<strong className="text-indigo-600">
-															Point 1:{" "}
+													<span className="text-gray-800 text-lg leading-relaxed flex gap-4 items-center">
+														<strong className="">
+															<CircleChevronRight
+																color="#215585"
+																strokeWidth={3}
+																absoluteStrokeWidth
+															/>
 														</strong>{" "}
 														{desc.point1}
 													</span>
@@ -557,9 +563,13 @@ const Page = ({ params }) => {
 											)}
 											{desc.point2 && (
 												<li className="flex items-center p-6 bg-white shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
-													<span className="text-gray-800 text-lg leading-relaxed">
-														<strong className="text-indigo-600">
-															Point 2:
+													<span className="text-gray-800 text-lg leading-relaxed  flex gap-4 items-center">
+														<strong className="">
+															<CircleChevronRight
+																color="#215585"
+																strokeWidth={3}
+																absoluteStrokeWidth
+															/>
 														</strong>{" "}
 														{desc.point2}
 													</span>
@@ -567,9 +577,13 @@ const Page = ({ params }) => {
 											)}
 											{desc.point3 && (
 												<li className="flex items-center p-6 bg-white shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
-													<span className="text-gray-800 text-lg leading-relaxed">
-														<strong className="text-indigo-600">
-															Point 3:
+													<span className="text-gray-800 text-lg leading-relaxed flex gap-4 items-center">
+														<strong className="">
+															<CircleChevronRight
+																color="#215585"
+																strokeWidth={3}
+																absoluteStrokeWidth
+															/>
 														</strong>{" "}
 														{desc.point3}
 													</span>
@@ -577,9 +591,13 @@ const Page = ({ params }) => {
 											)}
 											{desc.point4 && (
 												<li className="flex items-center p-6 bg-white shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
-													<span className="text-gray-800 text-lg leading-relaxed">
-														<strong className="text-indigo-600">
-															Point 4:
+													<span className="text-gray-800 text-lg leading-relaxed flex gap-4 items-center">
+														<strong>
+															<CircleChevronRight
+																color="#215585"
+																strokeWidth={3}
+																absoluteStrokeWidth
+															/>
 														</strong>{" "}
 														{desc.point4}
 													</span>
@@ -587,9 +605,13 @@ const Page = ({ params }) => {
 											)}
 											{desc.point5 && (
 												<li className="flex items-center p-6 bg-white shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
-													<span className="text-gray-800 text-lg leading-relaxed">
-														<strong className="text-indigo-600">
-															Point 5:
+													<span className="text-gray-800 text-lg leading-relaxed flex gap-4 items-center">
+														<strong className="">
+															<CircleChevronRight
+																color="#215585"
+																strokeWidth={3}
+																absoluteStrokeWidth
+															/>
 														</strong>{" "}
 														{desc.point5}
 													</span>
@@ -597,9 +619,13 @@ const Page = ({ params }) => {
 											)}
 											{desc.point6 && (
 												<li className="flex items-center p-6 bg-white shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl">
-													<span className="text-gray-800 text-lg leading-relaxed">
-														<strong className="text-indigo-600">
-															Point 6:
+													<span className="text-gray-800 text-lg leading-relaxed flex gap-4 items-center">
+														<strong>
+															<CircleChevronRight
+																color="#215585"
+																strokeWidth={3}
+																absoluteStrokeWidth
+															/>
 														</strong>{" "}
 														{desc.point6}
 													</span>
@@ -622,7 +648,7 @@ const Page = ({ params }) => {
 												key={doc.id}
 												className="flex items-center p-6 bg-white shadow-lg rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl"
 											>
-												<FaFileAlt className="text-indigo-600 mr-4 text-2xl w-20 md:w-fit" />
+												<FaFileAlt className="text-[#215585] mr-4 text-2xl w-20 md:w-fit" />
 												<span className="text-gray-800 text-lg leading-relaxed">
 													{doc.document_name}
 												</span>
